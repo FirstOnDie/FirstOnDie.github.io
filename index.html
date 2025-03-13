@@ -3,37 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
+    <title>Mi Portafolio Profesional</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color: #f4f4f4; }
-        header { background: #333; color: white; padding: 20px; font-size: 24px; }
-        section { padding: 20px; max-width: 800px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        footer { background: #333; color: white; padding: 10px; margin-top: 20px; }
-        a { color: #0073e6; text-decoration: none; }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        header { background: #222; color: white; padding: 20px; text-align: center; font-size: 24px; }
+        nav { background: #333; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 18px; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .section { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .projects { display: flex; flex-wrap: wrap; justify-content: space-around; }
+        .project-card { background: #fff; padding: 15px; margin: 10px; border-radius: 8px; width: 300px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .project-card img { width: 100%; border-radius: 5px; }
+        .project-card h3 { margin: 10px 0; }
+        footer { background: #222; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+        .contact-links a { margin: 0 10px; color: #0073e6; text-decoration: none; }
+        .contact-links a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <header>Mi Portafolio</header>
-    
-    <section>
-        <h2>Sobre Mí</h2>
-        <p>¡Hola! Soy Carlos, un entusiasta de la tecnología y la programación.</p>
-    </section>
-
-    <section>
-        <h2>Proyectos</h2>
-        <ul>
-            <li><a href="#">Proyecto 1</a></li>
-            <li><a href="#">Proyecto 2</a></li>
-            <li><a href="#">Proyecto 3</a></li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Contacto</h2>
-        <p>Puedes encontrarme en <a href="https://github.com/TU-USUARIO">GitHub</a>.</p>
-    </section>
-
+    <header>Mi Portafolio Profesional</header>
+    <nav>
+        <a href="#about">Sobre Mí</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#contact">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>Sobre Mí</h2>
+            <p>¡Hola! Soy [Tu Nombre], un desarrollador apasionado por la tecnología y la innovación.</p>
+        </section>
+        <section id="projects" class="section">
+            <h2>Proyectos</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300" alt="Proyecto 1">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción breve del proyecto.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300" alt="Proyecto 2">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción breve del proyecto.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300" alt="Proyecto 3">
+                    <h3>Proyecto 3</h3>
+                    <p>Descripción breve del proyecto.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contacto</h2>
+            <p>Puedes encontrarme en:</p>
+            <div class="contact-links">
+                <a href="https://github.com/TU-USUARIO">GitHub</a>
+                <a href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a>
+                <a href="mailto:tucorreo@example.com">Email</a>
+            </div>
+        </section>
+    </div>
     <footer>
         © 2025 - [Tu Nombre]
     </footer>
