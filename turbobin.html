@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Sombrío - Nivel 3</title>
+    <style>
+        body {
+            background-color: #080808;
+            color: #d8fdd8;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        .challenge {
+            background-color: #111;
+            border: 2px solid #33ff33;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 0 10px #33ff33;
+        }
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .cell {
+            background: #000;
+            color: #33ff33;
+            border: 1px solid #33ff33;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1.2em;
+        }
+        .cell:hover {
+            background: #1a1a1a;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            border: 1px solid #33ff33;
+            color: #33ff33;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 style="color:#80ffaa">Código Sombrío - Nivel 3</h1>
+    <p>
+        Has cruzado el segundo umbral, pero el entorno ha cambiado. Ya no estás frente a simples comandos, ahora te adentras
+        en un núcleo que se defiende a sí mismo. El sistema ha comenzado a adaptarse a tu presencia, generando patrones
+        aleatorios, distracciones visuales y ruido lógico para confundir.
+    </p>
+    <p>
+        "El Cuervo" ha encriptado su siguiente mensaje dentro de una matriz. Nada es directo. Cada letra está ahí por una razón...
+        o tal vez no. Debes encontrar la secuencia oculta, una palabra clave que desbloquee el próximo fragmento de verdad.
+        <em>No paro de verlo ahí, por mucho que deje de mirar... ese maldito patrón...</em>
+    </p>
+    <div class="challenge">
+        <p>Haz clic en las letras que creas que forman la clave y luego escribe la palabra:</p>
+        <div class="grid" id="grid"></div>
+        <input type="text" id="userInput" placeholder="> Ingrese la palabra descubierta" />
+        <div class="message" id="message"></div>
+    </div>
+</div>
+
+<script>
+    function _0x35db(){const _0x5b5594=['\x37\x32\x54\x6f\x54\x65\x62\x6e','\x33\x44\x62\x61\x67\x57\x4f','\x32\x31\x35\x30\x31\x38\x30\x7a\x58\x64\x54\x46\x67','\x34\x5a\x58\x61\x76\x72\x6d','\x32\x39\x32\x35\x34\x30\x38\x76\x4f\x77\x4d\x6a\x4d','\x31\x36\x37\x38\x35\x38\x42\x7a\x6c\x4e\x49\x79','\x32\x33\x38\x33\x39\x30\x33\x35\x6f\x64\x42\x52\x6b\x67','\x37\x4f\x63\x75\x45\x73\x52','\x33\x35\x37\x35\x34\x38\x30\x70\x70\x4d\x6e\x75\x66','\x38\x34\x35\x35\x32\x35\x30\x6d\x52\x49\x75\x72\x4d','\x39\x36\x37\x34\x39\x31\x44\x44\x63\x47\x75\x64'];_0x35db=function(){return _0x5b5594;};return _0x35db();}function _0x597e(_0x5a1b5e,_0x11340a){const _0x12b32e=_0x35db();return _0x597e=function(_0x2bc870,_0xcaf830){_0x2bc870=_0x2bc870-(0x2*0x90a+0x4*-0x6f0+-0x52*-0x22);let _0x589fbf=_0x12b32e[_0x2bc870];return _0x589fbf;},_0x597e(_0x5a1b5e,_0x11340a);}(function(_0x38b25e,_0x33f0a6){const _0x249770=_0x597e,_0x3d4b1f=_0x38b25e();while(!![]){try{const _0x13687e=-parseInt(_0x249770(0x141))/(-0x7b6+0x1*0xd4a+-0x593)+-parseInt(_0x249770(0x13e))/(-0x252*-0x5+0x2366+-0x966*0x5)*(parseInt(_0x249770(0x13d))/(-0x7*-0x1c5+-0x1879+0xc19))+parseInt(_0x249770(0x13f))/(0x74c*-0x1+0x7cd+-0x7d)*(-parseInt(_0x249770(0x139))/(0x1*-0xa8d+-0x37d*-0x5+-0x6df))+parseInt(_0x249770(0x140))/(-0xd1f+0x11f2+-0x4cd)*(parseInt(_0x249770(0x138))/(0x1da0+0x3*0x74c+0x337d*-0x1))+-parseInt(_0x249770(0x13c))/(-0x1557+-0x1080+0x1*0x25df)*(parseInt(_0x249770(0x13b))/(0xdd*0x18+0x6ad*0x1+-0x1b5c))+parseInt(_0x249770(0x13a))/(-0x3a7*0x4+-0x2d6*-0x2+0x47d*0x2)+parseInt(_0x249770(0x142))/(0x213f+-0x1*0xe8+-0x204c);if(_0x13687e===_0x33f0a6)break;else _0x3d4b1f['push'](_0x3d4b1f['shift']());}catch(_0x382b40){_0x3d4b1f['push'](_0x3d4b1f['shift']());}}}(_0x35db,0x6f79*-0x17+0x73a7+-0x7*-0x29e79));const _0x3ace88=(function(){let _0x2947f8=!![];return function(_0x2fc235,_0x2e4226){const _0x3da430=_0x2947f8?function(){if('\x6b\x61'+'\x71\x4e'+'\x57'!=='\x45\x50'+'\x6e\x6a'+'\x6b'){if(_0x2e4226){const _0x295212=_0x2e4226['\x61\x70'+'\x70\x6c'+'\x79'](_0x2fc235,arguments);return _0x2e4226=null,_0x295212;}}else{_0x5871b3['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x45\x52'+'\x52\x4f'+'\x52\x3a'+'\x20\x4d'+'\x61\x74'+'\x72\x69'+'\x7a\x20'+'\x69\x6e'+'\x65\x73'+'\x74\x61'+'\x62\x6c'+'\x65\x2e'+'\x2e\x2e',_0x4b4f64['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x63'+'\x63\x30'+'\x30';return;}}:function(){};return _0x2947f8=![],_0x3da430;};}()),_0x2bce31=_0x3ace88(this,function(){return _0x2bce31['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24')['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x63\x6f'+'\x6e\x73'+'\x74\x72'+'\x75\x63'+'\x74\x6f'+'\x72'](_0x2bce31)['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24');});_0x2bce31(),((()=>{const _0x39e3ef=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x67\x72'+'\x69\x64'),_0x59b418=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x6d\x65'+'\x73\x73'+'\x61\x67'+'\x65'),_0x3792cc=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x75\x73'+'\x65\x72'+'\x49\x6e'+'\x70\x75'+'\x74'),_0x3266a0='\x63\x6c'+'\x61\x76'+'\x65',_0xbe283d=['\x63\x6c'+'\x61\x76'+'\x65\x31','\x5f\x63'+'\x6c\x61'+'\x76\x65','\x63\x6c'+'\x61\x76'+'\x65\x5f','\x63\x6c'+'\x34\x76'+'\x33','\x63\x31'+'\x61\x76'+'\x65'],_0x3b9574=[],_0x5ad2d2=new Set(('\x61\x62'+'\x63\x64'+'\x65\x66'+'\x67\x68'+'\x69\x6a'+'\x6b\x6c'+'\x6d\x6e'+'\x6f\x70'+'\x71\x72'+'\x73\x74'+'\x75\x76'+'\x77\x78'+'\x79\x7a'+'\x30\x31'+'\x32\x33'+'\x34\x35'+'\x36\x37'+'\x38\x39')['\x73\x70'+'\x6c\x69'+'\x74']('')),_0x2375d2=['\x63','\x6c','\x61','\x76','\x65'];_0x2375d2['\x66\x6f'+'\x72\x45'+'\x61\x63'+'\x68'](_0x10cb09=>_0x5ad2d2['\x64\x65'+'\x6c\x65'+'\x74\x65'](_0x10cb09));const _0x2c6d72=Array['\x66\x72'+'\x6f\x6d'](_0x5ad2d2),_0x64e273=[-0x2*-0x48b+-0x91*0x2b+-0xf47*-0x1,-0x17e9+-0xb*-0x266+-0x59*0x7,-0x1e9a+0x26af+-0x803*0x1,0x18a6+0x810+-0x209c,0x11a3+0x2197+-0x3318],_0x387687=_0x3266a0['\x73\x70'+'\x6c\x69'+'\x74']('');function _0x222af1(){return console['\x77\x61'+'\x72\x6e']('\x64\x65'+'\x73\x62'+'\x6f\x72'+'\x64\x61'+'\x6d\x69'+'\x65\x6e'+'\x74\x6f'+'\x20\x64'+'\x65\x20'+'\x62\u00fa'+'\x66\x65'+'\x72\x3a'+'\x20\x6e'+'\x69\x76'+'\x65\x6c'+'\x33\x5f'+'\x6c\x6f'+'\x67\x2e'+'\x74\x78'+'\x74\x20'+'\x63\x6f'+'\x72\x72'+'\x75\x70'+'\x74\x6f'),Math['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()<0x1*-0x11c3+-0x22b7+0x347a+0.02;}function _0x52a7b1(_0x49a42b){if('\x4f\x74'+'\x4c\x52'+'\x65'!=='\x71\x6b'+'\x59\x76'+'\x61')return _0xbe283d['\x69\x6e'+'\x63\x6c'+'\x75\x64'+'\x65\x73'](_0x49a42b);else{_0x17c6e6['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x44\x65'+'\x6d\x61'+'\x73\x69'+'\x61\x64'+'\x6f\x20'+'\x6f\x62'+'\x76\x69'+'\x6f\x2e'+'\x20\x4e'+'\x6f\x20'+'\x69\x6e'+'\x74\x65'+'\x6e\x74'+'\x65\x73'+'\x20\x61'+'\x74\x61'+'\x6a\x6f'+'\x73\x2e',_0x41360f['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x6f\x72'+'\x61\x6e'+'\x67\x65';return;}}for(let _0x589563=0x1d29+0x1fb9+0x1e71*-0x2;_0x589563<-0x123b+-0x1*-0x3d7+0x78*0x1f;_0x589563++){if('\x6b\x58'+'\x69\x71'+'\x51'!=='\x6b\x58'+'\x69\x71'+'\x51')return _0x38eaee['\x77\x61'+'\x72\x6e']('\x64\x65'+'\x73\x62'+'\x6f\x72'+'\x64\x61'+'\x6d\x69'+'\x65\x6e'+'\x74\x6f'+'\x20\x64'+'\x65\x20'+'\x62\u00fa'+'\x66\x65'+'\x72\x3a'+'\x20\x6e'+'\x69\x76'+'\x65\x6c'+'\x33\x5f'+'\x6c\x6f'+'\x67\x2e'+'\x74\x78'+'\x74\x20'+'\x63\x6f'+'\x72\x72'+'\x75\x70'+'\x74\x6f'),_0x105fbf['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()<-0xb5e+0x1d*-0xe8+0x25a6+0.02;else{const _0x768e46=document['\x63\x72'+'\x65\x61'+'\x74\x65'+'\x45\x6c'+'\x65\x6d'+'\x65\x6e'+'\x74']('\x64\x69'+'\x76');_0x768e46['\x63\x6c'+'\x61\x73'+'\x73\x4c'+'\x69\x73'+'\x74']['\x61\x64'+'\x64']('\x63\x65'+'\x6c\x6c'),_0x768e46['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']=_0x64e273['\x69\x6e'+'\x63\x6c'+'\x75\x64'+'\x65\x73'](_0x589563)?_0x387687[_0x64e273['\x69\x6e'+'\x64\x65'+'\x78\x4f'+'\x66'](_0x589563)]:_0x2c6d72[Math['\x66\x6c'+'\x6f\x6f'+'\x72'](Math['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()*_0x2c6d72['\x6c\x65'+'\x6e\x67'+'\x74\x68'])],_0x768e46['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x63\x6c'+'\x69\x63'+'\x6b',()=>{_0x3b9574['\x70\x75'+'\x73\x68'](_0x768e46['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']),_0x768e46['\x73\x74'+'\x79\x6c'+'\x65']['\x62\x61'+'\x63\x6b'+'\x67\x72'+'\x6f\x75'+'\x6e\x64'+'\x43\x6f'+'\x6c\x6f'+'\x72']='\x23\x32'+'\x32\x35'+'\x35\x32'+'\x32';}),_0x39e3ef['\x61\x70'+'\x70\x65'+'\x6e\x64'+'\x43\x68'+'\x69\x6c'+'\x64'](_0x768e46);}}_0x3792cc['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x6b\x65'+'\x79\x64'+'\x6f\x77'+'\x6e',_0x569454=>{if(_0x569454['\x6b\x65'+'\x79']==='\x45\x6e'+'\x74\x65'+'\x72'){const _0x308d28=_0x3792cc['\x76\x61'+'\x6c\x75'+'\x65']['\x74\x72'+'\x69\x6d']()['\x74\x6f'+'\x4c\x6f'+'\x77\x65'+'\x72\x43'+'\x61\x73'+'\x65']();if(_0x52a7b1(_0x308d28)){_0x59b418['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x44\x65'+'\x6d\x61'+'\x73\x69'+'\x61\x64'+'\x6f\x20'+'\x6f\x62'+'\x76\x69'+'\x6f\x2e'+'\x20\x4e'+'\x6f\x20'+'\x69\x6e'+'\x74\x65'+'\x6e\x74'+'\x65\x73'+'\x20\x61'+'\x74\x61'+'\x6a\x6f'+'\x73\x2e',_0x59b418['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x6f\x72'+'\x61\x6e'+'\x67\x65';return;}if(_0x222af1()){_0x59b418['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x45\x52'+'\x52\x4f'+'\x52\x3a'+'\x20\x4d'+'\x61\x74'+'\x72\x69'+'\x7a\x20'+'\x69\x6e'+'\x65\x73'+'\x74\x61'+'\x62\x6c'+'\x65\x2e'+'\x2e\x2e',_0x59b418['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x63'+'\x63\x30'+'\x30';return;}_0x308d28===_0x3266a0?(_0x59b418['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2714\x20'+'\x43\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x6f'+'\x2e\x20'+'\x45\x6c'+'\x20\x70'+'\x61\x74'+'\x72\u00f3'+'\x6e\x20'+'\x68\x61'+'\x20\x73'+'\x69\x64'+'\x6f\x20'+'\x64\x65'+'\x73\x63'+'\x69\x66'+'\x72\x61'+'\x64\x6f'+'\x2e',_0x59b418['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x33'+'\x33\x66'+'\x66\x33'+'\x33',setTimeout(()=>{window['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x6c\x6f'+'\x6c\x66'+'\x72\x6f'+'\x73\x74'+'\x2e\x68'+'\x74\x6d'+'\x6c';},0x20d5+0x748*-0x1+-0x11bd)):(_0x59b418['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x49\x6e'+'\x63\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x6f'+'\x2e\x20'+'\x45\x6c'+'\x20\x70'+'\x61\x74'+'\x72\u00f3'+'\x6e\x20'+'\x6e\x6f'+'\x20\x63'+'\x6f\x69'+'\x6e\x63'+'\x69\x64'+'\x65\x2e',_0x59b418['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x33'+'\x33\x33'+'\x33');}});})());
+</script>
+</body>
+</html>
