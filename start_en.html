@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Code - Level 1</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #c8facc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+        .intro {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border: 1px solid #2d2d2d;
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(102, 255, 102, 0.05);
+        }
+        .intro h1 {
+            margin-top: 0;
+            color: #80ffaa;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
+        .intro p {
+            color: #d6f5e3;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 1em;
+        }
+        .terminal {
+            background-color: #111;
+            border: 2px solid #33ff33;
+            padding: 20px;
+            box-shadow: 0 0 10px #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .output {
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+            color: #33ff33;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            border: 1px solid #33ff33;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+        }
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="intro">
+        <h1>Dark Code</h1>
+        <p>
+            You wake up in front of an unknown terminal. The blinking lights and digital hum surround you, as the air feels electrically charged. You can't remember how you got here.
+        </p>
+        <p>
+            It all started with a mysterious invitation signed as <strong>"The Raven"</strong>. A cryptic challenge deep within the web. Those who tried to overcome it have disappeared without a trace.
+        </p>
+        <p>
+            You’re trapped within a network that doesn’t follow the laws of the real world. Every line of code is a door, every mistake a threat. The only way is forward.
+        </p>
+    </div>
+
+    <div class="terminal">
+        <div class="output" id="terminal-text">
+            -- Message received --
+
+            70 61 73 73 77 6f 72 64 3a 20 6c 69 67 68 74
+
+        </div>
+        <input type="text" id="userInput" placeholder="> Enter password" autofocus />
+        <div class="message" id="message"></div>
+    </div>
+</div>
+
+<script>
+    (function(_0x1b4fd1,_0x4a1b13){const _0x21540f=_0x37aa,_0x3f0f49=_0x1b4fd1();while(!![]){try{const _0x4592a9=parseInt(_0x21540f(0x1c3))/(0x10d4*0x1+-0xa1b*0x1+-0x6b8)*(-parseInt(_0x21540f(0x1bc))/(0x2037+0x1180+-0x1fd*0x19))+-parseInt(_0x21540f(0x1c0))/(-0x10d8+0x8a4+0x837)+-parseInt(_0x21540f(0x1c1))/(-0x160c+-0xd15+-0x2325*-0x1)+parseInt(_0x21540f(0x1bf))/(-0xc95*0x3+0xbf+0x41d*0x9)*(-parseInt(_0x21540f(0x1c2))/(0x1ee3*-0x1+0x721+0x17c8*0x1))+-parseInt(_0x21540f(0x1be))/(-0x1618+-0x1e91+0x34b0*0x1)+parseInt(_0x21540f(0x1bb))/(-0x4f*-0x33+-0x259a+0x15e5)+parseInt(_0x21540f(0x1bd))/(-0x1*0x819+0x9*0x3bf+-0x1995*0x1);if(_0x4592a9===_0x4a1b13)break;else _0x3f0f49['push'](_0x3f0f49['shift']());}catch(_0x39c97b){_0x3f0f49['push'](_0x3f0f49['shift']());}}}(_0x2150,0xa1865+-0x1339c3+0x1655f0),(function(){const _0x3a9f75=(function(){if('\x58\x76'+'\x4c\x6f'+'\x4b'!=='\x68\x4a'+'\x4b\x7a'+'\x70'){let _0x3c2eaa=!![];return function(_0x5cc26a,_0x151f62){if('\x45\x7a'+'\x43\x59'+'\x55'==='\x68\x61'+'\x45\x59'+'\x62')return _0x323473['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24')['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x63\x6f'+'\x6e\x73'+'\x74\x72'+'\x75\x63'+'\x74\x6f'+'\x72'](_0xe305be)['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24');else{const _0x48d77f=_0x3c2eaa?function(){if('\x66\x58'+'\x4c\x6f'+'\x4b'!=='\x5a\x7a'+'\x6b\x77'+'\x6f'){if(_0x151f62){if('\x4c\x6d'+'\x64\x4c'+'\x74'!=='\x41\x66'+'\x4f\x43'+'\x61'){const _0x3add2c=_0x151f62['\x61\x70'+'\x70\x6c'+'\x79'](_0x5cc26a,arguments);return _0x151f62=null,_0x3add2c;}else return _0x36f6dc['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()<-0x1*0x86d+-0x1007*0x1+0xc3a*0x2+0.02;}}else{_0x544afb['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x4d\x65'+'\x6d\x6f'+'\x72\x79'+'\x20\x65'+'\x72\x72'+'\x6f\x72'+'\x2e\x20'+'\x46\x72'+'\x61\x67'+'\x6d\x65'+'\x6e\x74'+'\x20\x6c'+'\x6f\x73'+'\x74\x2e'+'\x20\x54'+'\x72\x79'+'\x20\x61'+'\x67\x61'+'\x69\x6e'+'\x2e',_0xea3ae8['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x63'+'\x63\x30'+'\x30';return;}}:function(){};return _0x3c2eaa=![],_0x48d77f;}};}else{const _0xd62b66=_0x42fb5c?function(){if(_0x23d641){const _0x552c34=_0x8e5da7['\x61\x70'+'\x70\x6c'+'\x79'](_0x34f1ac,arguments);return _0x2d1fb1=null,_0x552c34;}}:function(){};return _0x3c6abc=![],_0xd62b66;}}()),_0x563977=_0x3a9f75(this,function(){if('\x42\x4e'+'\x66\x64'+'\x51'!=='\x42\x4e'+'\x66\x64'+'\x51'){if(_0x372f62){const _0x565bc2=_0x853933['\x61\x70'+'\x70\x6c'+'\x79'](_0x4564ce,arguments);return _0x3b4fd1=null,_0x565bc2;}}else return _0x563977['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24')['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x63\x6f'+'\x6e\x73'+'\x74\x72'+'\x75\x63'+'\x74\x6f'+'\x72'](_0x563977)['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24');});_0x563977();const _0x554b2f=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x75\x73'+'\x65\x72'+'\x49\x6e'+'\x70\x75'+'\x74'),_0x209522=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x6d\x65'+'\x73\x73'+'\x61\x67'+'\x65'),_0x50fd2d='\x6c\x69'+'\x67\x68'+'\x74',_0x48a177=['\x72\x61'+'\x76\x65'+'\x6e','\x68\x61'+'\x63\x6b','\x70\x61'+'\x73\x73'+'\x77\x6f'+'\x72\x64','\x63\x6f'+'\x64\x65'];function _0x440cde(){return Math['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()<0x1307+0xf79+0x18*-0x170+0.02;}_0x554b2f['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x6b\x65'+'\x79\x64'+'\x6f\x77'+'\x6e',_0x1c3c63=>{if(_0x1c3c63['\x6b\x65'+'\x79']==='\x45\x6e'+'\x74\x65'+'\x72'){const _0x3ea67b=_0x554b2f['\x76\x61'+'\x6c\x75'+'\x65']['\x74\x72'+'\x69\x6d']()['\x74\x6f'+'\x4c\x6f'+'\x77\x65'+'\x72\x43'+'\x61\x73'+'\x65']();if(_0x48a177['\x69\x6e'+'\x63\x6c'+'\x75\x64'+'\x65\x73'](_0x3ea67b)){_0x209522['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x54\x6f'+'\x6f\x20'+'\x6f\x62'+'\x76\x69'+'\x6f\x75'+'\x73\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x52'+'\x61\x76'+'\x65\x6e'+'\x20\x69'+'\x73\x20'+'\x6e\x6f'+'\x74\x20'+'\x73\x6f'+'\x20\x70'+'\x72\x65'+'\x64\x69'+'\x63\x74'+'\x61\x62'+'\x6c\x65'+'\x2e',_0x209522['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x6f\x72'+'\x61\x6e'+'\x67\x65';return;}if(_0x440cde()){_0x209522['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x4d\x65'+'\x6d\x6f'+'\x72\x79'+'\x20\x65'+'\x72\x72'+'\x6f\x72'+'\x2e\x20'+'\x46\x72'+'\x61\x67'+'\x6d\x65'+'\x6e\x74'+'\x20\x6c'+'\x6f\x73'+'\x74\x2e'+'\x20\x54'+'\x72\x79'+'\x20\x61'+'\x67\x61'+'\x69\x6e'+'\x2e',_0x209522['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x63'+'\x63\x30'+'\x30';return;}if(_0x3ea67b===_0x50fd2d){if('\x48\x52'+'\x65\x6b'+'\x68'!=='\x48\x52'+'\x65\x6b'+'\x68'){_0x466ac6['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x54\x6f'+'\x6f\x20'+'\x6f\x62'+'\x76\x69'+'\x6f\x75'+'\x73\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x52'+'\x61\x76'+'\x65\x6e'+'\x20\x69'+'\x73\x20'+'\x6e\x6f'+'\x74\x20'+'\x73\x6f'+'\x20\x70'+'\x72\x65'+'\x64\x69'+'\x63\x74'+'\x61\x62'+'\x6c\x65'+'\x2e',_0x46842d['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x6f\x72'+'\x61\x6e'+'\x67\x65';return;}else _0x209522['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2714\x20'+'\x50\x61'+'\x73\x73'+'\x77\x6f'+'\x72\x64'+'\x20\x61'+'\x63\x63'+'\x65\x70'+'\x74\x65'+'\x64\x2e'+'\x20\x57'+'\x65\x6c'+'\x63\x6f'+'\x6d\x65'+'\x20\x74'+'\x6f\x20'+'\x74\x68'+'\x65\x20'+'\x6e\x65'+'\x78\x74'+'\x20\x6c'+'\x65\x76'+'\x65\x6c'+'\x2e\x2e'+'\x2e',_0x209522['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x33'+'\x33\x66'+'\x66\x33'+'\x33',_0x554b2f['\x64\x69'+'\x73\x61'+'\x62\x6c'+'\x65\x64']=!![],setTimeout(()=>{'\x68\x5a'+'\x73\x5a'+'\x69'==='\x57\x44'+'\x61\x5a'+'\x4a'?(_0x401c65['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2714\x20'+'\x50\x61'+'\x73\x73'+'\x77\x6f'+'\x72\x64'+'\x20\x61'+'\x63\x63'+'\x65\x70'+'\x74\x65'+'\x64\x2e'+'\x20\x57'+'\x65\x6c'+'\x63\x6f'+'\x6d\x65'+'\x20\x74'+'\x6f\x20'+'\x74\x68'+'\x65\x20'+'\x6e\x65'+'\x78\x74'+'\x20\x6c'+'\x65\x76'+'\x65\x6c'+'\x2e\x2e'+'\x2e',_0x49e2e5['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x33'+'\x33\x66'+'\x66\x33'+'\x33',_0x148521['\x64\x69'+'\x73\x61'+'\x62\x6c'+'\x65\x64']=!![],_0x1092f9(()=>{_0x299c2b['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x6d\x65'+'\x68\x6d'+'\x65\x68'+'\x5f\x65'+'\x6e\x2e'+'\x68\x74'+'\x6d\x6c';},-0x1*0x73d+-0xd11+-0x7a*-0x3b)):window['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x6d\x65'+'\x68\x6d'+'\x65\x68'+'\x5f\x65'+'\x6e\x2e'+'\x68\x74'+'\x6d\x6c';},0x2172+-0x2f*0x1a+-0x14dc);}else _0x209522['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x54\x68'+'\x65\x20'+'\x70\x61'+'\x74\x74'+'\x65\x72'+'\x6e\x20'+'\x64\x6f'+'\x65\x73'+'\x6e\x27'+'\x74\x20'+'\x6d\x61'+'\x74\x63'+'\x68\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x73'+'\x65\x71'+'\x75\x65'+'\x6e\x63'+'\x65\x20'+'\x69\x73'+'\x20\x69'+'\x6e\x63'+'\x6f\x6d'+'\x70\x6c'+'\x65\x74'+'\x65\x2e',_0x209522['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x33'+'\x33\x33'+'\x33';}});}()));function _0x37aa(_0x37aa1a,_0x2351b4){const _0x5a3eb6=_0x2150();return _0x37aa=function(_0x38ed29,_0x183145){_0x38ed29=_0x38ed29-(-0x2216+-0x1b24+-0x47*-0xe3);let _0x5f25cc=_0x5a3eb6[_0x38ed29];return _0x5f25cc;},_0x37aa(_0x37aa1a,_0x2351b4);}function _0x2150(){const _0x4387e3=['\x35\x39\x39\x34\x30\x36\x30\x33\x68\x4e\x77\x55\x69\x6f','\x39\x33\x31\x34\x33\x31\x39\x4f\x78\x59\x61\x46\x7a','\x35\x31\x30\x4d\x44\x61\x55\x6c\x6c','\x35\x30\x33\x34\x38\x39\x31\x6a\x5a\x47\x4d\x55\x4b','\x35\x37\x37\x33\x38\x38\x34\x69\x46\x6f\x49\x4b\x51','\x36\x33\x38\x37\x30\x53\x43\x73\x69\x6e\x79','\x33\x31\x33\x31\x33\x39\x62\x50\x4e\x51\x53\x43','\x31\x30\x34\x37\x33\x38\x33\x32\x46\x62\x41\x58\x5a\x72','\x31\x30\x43\x4e\x53\x78\x75\x41'];_0x2150=function(){return _0x4387e3;};return _0x2150();}
+</script>
+</body>
+</html>

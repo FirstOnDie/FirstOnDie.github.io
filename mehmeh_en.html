@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Code - Level 2</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #c6f7c6;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        .terminal {
+            background-color: #111;
+            border: 2px solid #33ff33;
+            padding: 20px;
+            box-shadow: 0 0 10px #33ff33;
+            margin-top: 20px;
+        }
+        .log-output {
+            white-space: pre-wrap;
+            font-size: 0.95em;
+            color: #33ff33;
+            max-height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            border: 1px solid #33ff33;
+            color: #33ff33;
+            font-size: 1em;
+        }
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 style="color:#80ffaa">Dark Code - Level 2</h1>
+    <p style="color:#d6f5e3">
+        The system seems to have awakened something. A new stream of data opens before you, chaotic, disordered.
+        But if you pay attention, among the fragments and the noise... something whispers to you.
+    </p>
+    <div class="terminal">
+        <div class="log-output" id="log">
+            [SYS] : Initializing...
+            [DBG] : scan.module.start()
+            [INF] : handshake.accepted() from 192.168.0.27
+            [WRN] : deprecated.call@/core/shell.js:122
+            [TRC] : packet loss detected, reinitializing...
+            [DBG] : trace_key{hash=45A71B}
+            [RAW] : bin:101100101100101001110001001
+            [INFO]: ---
+            [NET] : Connected to node [NX-4]
+            [ANL] : signature → anomaly.threshold(0.03)
+            [RAW] : 0100110110110110eco01110101111001
+            [MEM] : cache.clean("runtime.key")
+            [DBG] : trigger[stack:null]
+            [SYS] : force.reset()
+            [INF] : reconnecting [..]
+            [TRC] : token rejected@path.core
+            [WRN] : unauthorized attempt >> ignore()
+            [SYS] : deep.trace("echo[]")
+            [TRC] : overflow@subnet:22
+            [DBG] : heap_dump >> run_trace(22)
+            [ERR] : unable to reach sector-9
+            [LOG] : ping.node - timeout (8.6s)
+            [RST] : disconnect.reason="UNKNOWN"
+            [SYS] : reindexing completed
+            [WRN] : ignored exception at module HALT
+            [NET] : timeout@cycle:404
+            [SYS] : end.of.log()
+        </div>
+        <input type="text" id="userInput" placeholder="> Enter keyword" autofocus />
+        <div class="message" id="message"></div>
+    </div>
+</div>
+
+<script>
+    (function(_0x3fdd58,_0x50e829){const _0x586801=_0x1d15,_0x39186b=_0x3fdd58();while(!![]){try{const _0x2c8bd9=-parseInt(_0x586801(0x1a1))/(0xdd9+-0x1133+0x35b)+-parseInt(_0x586801(0x1a5))/(0xd3*-0x17+0x33d*0x7+-0xed*0x4)+parseInt(_0x586801(0x1a0))/(-0x1727+0x1739+0x1*-0xf)*(-parseInt(_0x586801(0x19e))/(-0x1*-0x26f9+-0x1564+-0x1191))+-parseInt(_0x586801(0x19f))/(-0x7*0x138+0x1a70+-0x11e3)+-parseInt(_0x586801(0x1a4))/(0x78*-0x48+-0x9bd+-0xed*-0x2f)*(parseInt(_0x586801(0x1a2))/(0x156d+-0x421*-0x3+-0x21c9))+-parseInt(_0x586801(0x19d))/(-0x8ef+-0x1*-0xd2b+0x2*-0x21a)+-parseInt(_0x586801(0x1a3))/(0x69*-0x57+-0x60+0xd2*0x2c)*(-parseInt(_0x586801(0x19c))/(-0x2e7*-0xd+-0xd0b+0x1*-0x18a6));if(_0x2c8bd9===_0x50e829)break;else _0x39186b['push'](_0x39186b['shift']());}catch(_0x4d0bcb){_0x39186b['push'](_0x39186b['shift']());}}}(_0x1884,0x3*0x3b0+-0x218ce+0x957*0xe6));const _0x2f131d=['\x65\x63'+'\x6f\x5f','\x65\x63'+'\x6f\x31','\x65\x63'+'\x68\x6f','\x5f\x65'+'\x63\x6f'+'\x5f'];function _0x1d15(_0x188454,_0x1d1561){const _0x11a950=_0x1884();return _0x1d15=function(_0x205ff6,_0x568662){_0x205ff6=_0x205ff6-(0xdc1+0x88a+-0x14af);let _0x44b2af=_0x11a950[_0x205ff6];return _0x44b2af;},_0x1d15(_0x188454,_0x1d1561);}function _0x4f85dd(_0x50a27a){return _0x50a27a===_0x2f131d[-0x1e4e+0x1a68+0x3e6]['\x72\x65'+'\x70\x6c'+'\x61\x63'+'\x65']('\x5f','');}function _0x1884(){const _0x892531=['\x38\x39\x34\x63\x54\x4a\x6d\x46\x70','\x33\x37\x33\x35\x37\x30\x63\x72\x78\x45\x42\x78','\x37\x30\x6d\x54\x45\x63\x45\x6a','\x38\x39\x35\x32\x33\x32\x48\x4b\x52\x50\x52\x4e','\x33\x32\x32\x39\x37\x39\x32\x53\x43\x53\x50\x43\x6c','\x32\x37\x33\x32\x30\x30\x30\x73\x6a\x70\x78\x55\x6a','\x33\x56\x76\x66\x45\x4b\x49','\x33\x39\x31\x39\x31\x39\x47\x63\x66\x70\x76\x6d','\x32\x31\x31\x33\x33\x4e\x48\x45\x4b\x71\x4c','\x33\x37\x34\x30\x39\x34\x39\x54\x6e\x73\x78\x75\x70'];_0x1884=function(){return _0x892531;};return _0x1884();}function _0x520ffb(){return Math['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()>-0x4c*0x18+0x13*0xf6+-0x3*0x3b6+0.99;}function _0x3044d4(){let _0x43dbde='';for(let _0xf90226=-0x65b*-0x1+0x25d6+-0x2c31;_0xf90226<0x20a0+-0xa14+-0x167c;_0xf90226++){_0x43dbde+=Math['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()>0x6c1*-0x4+-0x2189+0x3c8d+0.5?'\x31':'\x30';}return parseInt(_0x43dbde,-0x1b1*0x1+-0xa4*0x17+0x106f);}(function(){const _0x5c3759=(function(){let _0x46bce1=!![];return function(_0x3f89ca,_0x881b37){if('\x42\x72'+'\x48\x6d'+'\x47'==='\x6a\x42'+'\x6a\x6a'+'\x4b')_0x252533['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x49\x6e'+'\x63\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x2e'+'\x20\x59'+'\x6f\x75'+'\x27\x72'+'\x65\x20'+'\x6e\x6f'+'\x74\x20'+'\x68\x65'+'\x61\x72'+'\x69\x6e'+'\x67\x20'+'\x69\x74'+'\x20\x63'+'\x6c\x65'+'\x61\x72'+'\x6c\x79'+'\x20\x79'+'\x65\x74'+'\x2e',_0x4ef771['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x33'+'\x33\x33'+'\x33';else{const _0x5a03f2=_0x46bce1?function(){if('\x4c\x55'+'\x72\x61'+'\x5a'!=='\x4c\x55'+'\x72\x61'+'\x5a'){const _0x119718=_0x47d99d['\x61\x70'+'\x70\x6c'+'\x79'](_0x4dd256,arguments);return _0x2c671a=null,_0x119718;}else{if(_0x881b37){if('\x4c\x52'+'\x6a\x65'+'\x75'!=='\x4c\x52'+'\x6a\x65'+'\x75')_0x239069+=_0x250554['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()>-0x17e2+0x8a*-0x5+0xf3*0x1c+0.5?'\x31':'\x30';else{const _0x1cf677=_0x881b37['\x61\x70'+'\x70\x6c'+'\x79'](_0x3f89ca,arguments);return _0x881b37=null,_0x1cf677;}}}}:function(){};return _0x46bce1=![],_0x5a03f2;}};}()),_0x4af961=_0x5c3759(this,function(){return _0x4af961['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24')['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x63\x6f'+'\x6e\x73'+'\x74\x72'+'\x75\x63'+'\x74\x6f'+'\x72'](_0x4af961)['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24');});_0x4af961();const _0x3e0bf0=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x75\x73'+'\x65\x72'+'\x49\x6e'+'\x70\x75'+'\x74'),_0x4be597=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x6d\x65'+'\x73\x73'+'\x61\x67'+'\x65');_0x3e0bf0['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x6b\x65'+'\x79\x64'+'\x6f\x77'+'\x6e',function(_0x112c97){if(_0x112c97['\x6b\x65'+'\x79']==='\x45\x6e'+'\x74\x65'+'\x72'){if('\x4c\x68'+'\x70\x43'+'\x6d'!=='\x6d\x46'+'\x48\x4b'+'\x6a'){let _0x41d2e5=_0x3e0bf0['\x76\x61'+'\x6c\x75'+'\x65']['\x74\x72'+'\x69\x6d']()['\x74\x6f'+'\x4c\x6f'+'\x77\x65'+'\x72\x43'+'\x61\x73'+'\x65']();if(_0x4f85dd(_0x41d2e5)){if('\x66\x58'+'\x52\x65'+'\x70'==='\x48\x6e'+'\x59\x7a'+'\x53')return _0x77676===_0x7d0434[-0x6aa+0x1515*0x1+-0xe6b]['\x72\x65'+'\x70\x6c'+'\x61\x63'+'\x65']('\x5f','');else _0x4be597['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2714\x20'+'\x43\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x73'+'\x79\x73'+'\x74\x65'+'\x6d\x20'+'\x68\x61'+'\x73\x20'+'\x74\x75'+'\x6e\x65'+'\x64\x20'+'\x69\x6e'+'\x74\x6f'+'\x20\x79'+'\x6f\x75'+'\x72\x20'+'\x66\x72'+'\x65\x71'+'\x75\x65'+'\x6e\x63'+'\x79\x2e',_0x4be597['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x33'+'\x33\x66'+'\x66\x33'+'\x33',setTimeout(()=>{window['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x74\x75'+'\x72\x62'+'\x6f\x62'+'\x69\x6e'+'\x5f\x65'+'\x6e\x2e'+'\x68\x74'+'\x6d\x6c';},-0xbbe+-0x21b*0xe+0xc*0x416);}else{if(_0x520ffb())_0x4be597['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x45\x52'+'\x52\x4f'+'\x52\x3a'+'\x20\x75'+'\x6e\x73'+'\x74\x61'+'\x62\x6c'+'\x65\x20'+'\x63\x6f'+'\x64\x65'+'\x2e',_0x4be597['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x6f\x72'+'\x61\x6e'+'\x67\x65';else{if('\x69\x6d'+'\x64\x6d'+'\x6f'==='\x69\x6d'+'\x64\x6d'+'\x6f')_0x4be597['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x49\x6e'+'\x63\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x2e'+'\x20\x59'+'\x6f\x75'+'\x27\x72'+'\x65\x20'+'\x6e\x6f'+'\x74\x20'+'\x68\x65'+'\x61\x72'+'\x69\x6e'+'\x67\x20'+'\x69\x74'+'\x20\x63'+'\x6c\x65'+'\x61\x72'+'\x6c\x79'+'\x20\x79'+'\x65\x74'+'\x2e',_0x4be597['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x33'+'\x33\x33'+'\x33';else{if(_0x45d16e){const _0x1991fe=_0x55b7c0['\x61\x70'+'\x70\x6c'+'\x79'](_0x1ab51d,arguments);return _0x5ae927=null,_0x1991fe;}}}}}else{let _0x3ec262='';for(let _0x2f2697=-0x1cb0+0x1f54+-0xd*0x34;_0x2f2697<0xb4f+-0x2526+0x19e7;_0x2f2697++){_0x3ec262+=_0x3d12ca['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()>0x2419*-0x1+0xb59+0x18c0+0.5?'\x31':'\x30';}return _0x4af434(_0x3ec262,-0x22b2*-0x1+0x96f+-0x8d3*0x5);}}});}());
+</script>
+
+</body>
+</html>

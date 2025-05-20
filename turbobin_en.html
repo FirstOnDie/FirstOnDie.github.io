@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Code - Level 3</title>
+    <style>
+        body {
+            background-color: #080808;
+            color: #d8fdd8;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        .challenge {
+            background-color: #111;
+            border: 2px solid #33ff33;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 0 10px #33ff33;
+        }
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .cell {
+            background: #000;
+            color: #33ff33;
+            border: 1px solid #33ff33;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1.2em;
+        }
+        .cell:hover {
+            background: #1a1a1a;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            border: 1px solid #33ff33;
+            color: #33ff33;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 style="color:#80ffaa">Dark Code - Level 3</h1>
+    <p>
+        You have crossed the second threshold, but the environment has changed. You are no longer in front of simple commands, now you are diving
+        into a core that defends itself. The system has begun adapting to your presence, generating random patterns, visual distractions, and logical noise to confuse.
+    </p>
+    <p>
+        "The Raven" has encrypted its next message inside a matrix. Nothing is straightforward. Each letter is there for a reason...
+        or maybe not. You must find the hidden sequence, a keyword that will unlock the next fragment of truth.
+        <em>I keep seeing it there, no matter how much I try to look away... that damn pattern...</em>
+    </p>
+    <div class="challenge">
+        <p>Click on the letters that you believe form the key and then type the word:</p>
+        <div class="grid" id="grid"></div>
+        <input type="text" id="userInput" placeholder="> Enter the discovered word" />
+        <div class="message" id="message"></div>
+    </div>
+</div>
+
+<script>
+    (function(_0xdf915,_0x4a8d6c){const _0x24eec4=_0x5514,_0x2a1a6f=_0xdf915();while(!![]){try{const _0x4e7cdf=-parseInt(_0x24eec4(0xc9))/(0xdf*0x8+0x1b75+-0x1136*0x2)+-parseInt(_0x24eec4(0xcb))/(-0x1fa7+-0xb99*0x3+-0x4274*-0x1)*(-parseInt(_0x24eec4(0xc7))/(0x1*0x110a+-0x40e+-0xcf9))+parseInt(_0x24eec4(0xcc))/(0x16bc+-0x21da+0xb22)*(parseInt(_0x24eec4(0xca))/(-0x3*0x7ed+-0x32d+0x1af9))+-parseInt(_0x24eec4(0xc6))/(0x68e*0x4+0xbb9+-0x25eb)*(parseInt(_0x24eec4(0xc5))/(0x25e0+0x1*0x805+-0x2dde))+-parseInt(_0x24eec4(0xc8))/(-0x17f7*0x1+0xfcd+0x1*0x832)+-parseInt(_0x24eec4(0xcd))/(-0x547+0x13b5*-0x1+0x7*0x393)+parseInt(_0x24eec4(0xc4))/(0xd89+-0x445*0x7+0x1064);if(_0x4e7cdf===_0x4a8d6c)break;else _0x2a1a6f['push'](_0x2a1a6f['shift']());}catch(_0xb3742b){_0x2a1a6f['push'](_0x2a1a6f['shift']());}}}(_0x430b,0x94f5f+0xa083d+0x4*-0x23169));const _0xdbea12=(function(){let _0x4444eb=!![];return function(_0x24c3b8,_0x52523b){if('\x47\x73'+'\x77\x41'+'\x6c'!=='\x54\x49'+'\x46\x43'+'\x46'){const _0x270f75=_0x4444eb?function(){if('\x75\x77'+'\x4e\x66'+'\x5a'!=='\x75\x77'+'\x4e\x66'+'\x5a'){const _0x554c79=_0x32b0cf['\x63\x72'+'\x65\x61'+'\x74\x65'+'\x45\x6c'+'\x65\x6d'+'\x65\x6e'+'\x74']('\x64\x69'+'\x76');_0x554c79['\x63\x6c'+'\x61\x73'+'\x73\x4c'+'\x69\x73'+'\x74']['\x61\x64'+'\x64']('\x63\x65'+'\x6c\x6c');if(_0x2dfb65['\x69\x6e'+'\x63\x6c'+'\x75\x64'+'\x65\x73'](_0x4f80ac)){const _0x1a4a5e=_0x687d4['\x69\x6e'+'\x64\x65'+'\x78\x4f'+'\x66'](_0x2c2106);_0x554c79['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']=_0x205bec[_0x1a4a5e];}else _0x554c79['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']=_0x502a6e[_0xb346ee];_0x554c79['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x63\x6c'+'\x69\x63'+'\x6b',()=>{_0x554c79['\x73\x74'+'\x79\x6c'+'\x65']['\x62\x61'+'\x63\x6b'+'\x67\x72'+'\x6f\x75'+'\x6e\x64'+'\x43\x6f'+'\x6c\x6f'+'\x72']='\x23\x32'+'\x32\x35'+'\x35\x32'+'\x32';}),_0x2830a8['\x61\x70'+'\x70\x65'+'\x6e\x64'+'\x43\x68'+'\x69\x6c'+'\x64'](_0x554c79);}else{if(_0x52523b){if('\x57\x51'+'\x65\x45'+'\x4e'!=='\x51\x47'+'\x4a\x51'+'\x75'){const _0x1e951a=_0x52523b['\x61\x70'+'\x70\x6c'+'\x79'](_0x24c3b8,arguments);return _0x52523b=null,_0x1e951a;}else _0x17ae78['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']=_0x4c2539[_0x1b2206];}}}:function(){};return _0x4444eb=![],_0x270f75;}else return _0x2dce30['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24')['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x63\x6f'+'\x6e\x73'+'\x74\x72'+'\x75\x63'+'\x74\x6f'+'\x72'](_0x4eb983)['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24');};}()),_0x48ea1c=_0xdbea12(this,function(){return _0x48ea1c['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24')['\x74\x6f'+'\x53\x74'+'\x72\x69'+'\x6e\x67']()['\x63\x6f'+'\x6e\x73'+'\x74\x72'+'\x75\x63'+'\x74\x6f'+'\x72'](_0x48ea1c)['\x73\x65'+'\x61\x72'+'\x63\x68']('\x28\x28'+'\x28\x2e'+'\x2b\x29'+'\x2b\x29'+'\x2b\x29'+'\x2b\x24');});_0x48ea1c(),((()=>{const _0x58eb58=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x67\x72'+'\x69\x64'),_0x304bcb=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x6d\x65'+'\x73\x73'+'\x61\x67'+'\x65'),_0x1d1dc9=document['\x67\x65'+'\x74\x45'+'\x6c\x65'+'\x6d\x65'+'\x6e\x74'+'\x42\x79'+'\x49\x64']('\x75\x73'+'\x65\x72'+'\x49\x6e'+'\x70\x75'+'\x74'),_0xe8f1de=('\x6b\x65'+'\x79\x77'+'\x6f\x72'+'\x64')['\x73\x70'+'\x6c\x69'+'\x74'](''),_0xcd5b73=[0xd25*-0x2+-0x91*0x23+0x2e1f,0x1ad+0x26bb*0x1+-0x2862,0x4*-0x143+0xb*0x344+0x1*-0x1ed0,-0x3f2+0xb52*-0x2+-0x7*-0x3cf,0x13b0+-0x15c6+-0x233*-0x1,-0xb2b*-0x1+0x1969+0x5*-0x74a,0x1*0x266f+0x1044+0x2*-0x1b47],_0x5ad54d=new Set(('\x61\x62'+'\x63\x64'+'\x65\x66'+'\x67\x68'+'\x69\x6a'+'\x6b\x6c'+'\x6d\x6e'+'\x6f\x70'+'\x71\x72'+'\x73\x74'+'\x75\x76'+'\x77\x78'+'\x79\x7a'+'\x30\x31'+'\x32\x33'+'\x34\x35'+'\x36\x37'+'\x38\x39'+'\x3f\x21'+'\x5f\x2b'+'\x2d\x2a')['\x73\x70'+'\x6c\x69'+'\x74']('')),_0x3a0b83=new Set(_0xe8f1de);_0xe8f1de['\x66\x6f'+'\x72\x45'+'\x61\x63'+'\x68'](_0x14428a=>_0x5ad54d['\x64\x65'+'\x6c\x65'+'\x74\x65'](_0x14428a));const _0x584e69=Array['\x66\x72'+'\x6f\x6d'](_0x5ad54d);function _0x2799ff(_0x378615){return _0x378615['\x73\x6f'+'\x72\x74'](()=>Math['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()-(-0x1761+-0x4d7+0x1c38+0.5));}let _0xb85228=[..._0x584e69,..._0xe8f1de];_0xb85228=_0x2799ff(_0xb85228);for(let _0x53b689=0x19ef*-0x1+-0x1843+0x202*0x19;_0x53b689<0x220c+-0x1513+0xccf*-0x1;_0x53b689++){if('\x44\x6f'+'\x78\x61'+'\x74'!=='\x66\x6c'+'\x76\x71'+'\x65'){const _0x4451a9=document['\x63\x72'+'\x65\x61'+'\x74\x65'+'\x45\x6c'+'\x65\x6d'+'\x65\x6e'+'\x74']('\x64\x69'+'\x76');_0x4451a9['\x63\x6c'+'\x61\x73'+'\x73\x4c'+'\x69\x73'+'\x74']['\x61\x64'+'\x64']('\x63\x65'+'\x6c\x6c');if(_0xcd5b73['\x69\x6e'+'\x63\x6c'+'\x75\x64'+'\x65\x73'](_0x53b689)){const _0x14abc2=_0xcd5b73['\x69\x6e'+'\x64\x65'+'\x78\x4f'+'\x66'](_0x53b689);_0x4451a9['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']=_0xe8f1de[_0x14abc2];}else _0x4451a9['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']=_0xb85228[_0x53b689];_0x4451a9['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x63\x6c'+'\x69\x63'+'\x6b',()=>{'\x52\x62'+'\x4f\x79'+'\x6a'==='\x4a\x48'+'\x6e\x59'+'\x4c'?_0x5575cf['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x6c\x6f'+'\x6c\x66'+'\x72\x6f'+'\x73\x74'+'\x5f\x65'+'\x6e\x2e'+'\x68\x74'+'\x6d\x6c':_0x4451a9['\x73\x74'+'\x79\x6c'+'\x65']['\x62\x61'+'\x63\x6b'+'\x67\x72'+'\x6f\x75'+'\x6e\x64'+'\x43\x6f'+'\x6c\x6f'+'\x72']='\x23\x32'+'\x32\x35'+'\x35\x32'+'\x32';}),_0x58eb58['\x61\x70'+'\x70\x65'+'\x6e\x64'+'\x43\x68'+'\x69\x6c'+'\x64'](_0x4451a9);}else _0x138828['\x73\x74'+'\x79\x6c'+'\x65']['\x62\x61'+'\x63\x6b'+'\x67\x72'+'\x6f\x75'+'\x6e\x64'+'\x43\x6f'+'\x6c\x6f'+'\x72']='\x23\x32'+'\x32\x35'+'\x35\x32'+'\x32';}_0x1d1dc9['\x61\x64'+'\x64\x45'+'\x76\x65'+'\x6e\x74'+'\x4c\x69'+'\x73\x74'+'\x65\x6e'+'\x65\x72']('\x6b\x65'+'\x79\x64'+'\x6f\x77'+'\x6e',_0x204d4f=>{if('\x6c\x6d'+'\x4c\x4a'+'\x68'==='\x56\x68'+'\x6b\x4f'+'\x66'){const _0x371096=_0x5701ab?function(){if(_0x1c6d80){const _0x21d2ad=_0x3dae6b['\x61\x70'+'\x70\x6c'+'\x79'](_0x32c8d5,arguments);return _0x29bc69=null,_0x21d2ad;}}:function(){};return _0x1712a3=![],_0x371096;}else{if(_0x204d4f['\x6b\x65'+'\x79']==='\x45\x6e'+'\x74\x65'+'\x72'){if('\x46\x54'+'\x44\x67'+'\x6e'==='\x6c\x42'+'\x59\x55'+'\x76')return _0x2cc90f['\x73\x6f'+'\x72\x74'](()=>_0xc2c585['\x72\x61'+'\x6e\x64'+'\x6f\x6d']()-(-0x24d5+-0x8bb*0x1+0x798*0x6+0.5));else{const _0x516e8c=_0x1d1dc9['\x76\x61'+'\x6c\x75'+'\x65']['\x74\x72'+'\x69\x6d']()['\x74\x6f'+'\x4c\x6f'+'\x77\x65'+'\x72\x43'+'\x61\x73'+'\x65']();if(_0x516e8c==='\x6b\x65'+'\x79\x77'+'\x6f\x72'+'\x64')'\x5a\x6f'+'\x4c\x44'+'\x57'==='\x4b\x4b'+'\x6c\x53'+'\x4c'?(_0x27bdf1['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2714\x20'+'\x43\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x70'+'\x61\x74'+'\x74\x65'+'\x72\x6e'+'\x20\x68'+'\x61\x73'+'\x20\x62'+'\x65\x65'+'\x6e\x20'+'\x64\x65'+'\x63\x69'+'\x70\x68'+'\x65\x72'+'\x65\x64'+'\x2e',_0x52cc23['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x33'+'\x33\x66'+'\x66\x33'+'\x33',_0x165386(()=>{_0x415862['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x6c\x6f'+'\x6c\x66'+'\x72\x6f'+'\x73\x74'+'\x5f\x65'+'\x6e\x2e'+'\x68\x74'+'\x6d\x6c';},-0x21f2+-0x5*-0x3cb+0x16cb)):(_0x304bcb['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2714\x20'+'\x43\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x70'+'\x61\x74'+'\x74\x65'+'\x72\x6e'+'\x20\x68'+'\x61\x73'+'\x20\x62'+'\x65\x65'+'\x6e\x20'+'\x64\x65'+'\x63\x69'+'\x70\x68'+'\x65\x72'+'\x65\x64'+'\x2e',_0x304bcb['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x33'+'\x33\x66'+'\x66\x33'+'\x33',setTimeout(()=>{window['\x6c\x6f'+'\x63\x61'+'\x74\x69'+'\x6f\x6e']['\x68\x72'+'\x65\x66']='\x6c\x6f'+'\x6c\x66'+'\x72\x6f'+'\x73\x74'+'\x5f\x65'+'\x6e\x2e'+'\x68\x74'+'\x6d\x6c';},-0x13ff+-0x1f9f*-0x1+-0x3d0));else{if('\x68\x48'+'\x70\x79'+'\x51'!=='\x68\x4d'+'\x73\x49'+'\x7a')_0x304bcb['\x74\x65'+'\x78\x74'+'\x43\x6f'+'\x6e\x74'+'\x65\x6e'+'\x74']='\u2716\x20'+'\x49\x6e'+'\x63\x6f'+'\x72\x72'+'\x65\x63'+'\x74\x2e'+'\x20\x54'+'\x68\x65'+'\x20\x70'+'\x61\x74'+'\x74\x65'+'\x72\x6e'+'\x20\x64'+'\x6f\x65'+'\x73\x6e'+'\x27\x74'+'\x20\x6d'+'\x61\x74'+'\x63\x68'+'\x2e',_0x304bcb['\x73\x74'+'\x79\x6c'+'\x65']['\x63\x6f'+'\x6c\x6f'+'\x72']='\x23\x66'+'\x66\x33'+'\x33\x33'+'\x33';else{if(_0x3741f8){const _0x3abf55=_0x202b8b['\x61\x70'+'\x70\x6c'+'\x79'](_0x373d9b,arguments);return _0x3681f7=null,_0x3abf55;}}}}}}});})());function _0x5514(_0x5514d0,_0x5b3f2b){const _0x1fe1dc=_0x430b();return _0x5514=function(_0x64ac04,_0x3ce662){_0x64ac04=_0x64ac04-(0x1722+-0x145a+0x6*-0x56);let _0x2a7e97=_0x1fe1dc[_0x64ac04];return _0x2a7e97;},_0x5514(_0x5514d0,_0x5b3f2b);}function _0x430b(){const _0x336f9d=['\x31\x30\x34\x31\x37\x38\x30\x66\x62\x59\x4e\x47\x4f','\x31\x31\x30\x37\x33\x74\x77\x45\x73\x66\x71','\x36\x33\x38\x32\x33\x36\x30\x75\x69\x65\x66\x7a\x70','\x31\x30\x35\x38\x31\x32\x35\x6d\x57\x78\x50\x6a\x56','\x33\x39\x35\x38\x37\x35\x4a\x4f\x59\x6f\x67\x50','\x33\x38\x36\x6c\x54\x79\x44\x50\x51','\x34\x34\x4e\x43\x61\x6e\x6d\x66','\x37\x38\x36\x31\x38\x36\x30\x61\x57\x6b\x5a\x63\x47','\x33\x30\x35\x34\x33\x31\x30\x30\x49\x64\x75\x45\x55\x7a','\x34\x39\x53\x4e\x71\x73\x53\x4a'];_0x430b=function(){return _0x336f9d;};return _0x430b();}
+</script>
+
+</body>
+</html>
