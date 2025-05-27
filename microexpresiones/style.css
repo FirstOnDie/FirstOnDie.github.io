@@ -249,3 +249,45 @@ button:hover {
         gap: 0.5rem;
     }
 }
+
+@media (max-width: 600px) {
+    #top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #top-bar .inline-group {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #top-bar button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    #emotion-options {
+        grid-template-columns: 1fr;
+    }
+
+    .card-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-images img {
+        max-width: 80%;
+    }
+
+    #image-container {
+        height: 250px;
+    }
+
+    body {
+        padding: 0.5rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+}
