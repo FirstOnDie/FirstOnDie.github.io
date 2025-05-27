@@ -27,7 +27,7 @@
     <div id="score-text"></div>
 
     <div id="image-container">
-        <img id="face-img" src="assets/images/persona3_neutral.png" alt="Face" />
+        <img id="face-img" src="/assets/images/persona3_neutral.png" alt="Face" />
     </div>
 
     <div id="question-section" class="hidden">
@@ -145,7 +145,7 @@
     }
 
     function buildImageName(person, emotion) {
-        return `assets/images/${person}_${emotion}.png`;
+        return `/assets/images/${person}_${emotion}.png`;
     }
 
     function delay(ms) {
