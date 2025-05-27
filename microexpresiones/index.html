@@ -204,6 +204,7 @@
         if (!isRunning) return;
 
         $("face-img").src = emotion;
+        await new Promise(requestAnimationFrame);
         await delay(duration);
         if (!isRunning) return;
 
