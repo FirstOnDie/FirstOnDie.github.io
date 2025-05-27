@@ -203,12 +203,18 @@
         await delay(1000 + Math.random() * 4000);
         if (!isRunning) return;
 
-        $("face-img").src = emotion;
-        await new Promise(requestAnimationFrame);
-        await delay(duration);
-        if (!isRunning) return;
+        $('face-img').src = emotion;
 
-        $("face-img").src = neutral;
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        await delay(50);
+
+        await delay(duration);
+
+        $('face-img').src = neutral;
+
+
+        await new Promise((resolve) => requestAnimationFrame(resolve));
 
         total++;
         if (!isRunning) return;
