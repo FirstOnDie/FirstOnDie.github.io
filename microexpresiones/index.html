@@ -280,6 +280,23 @@
         applyText();
     }
 
+    function preloadImages() {
+        PERSONAS.forEach(person => {
+            // precargar neutral
+            const neutral = buildImageName(person, 'neutral');
+            new Image().src = neutral;
+
+            // precargar cada emoción
+            EMOTIONS.forEach(({ key }) => {
+                const emotionImg = buildImageName(person, key);
+                new Image().src = emotionImg;
+            });
+        });
+
+        console.log("✅ Imágenes precargadas.");
+    }
+
+    preloadImages();
 
     init();
 </script>
