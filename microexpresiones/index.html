@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lectura de Microexpresiones</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main>
+    <h1 id="title">Lectura de Microexpresiones</h1>
+
+    <div id="top-bar">
+        <div class="inline-group">
+            <input type="number" id="duration" min="0" max="1000" value="100" title="Duración (ms)" />
+            <span class="unit-label">ms</span>
+        </div>
+
+        <div class="inline-group">
+            <img src="https://flagcdn.com/es.svg" class="flag" alt="ES" data-lang="es" />
+            <img src="https://flagcdn.com/gb.svg" class="flag" alt="EN" data-lang="en" />
+        </div>
+
+        <button id="start-btn">Iniciar</button>
+    </div>
+
+    <div id="score-text"></div>
+
+    <div id="image-container">
+        <img id="face-img" src="assets/images/persona3_neutral.png" alt="Face" />
+    </div>
+
+    <div id="question-section" class="hidden">
+        <p id="question-text"></p>
+        <div id="emotion-options"></div>
+    </div>
+
+    <p id="feedback"></p>
+
+</main>
+<div id="feedback-card" class="hidden">
+    <div class="card">
+        <div class="card-images">
+            <div>
+                <p>Neutral</p>
+                <img id="card-img-neutral" src="" alt="Neutral" />
+            </div>
+            <div>
+                <p id="correct-emotion">Emoción correcta</p>
+                <img id="card-img-emotion" src="" alt="Correcta" />
+            </div>
+        </div>
+        <p id="card-description"></p>
+        <button id="continue-btn">Continuar</button>
+    </div>
+</div>
+<script>
+    const EMOTIONS = [
+        { key: "contento", es: "Contento", en: "Happy" },
+        { key: "miedo", es: "Miedo", en: "Fear" },
+        { key: "ira", es: "Ira", en: "Anger" },
+        { key: "tristeza", es: "Tristeza", en: "Sad" },
+        { key: "desprecio", es: "Desprecio", en: "Contempt" },
+        { key: "asco", es: "Asco", en: "Disgust" },
+        { key: "sorpresa", es: "Sorpresa", en: "Surprise" },
+    ];
+
+    const EMOTION_DESCRIPTIONS = {
+        contento: {
+            es: "Sonrisa genuina, patas de gallo en los ojos, mejillas elevadas.",
+            en: "Genuine smile, crow’s feet near the eyes, raised cheeks."
+        },
+        miedo: {
+            es: "Cejas levantadas, ojos muy abiertos, boca ligeramente abierta.",
+            en: "Eyebrows raised, wide open eyes, slightly open mouth."
+        },
+        ira: {
+            es: "Cejas fruncidas, mirada fija, labios apretados.",
+            en: "Furrowed brows, glaring eyes, tight lips."
+        },
+        tristeza: {
+            es: "Párpados caídos, comisuras de la boca hacia abajo, ojos apagados.",
+            en: "Drooping eyelids, downturned mouth corners, unfocused eyes."
+        },
+        sorpresa: {
+            es: "Ojos muy abiertos, cejas levantadas, boca abierta.",
+            en: "Wide open eyes, raised eyebrows, open mouth."
+        },
+        asco: {
+            es: "Nariz arrugada, labio superior elevado.",
+            en: "Wrinkled nose, upper lip raised."
+        },
+        desprecio: {
+            es: "Sonrisa asimétrica, un solo lado de la boca elevado.",
+            en: "Asymmetric smirk, one side of the mouth raised."
+        }
+    };
+
+    const LANG = {
+        es: {
+            title: "Lectura de Microexpresiones",
+            start: "Iniciar",
+            select_emotion: "¿Qué emoción viste?",
+            correct: "¡Correcto!",
+            incorrect: "Incorrecto. Era: ",
+            score: "Puntuación",
+            duration_label: "Duración (ms):",
+            language_label: "Idioma",
+            stop:"Parar"
+        },
+        en: {
+            title: "Microexpression Reader",
+            start: "Start",
+            select_emotion: "What emotion did you see?",
+            correct: "Correct!",
+            incorrect: "Wrong. It was: ",
+            score: "Score",
+            duration_label: "Duration (ms):",
+            language_label: "Language",
+            stop:"Stop"
+        }
+    };
+
+    let score = 0;
+    let total = 0;
+    let language = 'es';
+    let lastPersonUsed = null;
+    let isRunning = false;
+    const DEFAULT_PERSON = 'persona3';
+    const PERSONAS = ['persona3'];
+
+    const $ = (id) => document.getElementById(id);
+
+    function applyText() {
+        const t = LANG[language];
+        $('title').innerText = t.title;
+        $('start-btn').innerText = t.start;
+        $('feedback').innerText = '';
+        $('score-text').innerText = `${t.score} : ${score}/${total}`;
+    }
+
+    function getRandomEmotion() {
+        const idx = Math.floor(Math.random() * EMOTIONS.length);
+        return EMOTIONS[idx];
+    }
+
+    function buildImageName(person, emotion) {
+        return `assets/images/${person}_${emotion}.png`;
+    }
+
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function showEmotionOptions(correctKey) {
+        $('question-section').classList.remove('hidden');
+        $('question-text').innerText = LANG[language].select_emotion;
+        $('emotion-options').innerHTML = '';
+
+        EMOTIONS.forEach(({ key, [language]: label }) => {
+            const btn = document.createElement('button');
+            btn.textContent = label;
+            btn.onclick = () => {
+                const isCorrect = key === correctKey;
+                const t = LANG[language];
+
+                $('feedback').innerText = isCorrect
+                    ? t.correct
+                    : t.incorrect + EMOTIONS.find(e => e.key === correctKey)[language];
+
+                $('feedback').className = isCorrect ? 'success' : 'error';
+
+                if (isCorrect) {
+                    score++;
+                    $('score-text').innerText = `${score}/${total}`;
+                    setTimeout(startRound, 1500);
+                } else {
+                    showFeedbackCard(correctKey);
+                }
+            };
+            $('emotion-options').appendChild(btn);
+        });
+    }
+
+    async function startRound() {
+        if (!isRunning) return;
+
+        $("question-section").classList.add("hidden");
+        $("feedback").innerText = "";
+        $("feedback").className = "";
+        $("emotion-options").innerHTML = "";
+
+        const person = PERSONAS[Math.floor(Math.random() * PERSONAS.length)];
+        lastPersonUsed = person;
+
+        const duration = Math.min(1000, Math.max(0, parseInt($("duration").value || "500")));
+        const neutral = buildImageName(person, "neutral");
+        const { key } = getRandomEmotion();
+        const emotion = buildImageName(person, key);
+
+        $("face-img").src = neutral;
+
+        await delay(1000 + Math.random() * 4000);
+        if (!isRunning) return;
+
+        $("face-img").src = emotion;
+        await delay(duration);
+        if (!isRunning) return;
+
+        $("face-img").src = neutral;
+
+        total++;
+        if (!isRunning) return;
+
+        showEmotionOptions(key);
+    }
+
+    function showFeedbackCard(correctEmotion) {
+        const neutral = buildImageName(lastPersonUsed, 'neutral');
+        const emotion = buildImageName(lastPersonUsed, correctEmotion);
+
+        $('card-img-neutral').src = neutral;
+        $('correct-emotion').innerText = correctEmotion.charAt(0).toUpperCase() + correctEmotion.slice(1);
+        $('card-img-emotion').src = emotion;
+
+        const desc = EMOTION_DESCRIPTIONS[correctEmotion];
+        $('card-description').innerText = desc ? desc[language] : '';
+
+        $('feedback-card').classList.remove('hidden');
+    }
+
+    function init() {
+        document.querySelectorAll('.flag').forEach(flag => {
+            flag.onclick = () => {
+                language = flag.dataset.lang;
+                applyText();
+            };
+        });
+
+        $('continue-btn').onclick = () => {
+            $('feedback-card').classList.add('hidden');
+
+            $('question-section').classList.add('hidden');
+
+            $('feedback').innerText = '';
+            $('feedback').className = '';
+
+            $('score-text').innerText = `${score}/${total}`;
+            setTimeout(startRound, 300);
+        };
+
+        $('start-btn').onclick = () => {
+            isRunning = !isRunning;
+
+            if (isRunning) {
+                $('start-btn').innerText = LANG[language].stop || "Parar";
+                $('start-btn').classList.remove('paused');
+                $('start-btn').classList.add('running');
+                startRound();
+            } else {
+                $('start-btn').innerText = LANG[language].start;
+                $('start-btn').classList.remove('running');
+                $('start-btn').classList.add('paused');
+
+                $("question-section").classList.add("hidden");
+                $("feedback").innerText = "";
+                $("feedback").className = "";
+                $("emotion-options").innerHTML = "";
+                $("face-img").src = buildImageName(lastPersonUsed || PERSONAS[0], "neutral");
+            }
+        };
+
+        applyText();
+    }
+
+
+    init();
+</script>
+
+</body>
+</html>

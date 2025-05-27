@@ -1,0 +1,251 @@
+:root {
+    --primary: #0077cc;
+    --success: #4caf50;
+    --error: #f44336;
+    --background: #f4f4f4;
+    --text: #333;
+    --font: 'Segoe UI', sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin-top: 0;
+    color: var(--primary);
+}
+
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* o el tamaño que prefieras */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+    background: #fff;
+}
+
+#face-img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+#settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    gap: 0.5rem;
+}
+
+input[type="number"],
+select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+#emotion-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-items: center;
+}
+
+#emotion-options button {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    color: #333;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+#emotion-options button:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+#question-section {
+    margin-top: 2rem;
+}
+
+#feedback {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    min-height: 1.5em;
+}
+
+#feedback.success {
+    color: var(--success);
+}
+
+#feedback.error {
+    color: var(--error);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+#top-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.inline-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+#duration {
+    width: 60px;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.unit-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.flag {
+    width: 24px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: transform 0.2s, border 0.2s;
+}
+
+.flag:hover {
+    transform: scale(1.05);
+    border: 1px solid #aaa;
+}
+
+#score-text {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+#feedback-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.card-images {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.card-images img {
+    max-width: 240px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#card-description {
+    margin: 1rem 0;
+    color: #444;
+}
+
+#start-btn.running {
+    background-color: #ff4f4f;
+    color: white;
+}
+
+#start-btn.paused {
+    background-color: var(--primary); /* verde */
+    color: white;
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1.2rem;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    #emotion-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
