@@ -705,24 +705,32 @@ body {
 
 .timeline {
     position: relative;
-    padding-left: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding-left: 0;
 }
 
 .timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--gradient-primary);
-    border-radius: var(--radius-md);
+    display: none;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: var(--space-lg);
-    padding-left: var(--space-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    background: var(--light-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: all var(--transition-normal);
+}
+
+.timeline-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .timeline-item:last-child {
@@ -730,9 +738,7 @@ body {
 }
 
 .timeline-icon {
-    position: absolute;
-    left: -30px;
-    top: 0;
+    position: relative;
     width: 60px;
     height: 60px;
     background: var(--gradient-primary);
@@ -743,7 +749,11 @@ body {
     color: var(--text-white);
     font-size: 1.25rem;
     box-shadow: var(--shadow-lg);
-    z-index: 2;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    flex: 1;
 }
 
 .timeline-content h4 {
@@ -767,6 +777,7 @@ body {
 .timeline-content p {
     color: var(--text-secondary);
     line-height: 1.6;
+    margin: 0;
 }
 
 /* Values Section */
@@ -1812,22 +1823,21 @@ body {
     }
 
     .timeline {
-        padding-left: var(--space-lg);
-    }
-
-    .timeline::before {
-        left: 15px;
+        gap: var(--space-md);
     }
 
     .timeline-item {
-        padding-left: var(--space-xl);
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+        padding: var(--space-md);
     }
 
     .timeline-icon {
-        left: -25px;
         width: 50px;
         height: 50px;
         font-size: 1rem;
+        margin: 0 auto;
     }
 
     .values-grid {
