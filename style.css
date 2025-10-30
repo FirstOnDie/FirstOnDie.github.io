@@ -2269,6 +2269,10 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
 }
 
+.movie-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+
 .project-svg-icon {
     color: white;
     opacity: 0.9;

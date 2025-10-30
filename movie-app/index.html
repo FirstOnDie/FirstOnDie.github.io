@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Discovery - Find Your Next Favorite Film</title>
+    <meta name="description" content="Discover movies and receive personalized recommendations based on your taste.">
+    <meta name="keywords" content="movies, films, recommendations, search, cinema">
+    <meta name="author" content="Carlos Expósito">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="app-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="header-text">
+                    <h1>Movie Discovery</h1>
+                    <p>Find Your Next Favorite Film</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn-toggle" id="toggleMode" title="Toggle Mode">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Mode Tabs -->
+        <div class="mode-tabs" id="modeTabs">
+            <button class="mode-tab active" data-mode="search">
+                <i class="fas fa-search"></i>
+                Search Movies
+            </button>
+            <button class="mode-tab" data-mode="recommendations">
+                <i class="fas fa-star"></i>
+                Get Recommendations
+            </button>
+        </div>
+
+        <!-- Search Mode -->
+        <div class="mode-content active" id="searchMode">
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="movieSearch" placeholder="Search for any movie...">
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-container" id="searchResults">
+                <div class="empty-state" id="searchEmpty">
+                    <i class="fas fa-film"></i>
+                    <p>Search Your Favorite Movie</p>
+                    <span>Type the title in the search bar</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations Mode -->
+        <div class="mode-content" id="recommendationsMode">
+            <div class="recommendations-section">
+                <div class="recommendations-intro">
+                    <h3>Personalize Your Recommendations</h3>
+                    <p>Add up to 5 movies you loved and we'll recommend similar films.</p>
+                </div>
+
+                <div class="favorites-container" id="favoritesContainer">
+                    <!-- Favorite movies will be added here dynamically -->
+                </div>
+
+                <div class="search-favorite-section" id="searchFavoriteSection">
+                    <div class="search-favorite-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="favoriteSearch" placeholder="Add a movie you loved...">
+                        <button id="addFavoriteBtn" class="add-favorite-btn">
+                            <i class="fas fa-plus"></i>
+                            Add
+                        </button>
+                    </div>
+                    <div class="search-results-dropdown" id="favoriteSearchResults"></div>
+                </div>
+
+                <div class="recommendations-actions">
+                    <button id="getRecommendationsBtn" class="btn-primary" disabled>
+                        <i class="fas fa-magic"></i>
+                        Get Recommendations
+                    </button>
+                    <button id="clearFavoritesBtn" class="btn-secondary">
+                        <i class="fas fa-trash"></i>
+                        Clear List
+                    </button>
+                </div>
+
+                <div class="results-container" id="recommendationsResults">
+                    <div class="empty-state" id="recommendationsEmpty">
+                        <i class="fas fa-star"></i>
+                        <p>Add movies to receive recommendations</p>
+                        <span>You need at least 1 movie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-film fa-spin"></i>
+        </div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Movie Details Modal -->
+    <div class="movie-modal" id="movieModal">
+        <div class="movie-modal-content">
+            <button class="movie-modal-close" onclick="app.closeMovieModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="movieModalBody">
+                <!-- Movie details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>&copy; 2025 Movie Discovery | Developed by <a href="https://firstondie.github.io" target="_blank">Carlos Expósito</a></p>
+        <p class="data-source">Powered by <a href="https://www.omdbapi.com" target="_blank">OMDb API</a></p>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
