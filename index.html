@@ -35,26 +35,58 @@
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Carlos Expósito",
+        "jobTitle": "Desarrollador Full Stack",
+        "url": "https://firstondoe.github.io/",
+        "sameAs": [
+            "https://www.linkedin.com/in/carlos-exposito-ceballo",
+            "https://github.com/FirstOnDie"
+        ],
+        "email": "carlos.cjec@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Barcelona",
+            "addressCountry": "ES"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Scroll Progress Indicator -->
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" role="progressbar" aria-label="Progreso de scroll" aria-valuemin="0" aria-valuemax="100">
         <div class="scroll-progress"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
-            <a href="#" class="nav-logo">Carlos Expósito</a>
-            <ul class="nav-links">
-                <li><a href="#about">Sobre Mí</a></li>
-                <li><a href="#experience">Experiencia</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#live-projects">Live Projects</a></li>
-                <li><a href="#contact">Contacto</a></li>
+            <a href="#" class="nav-logo" aria-label="Inicio - Carlos Expósito">Carlos Expósito</a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">Sobre Mí</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Experiencia</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Habilidades</a></li>
+                <li role="none" class="nav-item-dropdown">
+                    <a href="#proyectos-destacados" role="menuitem" class="nav-dropdown-toggle">
+                        Proyectos
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="#proyectos-destacados">Proyectos Destacados</a></li>
+                        <li><a href="#proyectos-tecnicos">Proyectos Técnicos</a></li>
+                        <li><a href="#live-projects">Live Projects</a></li>
+                        <li><a href="#unreal-games">Unreal Games</a></li>
+                        <li><a href="#webpages">Webpages</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="#contact" role="menuitem">Contacto</a></li>
             </ul>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -624,8 +656,8 @@
                 </div>
             </section>
 
-            <!-- Projects Section -->
-            <section id="projects" class="section">
+            <!-- Proyectos Destacados Section -->
+            <section id="proyectos-destacados" class="section">
                 <h2 class="section-title">Proyectos Destacados</h2>
                 
                 <!-- Cursos Section -->
@@ -741,8 +773,12 @@
                         </a>
                     </div>
                 </div>
+            </section>
 
-                <!-- Technical Projects Section -->
+            <!-- Proyectos Técnicos Section -->
+            <section id="proyectos-tecnicos" class="section">
+                <h2 class="section-title">Proyectos Técnicos</h2>
+                
                 <div class="project-category">
                     <h3><i class="fas fa-code"></i> Proyectos Técnicos</h3>
                     <div class="projects-grid">
@@ -1028,6 +1064,52 @@
                 </div>
             </section>
 
+            <!-- Unreal Games Section -->
+            <section id="unreal-games" class="section">
+                <h2 class="section-title">Unreal Games</h2>
+                
+                <div class="project-category">
+                    <div class="itch-embed-container">
+                        <iframe 
+                            frameborder="0" 
+                            src="https://itch.io/embed/4176620" 
+                            width="552" 
+                            height="167"
+                            class="itch-iframe"
+                            title="Cursed Cemetery - Unreal Engine Game">
+                            <a href="https://frodygr.itch.io/cursed-cementery">Cursed Cementery by Frody Greyash</a>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Webpages Section -->
+            <section id="webpages" class="section">
+                <h2 class="section-title">Webpages</h2>
+                
+                <div class="project-category">
+                    <div class="projects-grid">
+                        <a href="https://www.ibestan.net" class="project-card" target="_blank" rel="noopener noreferrer">
+                            <div class="project-image">
+                                <img src="https://ibestan.net/images/logo.png" alt="Ibestan - Página Web" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1006/1006771.png'">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Ibestan</h3>
+                                <p>Iberica de estanqueidad</p>
+                                <div class="project-tags">
+                                    <span class="tag">Web Development</span>
+                                    <span class="tag">Diseño Web</span>
+                                    <span class="tag">Responsive</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             <!-- Contact Section -->
             <section id="contact" class="section">
                 <h2 class="section-title">Contacto</h2>
@@ -1163,8 +1245,13 @@
         </div>
     </main>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
@@ -1255,6 +1342,20 @@
                             behavior: 'smooth',
                             block: 'start'
                         });
+                        
+                        // Close mobile menu if open
+                        if (navLinks && navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            if (mobileMenuBtn) {
+                                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                        
+                        // Close dropdown on mobile
+                        if (dropdown && window.innerWidth <= 768) {
+                            dropdown.classList.remove('active');
+                        }
                     }
                 });
             });
@@ -1265,7 +1366,69 @@
             
             if (mobileMenuBtn && navLinks) {
                 mobileMenuBtn.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
+                    const isActive = navLinks.classList.toggle('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', isActive);
+                    mobileMenuBtn.innerHTML = isActive 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+                
+                // Close menu when clicking on a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+            }
+
+            // Dropdown menu functionality
+            const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+            const dropdown = document.querySelector('.nav-item-dropdown');
+            
+            if (dropdownToggle && dropdown) {
+                // Desktop: hover behavior
+                if (window.innerWidth > 768) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        dropdown.classList.add('active');
+                    });
+                    
+                    dropdown.addEventListener('mouseleave', () => {
+                        dropdown.classList.remove('active');
+                    });
+                } else {
+                    // Mobile: click behavior
+                    dropdownToggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                }
+            }
+
+            // Scroll to top button
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            if (scrollToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
+                    }
+                });
+
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 });
             }
         });
