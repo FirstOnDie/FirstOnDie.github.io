@@ -155,6 +155,27 @@ searchInput.addEventListener('keypress', (e) => {
     }
 });
 
+// Tab Switching Logic
+const tabs = document.querySelectorAll('.UnderlineNav-item');
+const tabPanes = document.querySelectorAll('.tab-pane');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Remove active state from all tabs and panes
+        tabs.forEach(t => t.classList.remove('selected'));
+        tabPanes.forEach(p => p.classList.add('hidden'));
+
+        // Activate the clicked tab and its corresponding pane
+        tab.classList.add('selected');
+        const targetId = tab.getAttribute('data-target');
+        if (targetId) {
+            document.getElementById(targetId).classList.remove('hidden');
+        }
+    });
+});
+
 // Initial Load
 document.addEventListener('DOMContentLoaded', () => {
     renderDashboard('FirstOnDie');
