@@ -85,82 +85,88 @@
                 <!-- Underline Nav -->
                 <nav class="UnderlineNav mb-4">
                     <div class="UnderlineNav-body">
-                        <a href="#" class="UnderlineNav-item selected" aria-current="page">
+                        <a href="#" class="UnderlineNav-item selected" aria-current="page"
+                            data-target="overview-content">
                             <i class="fas fa-book-open"></i> Overview
                         </a>
-                        <a href="#" class="UnderlineNav-item">
+                        <a href="#" class="UnderlineNav-item" data-target="analytics-content">
                             <i class="fas fa-chart-line"></i> Analytics
                         </a>
                     </div>
                 </nav>
 
-                <!-- Contributions Heatmap Vector Graphic -->
-                <div class="position-relative border color-border-default rounded-2 p-3 mb-4">
-                    <h2 class="f4 text-normal mb-2 d-flex flex-justify-between">
-                        <span>Contribution Graph</span>
-                        <span class="text-small color-fg-muted" id="heatmapYear">Current Year</span>
-                    </h2>
-                    <div class="heatmap-container overflow-hidden d-flex flex-justify-center" id="heatmapWrapper">
-                        <!-- SVG image injected here to prevent Math/CORS errors -->
-                        <img id="heatmapImage" src="" alt="GitHub Contributions Heatmap" class="width-full">
-                    </div>
-                </div>
-
-                <!-- Pinned Repos / Key Metrics Grid -->
-                <div class="d-flex flex-wrap flex-justify-between gutter-condensed mb-4">
-                    <div class="col-12 col-md-6 mb-3 pr-md-2" style="width: 48%;">
-                        <div class="Box Box--condensed d-flex flex-column height-full">
-                            <div class="Box-header">
-                                <h3 class="Box-title">Top Languages</h3>
-                            </div>
-                            <div class="Box-body d-flex flex-items-center flex-justify-center"
-                                style="min-height: 250px;">
-                                <canvas id="languagesChart" width="300" height="200"></canvas>
-                            </div>
+                <!-- TAB CONTENT: OVERVIEW -->
+                <div id="overview-content" class="tab-pane active">
+                    <!-- Contributions Heatmap Vector Graphic -->
+                    <div class="position-relative border color-border-default rounded-2 p-3 mb-4">
+                        <h2 class="f4 text-normal mb-2 d-flex flex-justify-between">
+                            <span>Contribution Graph</span>
+                            <span class="text-small color-fg-muted" id="heatmapYear">Current Year</span>
+                        </h2>
+                        <div class="heatmap-container overflow-hidden d-flex flex-justify-center" id="heatmapWrapper">
+                            <!-- SVG image injected here to prevent Math/CORS errors -->
+                            <img id="heatmapImage" src="" alt="GitHub Contributions Heatmap" class="width-full">
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 mb-3 pl-md-2" style="width: 48%;">
-                        <div class="Box Box--condensed d-flex flex-column height-full">
-                            <div class="Box-header">
-                                <h3 class="Box-title">Most Starred Repositories</h3>
+
+                    <!-- TAB CONTENT: ANALYTICS -->
+                    <div id="analytics-content" class="tab-pane hidden">
+                        <!-- Pinned Repos / Key Metrics Grid -->
+                        <div class="d-flex flex-wrap flex-justify-between gutter-condensed mb-4">
+                            <div class="col-12 col-md-6 mb-3 pr-md-2" style="width: 48%;">
+                                <div class="Box Box--condensed d-flex flex-column height-full">
+                                    <div class="Box-header">
+                                        <h3 class="Box-title">Top Languages</h3>
+                                    </div>
+                                    <div class="Box-body d-flex flex-items-center flex-justify-center"
+                                        style="min-height: 250px;">
+                                        <canvas id="languagesChart" width="300" height="200"></canvas>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="Box-body d-flex flex-items-center flex-justify-center"
-                                style="min-height: 250px;">
-                                <canvas id="reposChart" width="300" height="200"></canvas>
+                            <div class="col-12 col-md-6 mb-3 pl-md-2" style="width: 48%;">
+                                <div class="Box Box--condensed d-flex flex-column height-full">
+                                    <div class="Box-header">
+                                        <h3 class="Box-title">Most Starred Repositories</h3>
+                                    </div>
+                                    <div class="Box-body d-flex flex-items-center flex-justify-center"
+                                        style="min-height: 250px;">
+                                        <canvas id="reposChart" width="300" height="200"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Statistical Summary -->
-                <div class="border color-border-default rounded-2 p-3">
-                    <h2 class="f4 text-normal mb-3">Overall Impact</h2>
-                    <div class="d-flex flex-wrap mb-2">
-                        <div class="col-4 d-flex flex-column flex-items-center mb-3">
-                            <i class="fas fa-star color-fg-muted mb-1 fa-2x"></i>
-                            <span class="f2 text-bold color-fg-default" id="statStars">0</span>
-                            <span class="text-small color-fg-muted">Total Stars</span>
-                        </div>
-                        <div class="col-4 d-flex flex-column flex-items-center mb-3">
-                            <i class="fas fa-code-branch color-fg-muted mb-1 fa-2x"></i>
-                            <span class="f2 text-bold color-fg-default" id="statForks">0</span>
-                            <span class="text-small color-fg-muted">Total Forks</span>
-                        </div>
-                        <div class="col-4 d-flex flex-column flex-items-center mb-3">
-                            <i class="fas fa-history color-fg-muted mb-1 fa-2x"></i>
-                            <span class="f2 text-bold color-fg-default" id="statCommitsFallback">N/A</span>
-                            <span class="text-small color-fg-muted">Recent Commits</span>
+                    <!-- Statistical Summary -->
+                    <div class="border color-border-default rounded-2 p-3">
+                        <h2 class="f4 text-normal mb-3">Overall Impact</h2>
+                        <div class="d-flex flex-wrap mb-2">
+                            <div class="col-4 d-flex flex-column flex-items-center mb-3">
+                                <i class="fas fa-star color-fg-muted mb-1 fa-2x"></i>
+                                <span class="f2 text-bold color-fg-default" id="statStars">0</span>
+                                <span class="text-small color-fg-muted">Total Stars</span>
+                            </div>
+                            <div class="col-4 d-flex flex-column flex-items-center mb-3">
+                                <i class="fas fa-code-branch color-fg-muted mb-1 fa-2x"></i>
+                                <span class="f2 text-bold color-fg-default" id="statForks">0</span>
+                                <span class="text-small color-fg-muted">Total Forks</span>
+                            </div>
+                            <div class="col-4 d-flex flex-column flex-items-center mb-3">
+                                <i class="fas fa-history color-fg-muted mb-1 fa-2x"></i>
+                                <span class="f2 text-bold color-fg-default" id="statCommitsFallback">N/A</span>
+                                <span class="text-small color-fg-muted">Recent Commits</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div> <!-- /Content Area -->
-        </div> <!-- /Layout-main -->
-    </div>
+                </div> <!-- /Content Area -->
+            </div> <!-- /Layout-main -->
+        </div>
 
-    <!-- Scripts -->
-    <script src="js/github-api.js"></script>
-    <script src="js/app.js"></script>
+        <!-- Scripts -->
+        <script src="js/github-api.js"></script>
+        <script src="js/app.js"></script>
 </body>
 
 </html>
