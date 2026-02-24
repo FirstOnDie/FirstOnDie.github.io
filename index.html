@@ -1,724 +1,1437 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a192f">
-    <title>Carlos Expósito — Desarrollador Full Stack</title>
-    <meta name="description"
-        content="Portafolio profesional de Carlos Expósito, desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud.">
-    <meta name="keywords"
-        content="desarrollador, programador, Java, Python, JavaScript, Full Stack, cloud, AWS, Azure, GCP">
+    <title>Carlos Expósito - Desarrollador Full Stack | Portafolio Profesional</title>
+    <meta name="description" content="Portafolio profesional de Carlos Expósito, desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud. Proyectos, cursos y experiencia profesional.">
+    <meta name="keywords" content="desarrollador, programador, Java, Python, JavaScript, Full Stack, cloud, AWS, Azure, GCP">
     <meta name="author" content="Carlos Expósito">
-
-    <!-- Open Graph -->
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://firstondoe.github.io/">
-    <meta property="og:title" content="Carlos Expósito — Desarrollador Full Stack">
-    <meta property="og:description"
-        content="Portafolio profesional de Carlos Expósito, desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud.">
-    <meta property="og:image"
-        content="https://media.licdn.com/dms/image/v2/D4D03AQF4CULpdXIraw/profile-displayphoto-shrink_800_800/B4DZcMvz2GIAAc-/0/1748265549648?e=1755129600&v=beta&t=E7mVxTP3wBL4sV6YWYQNstvw3Exn6NzCYwXgScs_Gh0">
+    <meta property="og:title" content="Carlos Expósito - Desarrollador Full Stack">
+    <meta property="og:description" content="Portafolio profesional de Carlos Expósito, desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud.">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D03AQF4CULpdXIraw/profile-displayphoto-shrink_800_800/B4DZcMvz2GIAAc-/0/1748265549648?e=1755129600&v=beta&t=E7mVxTP3wBL4sV6YWYQNstvw3Exn6NzCYwXgScs_Gh0">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://firstondoe.github.io/">
-    <meta property="twitter:title" content="Carlos Expósito — Desarrollador Full Stack">
-    <meta property="twitter:description"
-        content="Portafolio profesional de Carlos Expósito, desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud.">
+    <meta property="twitter:title" content="Carlos Expósito - Desarrollador Full Stack">
+    <meta property="twitter:description" content="Portafolio profesional de Carlos Expósito, desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud.">
+    <meta property="twitter:image" content="https://media.licdn.com/dms/image/v2/D4D03AQF4CULpdXIraw/profile-displayphoto-shrink_800_800/B4DZcMvz2GIAAc-/0/1748265549648?e=1755129600&v=beta&t=E7mVxTP3wBL4sV6YWYQNstvw3Exn6NzCYwXgScs_Gh0">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
-
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+    
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Carlos Expósito",
+        "jobTitle": "Desarrollador Full Stack",
+        "url": "https://firstondoe.github.io/",
+        "sameAs": [
+            "https://www.linkedin.com/in/carlos-exposito-ceballo",
+            "https://github.com/FirstOnDie"
+        ],
+        "email": "carlos.cjec@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Barcelona",
+            "addressCountry": "ES"
+        }
+    }
+    </script>
 </head>
-
 <body>
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" role="progressbar" aria-label="Progreso de scroll" aria-valuemin="0" aria-valuemax="100">
+        <div class="scroll-progress"></div>
+    </div>
 
-    <!-- Mobile Nav -->
-    <nav class="mobile-nav" id="mobileNav">
-        <a href="#" class="mobile-logo">CE</a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#about">Sobre Mí</a>
-            <a href="#experience">Experiencia</a>
-            <a href="#skills">Habilidades</a>
-            <a href="#projects">Proyectos</a>
-            <a href="#contact">Contacto</a>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" aria-label="Inicio - Carlos Expósito">Carlos Expósito</a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">Sobre Mí</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Experiencia</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Habilidades</a></li>
+                <li role="none" class="nav-item-dropdown">
+                    <a href="#proyectos-destacados" role="menuitem" class="nav-dropdown-toggle">
+                        Proyectos
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="#proyectos-destacados">Proyectos Destacados</a></li>
+                        <li><a href="#proyectos-tecnicos">Proyectos Técnicos</a></li>
+                        <li><a href="#live-projects">Live Projects</a></li>
+                        <li><a href="#unreal-games">Unreal Games</a></li>
+                        <li><a href="#webpages">Webpages</a></li>
+                    </ul>
+                </li>
+                <li role="none"><a href="#contact" role="menuitem">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <div class="layout">
-        <!-- ========== LEFT PANEL (Sticky) ========== -->
-        <header class="sidebar">
-            <div class="sidebar-content">
-                <div class="sidebar-top">
-                    <div class="avatar-wrap">
-                        <img src="foto.jpeg" alt="Carlos Expósito" class="avatar">
-                        <span class="avatar-status"></span>
-                    </div>
-                    <h1 class="name">Carlos Expósito</h1>
-                    <h2 class="role">Senior Full Stack Developer</h2>
-                    <p class="tagline">Construyo soluciones escalables con Java, Python y JavaScript que transforman
-                        ideas en productos reales.</p>
-
-                    <nav class="nav-links" id="navLinks">
-                        <a href="#about" class="nav-link active" data-target="about">
-                            <span class="nav-indicator"></span>
-                            <span class="nav-text">Sobre Mí</span>
-                        </a>
-                        <a href="#experience" class="nav-link" data-target="experience">
-                            <span class="nav-indicator"></span>
-                            <span class="nav-text">Experiencia</span>
-                        </a>
-                        <a href="#skills" class="nav-link" data-target="skills">
-                            <span class="nav-indicator"></span>
-                            <span class="nav-text">Habilidades</span>
-                        </a>
-                        <a href="#projects" class="nav-link" data-target="projects">
-                            <span class="nav-indicator"></span>
-                            <span class="nav-text">Proyectos</span>
-                        </a>
-                        <a href="#contact" class="nav-link" data-target="contact">
-                            <span class="nav-indicator"></span>
-                            <span class="nav-text">Contacto</span>
-                        </a>
-                    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                    <i class="fas fa-code"></i>
+                <span>Desarrollador Full Stack</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Hola, soy</span>
+                <span class="title-name">Carlos Expósito</span>
+                <span class="title-role">Desarrollador Full Stack</span>
+            </h1>
+            <p class="hero-description">
+                Especializado en <strong>Java</strong>, <strong>Python</strong>, <strong>JavaScript</strong> y tecnologías cloud. 
+                Apasionado por crear soluciones tecnológicas innovadoras que transforman ideas en realidad digital.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-text">Años de experiencia</span>
                 </div>
-
-                <div class="sidebar-bottom">
-                    <div class="social-links">
-                        <a href="https://github.com/FirstOnDie" target="_blank" aria-label="GitHub"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/carlos-exposito-ceballo" target="_blank"
-                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:carlos.cjec@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
+                <div class="hero-stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-text">Proyectos completados</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-text">Tecnologías dominadas</span>
                 </div>
             </div>
-        </header>
+            <div class="hero-scroll">
+                <span>Descubre más</span>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- ========== RIGHT CONTENT (Scrollable) ========== -->
-        <main class="content" id="content">
-
-            <!-- ABOUT -->
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- About Section -->
             <section id="about" class="section">
-                <h2 class="section-label"><span>01.</span> Sobre Mí</h2>
-                <div class="about-text">
-                    <p>Soy un apasionado desarrollador Full Stack con <strong>más de 8 años de experiencia</strong>
-                        creando soluciones tecnológicas innovadoras. Especializado en <strong>Java</strong>,
-                        <strong>Python</strong>, <strong>JavaScript</strong> y tecnologías cloud.
-                    </p>
-                    <p>Graduado en <strong>Ingeniería Informática</strong> por la <a href="https://www.uoc.edu"
-                            target="_blank">Universitat Oberta de Catalunya (UOC)</a>, comencé a programar a los 14 años
-                        desarrollando mi primera aplicación a los 16.</p>
-                    <p>He trabajado en múltiples sectores — robótica, logística automatizada, desarrollo web, sistemas
-                        de información — siempre aplicando buenas prácticas, metodologías ágiles y arquitecturas
-                        escalables.</p>
-                </div>
-
-                <div class="stats-row">
-                    <div class="stat-card">
-                        <span class="stat-num">8+</span>
-                        <span class="stat-lbl">Años exp.</span>
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="about-content">
+                    <!-- Hero About Card -->
+                    <div class="about-hero">
+                        <div class="about-hero-content">
+                        <div class="about-intro">
+                                <div class="intro-badge">
+                                    <i class="fas fa-code"></i>
+                                    <span>Desarrollador Full Stack</span>
+                                </div>
+                                <h3>¡Hola! Soy Carlos Expósito 👋</h3>
+                                <p class="intro-description">
+                                    Un apasionado desarrollador Full Stack con más de 8 años de experiencia creando 
+                                    soluciones tecnológicas innovadoras. Especializado en Java, Python, JavaScript 
+                                    y tecnologías cloud. Graduado en Ingeniería Informática por la UOC, 
+                                    siempre buscando desafíos que me permitan crecer y aportar valor real a los proyectos.
+                                </p>
+                                <div class="intro-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number">8+</span>
+                                        <span class="stat-label">Años de experiencia</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">50+</span>
+                                        <span class="stat-label">Proyectos completados</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">15+</span>
+                                        <span class="stat-label">Tecnologías dominadas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-image">
+                            <div class="image-container">
+                                <img src="foto.jpeg" alt="Carlos Expósito" class="floating">
+                                <div class="image-decoration"></div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    <!-- Journey Timeline -->
+                    <div class="journey-section">
+                        <h3 class="journey-title">
+                            <i class="fas fa-route"></i>
+                            Mi Trayectoria
+                        </h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Formación Académica</h4>
+                                    <p class="timeline-date">2019 - 2024</p>
+                                    <p>Graduado en Ingeniería Informática por la Universitat Oberta de Catalunya (UOC). 
+                                       Formación sólida en fundamentos de programación, algoritmos y arquitectura de software.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Primeros Pasos en Programación</h4>
+                                    <p class="timeline-date">Desde los 14 años</p>
+                                    <p>Apasionado de la programación desde muy joven. Comencé con Java y Python, 
+                                       desarrollando mi primera aplicación a los 16 años y descubriendo mi vocación.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Experiencia Profesional</h4>
+                                    <p class="timeline-date">2014 - Presente</p>
+                                    <p>He trabajado en múltiples sectores: robótica, desarrollo web, sistemas de información. 
+                                       Siempre aplicando buenas prácticas, metodologías ágiles y arquitecturas escalables.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-num">50+</span>
-                        <span class="stat-lbl">Proyectos</span>
+                    
+                    <!-- Values & Philosophy -->
+                    <div class="values-section">
+                        <h3 class="values-title">
+                                <i class="fas fa-heart"></i>
+                            Mis Valores
+                        </h3>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h4>Innovación</h4>
+                                <p>Siempre busco las mejores soluciones tecnológicas, explorando nuevas herramientas y metodologías para resolver problemas de manera eficiente.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Colaboración</h4>
+                                <p>Creo firmemente en el trabajo en equipo y en la importancia de compartir conocimientos para lograr objetivos comunes.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Excelencia</h4>
+                                <p>Me esfuerzo por entregar código de alta calidad, siguiendo las mejores prácticas y manteniendo estándares profesionales.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-book"></i>
+                        </div>
+                                <h4>Aprendizaje Continuo</h4>
+                                <p>La tecnología evoluciona constantemente, y yo evoluciono con ella. Siempre aprendiendo y mejorando mis habilidades.</p>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-num">15+</span>
-                        <span class="stat-lbl">Tecnologías</span>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Seguridad y Calidad</h4>
+                                <p>Priorizo la seguridad en el desarrollo de software, implementando las mejores prácticas y manteniendo estándares de calidad excepcionales.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Compromiso</h4>
+                                <p>Me comprometo completamente con cada proyecto, entregando resultados que superen las expectativas y generen valor real.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-num">30+</span>
-                        <span class="stat-lbl">Países</span>
-                    </div>
-                </div>
-
-                <!-- Values inline -->
-                <div class="values-strip">
-                    <div class="value-chip"><i class="fas fa-lightbulb"></i> Innovación</div>
-                    <div class="value-chip"><i class="fas fa-users"></i> Colaboración</div>
-                    <div class="value-chip"><i class="fas fa-rocket"></i> Excelencia</div>
-                    <div class="value-chip"><i class="fas fa-book"></i> Aprendizaje continuo</div>
-                    <div class="value-chip"><i class="fas fa-shield-alt"></i> Seguridad</div>
-                    <div class="value-chip"><i class="fas fa-handshake"></i> Compromiso</div>
                 </div>
             </section>
 
-            <!-- EXPERIENCE -->
+            <!-- Experience Section -->
             <section id="experience" class="section">
-                <h2 class="section-label"><span>02.</span> Experiencia</h2>
-
-                <div class="exp-list">
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">Abr 2025 — Presente</div>
-                        <div class="exp-body">
-                            <h3>Senior Software Developer <span class="exp-dot">·</span> <span class="exp-company">UST
-                                    España & Latam</span></h3>
-                            <p class="exp-location">Barcelona · Remoto</p>
-                            <p>Desarrollo de aplicaciones empresariales escalables con arquitecturas de microservicios.
-                                Colaboración en equipos internacionales aplicando mejores prácticas de desarrollo.</p>
-                            <div class="tag-row">
-                                <span class="tag">Java</span><span class="tag">Spring Boot</span><span
-                                    class="tag">Microservicios</span><span class="tag">AWS</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">May 2023 — Ene 2025</div>
-                        <div class="exp-body">
-                            <h3>Tech Lead <span class="exp-dot">·</span> <span class="exp-company">S2 Grupo</span></h3>
-                            <p class="exp-location">Barcelona · Remoto</p>
-                            <p>Liderazgo técnico de equipo de 6 personas. Gestión de bases de datos relacionales y no
-                                relacionales. Desarrollo y planificación de tests CI/CD, cobertura y regresión.</p>
-                            <div class="tag-row">
-                                <span class="tag">Jenkins</span><span class="tag">Elasticsearch</span><span
-                                    class="tag">Arq. Hexagonal</span><span class="tag">PostgreSQL</span><span
-                                    class="tag">Spring Security</span><span class="tag">SonarQube</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">Ene — May 2023</div>
-                        <div class="exp-body">
-                            <h3>Tech Lead <span class="exp-dot">·</span> <span class="exp-company">Selectra</span></h3>
-                            <p class="exp-location">Madrid · Híbrido</p>
-                            <p>Liderazgo técnico en proyectos del sector energético. Gestión de equipos de desarrollo e
-                                implementación de arquitecturas escalables.</p>
-                            <div class="tag-row">
-                                <span class="tag">Java</span><span class="tag">Oracle DB</span><span
-                                    class="tag">PostgreSQL</span><span class="tag">Git</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">Feb 2020 — Ene 2023</div>
-                        <div class="exp-body">
-                            <h3>Analista Sénior <span class="exp-dot">·</span> <span class="exp-company">Dematic</span>
-                            </h3>
-                            <p class="exp-location">Madrid</p>
-                            <p>Análisis y desarrollo de sistemas de automatización logística. Implementación de
-                                soluciones para almacenes automatizados con colaboración internacional.</p>
-                            <div class="tag-row">
-                                <span class="tag">Oracle DB</span><span class="tag">Spring Boot</span><span
-                                    class="tag">JPA</span><span class="tag">Spring Security</span><span
-                                    class="tag">Java</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">Sep 2017 — Feb 2020</div>
-                        <div class="exp-body">
-                            <h3>Software System Engineer <span class="exp-dot">·</span> <span class="exp-company">KNAPP
-                                    Logistics</span></h3>
-                            <p class="exp-location">Madrid</p>
-                            <p>Instalación y configuración de software logístico para clientes en más de 30 países.
-                                Cooperación con departamentos en Austria y formación de clientes.</p>
-                            <div class="tag-row">
-                                <span class="tag">Oracle DB</span><span class="tag">Java</span><span class="tag">Spring
-                                    Boot</span><span class="tag">Unix</span><span class="tag">Bash</span><span
-                                    class="tag">C</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">Jul 2016 — Jul 2017</div>
-                        <div class="exp-body">
-                            <h3>Programador <span class="exp-dot">·</span> <span class="exp-company">Prakmatic</span>
-                            </h3>
-                            <p class="exp-location">Madrid</p>
-                            <p>DevOps en Telefónica. Desarrollo web con HTML, CSS, PHP, JavaScript, AJAX. Participación
-                                en reuniones Scrum y desarrollo ágil.</p>
-                            <div class="tag-row">
-                                <span class="tag">HTML/CSS</span><span class="tag">PHP</span><span
-                                    class="tag">JavaScript</span><span class="tag">MySQL</span><span
-                                    class="tag">DevOps</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="exp-card" href="#experience">
-                        <div class="exp-date">Mar 2014 — Oct 2015</div>
-                        <div class="exp-body">
-                            <h3>IT Technician <span class="exp-dot">·</span> <span class="exp-company">ANSON grupo
-                                    MICROMA</span></h3>
-                            <p class="exp-location">Madrid</p>
-                            <p>Atención al público, soporte técnico, mantenimiento de software para clientes y formación
-                                en nuevos sistemas.</p>
-                            <div class="tag-row">
-                                <span class="tag">Soporte Técnico</span><span class="tag">Hardware</span><span
-                                    class="tag">Formación</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Education -->
-                <h3 class="subsection-title">Formación</h3>
-                <div class="edu-row">
-                    <div class="edu-card">
-                        <span class="edu-year">2019 — 2024</span>
-                        <h4>Ingeniería Informática</h4>
-                        <p>Universitat Oberta de Catalunya (UOC)</p>
+                <h2 class="section-title">Experiencia Profesional</h2>
+                <div class="experience-content">
+                    <div class="experience-intro">
+                        <p>Mi trayectoria profesional se ha desarrollado en diversos sectores, desde la logística automatizada hasta el desarrollo de software empresarial, liderando equipos técnicos y aplicando las mejores prácticas de desarrollo ágil.</p>
                     </div>
-                    <div class="edu-card">
-                        <span class="edu-year">2012 — 2014</span>
-                        <h4>CFGS Admin. Sistemas Informáticos en Red</h4>
-                        <p>IES Albarregas</p>
+                    
+                    <div class="experience-timeline">
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">Abr 2025 - Presente</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>Senior Software Developer</h3>
+                                <p class="company">UST España & Latam</p>
+                                <p class="location">Barcelona, España · Remoto</p>
+                                <ul class="experience-details">
+                                    <li>Desarrollo de aplicaciones empresariales escalables</li>
+                                    <li>Implementación de arquitecturas de microservicios</li>
+                                    <li>Colaboración en equipos internacionales</li>
+                                    <li>Aplicación de mejores prácticas de desarrollo</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">Microservicios</span>
+                                    <span class="tech-tag">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">May 2023 - Ene 2025</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>Tech Lead</h3>
+                                <p class="company">S2 Grupo</p>
+                                <p class="location">Barcelona, España · Remoto</p>
+                                <ul class="experience-details">
+                                    <li>Liderazgo técnico de equipo de 6 personas</li>
+                                    <li>Desarrollo de aplicaciones empresariales y participación en Sprint Plannings/Reviews</li>
+                                    <li>Gestión de bases de datos relacionales y no relacionales</li>
+                                    <li>Resolución de incidencias de nivel 2 y 3, sesiones formativas a clientes</li>
+                                    <li>Desarrollo y planificación de tests CI/CD, cobertura y regresión</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Jenkins</span>
+                                    <span class="tech-tag">Elasticsearch</span>
+                                    <span class="tech-tag">Arquitectura hexagonal</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">Spring Security</span>
+                                    <span class="tech-tag">SonarQube</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">Ene 2023 - May 2023</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>Tech Lead</h3>
+                                <p class="company">Selectra</p>
+                                <p class="location">Madrid, España · Híbrido</p>
+                                <ul class="experience-details">
+                                    <li>Liderazgo técnico en proyectos de energía</li>
+                                    <li>Desarrollo de soluciones para el sector energético</li>
+                                    <li>Gestión de equipos de desarrollo</li>
+                                    <li>Implementación de arquitecturas escalables</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Oracle Database</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">Git</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">Feb 2020 - Ene 2023</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>Analista Sénior</h3>
+                                <p class="company">Dematic</p>
+                                <p class="location">Madrid, España</p>
+                                <ul class="experience-details">
+                                    <li>Análisis y desarrollo de sistemas de automatización logística</li>
+                                    <li>Implementación de soluciones para almacenes automatizados</li>
+                                    <li>Colaboración con equipos internacionales</li>
+                                    <li>Desarrollo de aplicaciones empresariales</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Oracle Database</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">JPA</span>
+                                    <span class="tech-tag">Spring Security</span>
+                                    <span class="tech-tag">Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">Sep 2017 - Feb 2020</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>Software System Engineer</h3>
+                                <p class="company">KNAPP Logistics Automation Inc.</p>
+                                <p class="location">Madrid, España</p>
+                                <ul class="experience-details">
+                                    <li>Instalación y configuración de sistemas de software logístico en instalaciones de clientes</li>
+                                    <li>Programación de personalizaciones y configuraciones de software</li>
+                                    <li>Trabajo en proyectos con clientes en más de 30 países</li>
+                                    <li>Cooperación con departamentos ubicados en Austria</li>
+                                    <li>Formación y soporte de clientes en software y logística</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Oracle Database</span>
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">Unix Server</span>
+                                    <span class="tech-tag">Bash</span>
+                                    <span class="tech-tag">PSQL</span>
+                                    <span class="tech-tag">C</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">Jul 2016 - Jul 2017</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>Programador</h3>
+                                <p class="company">Prakmatic</p>
+                                <p class="location">Madrid, España</p>
+                                <ul class="experience-details">
+                                    <li>DevOps en Telefónica</li>
+                                    <li>Desarrollo web con HTML, CSS, PHP, JavaScript, AJAX</li>
+                                    <li>Participación en reuniones Scrum</li>
+                                    <li>Desarrollo ágil de aplicaciones</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">HTML/CSS</span>
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">AJAX</span>
+                                    <span class="tech-tag">MySQL</span>
+                                    <span class="tech-tag">DevOps</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-period">
+                                <span class="period-badge">Mar 2014 - Oct 2015</span>
+                            </div>
+                            <div class="experience-content-item">
+                                <h3>IT Technician</h3>
+                                <p class="company">ANSON grupo MICROMA</p>
+                                <p class="location">Madrid, España</p>
+                                <ul class="experience-details">
+                                    <li>Atención al público y soporte técnico</li>
+                                    <li>Mantenimiento de software para clientes</li>
+                                    <li>Técnico de hardware</li>
+                                    <li>Formación de clientes en nuevos sistemas</li>
+                                </ul>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Soporte Técnico</span>
+                                    <span class="tech-tag">Hardware</span>
+                                    <span class="tech-tag">Software</span>
+                                    <span class="tech-tag">Formación</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="certifications-section">
+                        <h3 class="certifications-title">
+                            <i class="fas fa-certificate"></i>
+                            Certificaciones y Logros
+                        </h3>
+                        <div class="certifications-grid">
+
+                            <div class="certification-item">
+                                <div class="cert-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4>CFGS Administración de Sistemas Informáticos en Red</h4>
+                                <p>IES Albarregas</p>
+                                <span class="cert-year">2014</span>
+                            </div>
+
+                            <div class="certification-item">
+                                <div class="cert-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4>Ingeniería Informática</h4>
+                                <p>Universitat Oberta de Catalunya (UOC)</p>
+                                <span class="cert-year">2020</span>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SKILLS -->
+            <!-- Skills Section -->
             <section id="skills" class="section">
-                <h2 class="section-label"><span>03.</span> Habilidades</h2>
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                
+                <div class="skills-categories">
+                    <!-- Programming Languages -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Lenguajes de Programación</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <a href="https://www.java.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/java-original-wordmark.svg" alt="Java">
+                                    <h4>Java</h4>
+                                    <span class="skill-level">Experto</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://www.python.org/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python">
+                                    <h4>Python</h4>
+                                    <span class="skill-level">Avanzado</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://www.javascript.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript">
+                                    <h4>JavaScript</h4>
+                                    <span class="skill-level">Avanzado</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="skills-block">
-                    <h3 class="skills-heading"><i class="fas fa-code"></i> Lenguajes</h3>
-                    <div class="skills-flex">
-                        <a href="https://www.java.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/java-original-wordmark.svg"
-                                alt="Java"> Java
-                        </a>
-                        <a href="https://www.python.org/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python">
-                            Python
-                        </a>
-                        <a href="https://www.javascript.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg"
-                                alt="JavaScript"> JavaScript
-                        </a>
+                    <!-- Frameworks & Libraries -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Frameworks y Librerías</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <a href="https://spring.io/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/springio-icon.svg" alt="Spring">
+                                    <h4>Spring</h4>
+                                    <span class="skill-level">Experto</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://reactjs.org/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React">
+                                    <h4>React</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://nodejs.org/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" alt="Node.js">
+                                    <h4>Node.js</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cloud"></i> Cloud y DevOps</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <a href="https://aws.amazon.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/amazonwebservices-original-wordmark.svg" alt="AWS">
+                                    <h4>AWS</h4>
+                                    <span class="skill-level">Avanzado</span>
+                                </a>
+                            </div>
+
+                            <div class="skill-item">
+                                <a href="https://cloud.google.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/google_cloud-icon.svg" alt="GCP">
+                                    <h4>GCP</h4>
+                                    <span class="skill-level">Básico</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://www.docker.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/docker-original-wordmark.svg" alt="Docker">
+                                    <h4>Docker</h4>
+                                    <span class="skill-level">Avanzado</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://kubernetes.io/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/kubernetes-icon.svg" alt="Kubernetes">
+                                    <h4>Kubernetes</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <a href="https://www.mysql.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="MySQL">
+                                    <h4>MySQL</h4>
+                                    <span class="skill-level">Avanzado</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://www.mongodb.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/mongodb-original-wordmark.svg" alt="MongoDB">
+                                    <h4>MongoDB</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://www.postgresql.org/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/postgresql-original-wordmark.svg" alt="PostgreSQL">
+                                    <h4>PostgreSQL</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="skill-category">
+                        <h3><i class="fas fa-wrench"></i> Herramientas de Desarrollo</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <a href="https://git-scm.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git">
+                                    <h4>Git</h4>
+                                    <span class="skill-level">Experto</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://www.jenkins.io/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/jenkins-icon.svg" alt="Jenkins">
+                                    <h4>Jenkins</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                            <div class="skill-item">
+                                <a href="https://about.gitlab.com/" target="_blank">
+                                    <img src="https://profilinator.rishav.dev/skills-assets/gitlab.svg" alt="GitLab">
+                                    <h4>GitLab</h4>
+                                    <span class="skill-level">Intermedio</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="skills-block">
-                    <h3 class="skills-heading"><i class="fas fa-tools"></i> Frameworks</h3>
-                    <div class="skills-flex">
-                        <a href="https://spring.io/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/springio-icon.svg" alt="Spring">
-                            Spring
+            <!-- Proyectos Destacados Section -->
+            <section id="proyectos-destacados" class="section">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                
+                <!-- Cursos Section -->
+                <div class="project-category">
+                    <h3><i class="fas fa-graduation-cap"></i> Cursos y Tutoriales</h3>
+                    <div class="projects-grid">
+                        <a href="https://github.com/FirstOnDie/LearnJavaWithMe/blob/main/README.md" class="project-card">
+                            <div class="project-image">
+                                <img src="https://cdn.worldvectorlogo.com/logos/java.svg" alt="Learn Java With Me">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Learn Java With Me</h3>
+                                <p>Explicación y ejemplos sobre Java en todas sus versiones. Curso completo desde básico hasta avanzado.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Tutorial</span>
+                                    <span class="tag">Educación</span>
+                                </div>
+                            </div>
                         </a>
-                        <a href="https://reactjs.org/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg"
-                                alt="React"> React
+                        
+                        <a href="https://github.com/FirstOnDie/LearnJavaWithMe/blob/main/Markdowns/28DaysJavaBasic/README.md" class="project-card">
+                            <div class="project-image">
+                                <img src="https://cdn.worldvectorlogo.com/logos/java.svg" alt="Java Básico">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Java Básico en 28 días</h3>
+                                <p>Aprende lo básico de Java en solo 28 días con ejercicios prácticos y ejemplos reales.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Básico</span>
+                                    <span class="tag">28 días</span>
+                                </div>
+                            </div>
                         </a>
-                        <a href="https://nodejs.org/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg"
-                                alt="Node.js"> Node.js
+                        
+                        <a href="https://github.com/FirstOnDie/LearnJavaWithMe/blob/main/Markdowns/28DaysJavaAdvanced/README.md" class="project-card">
+                            <div class="project-image">
+                                <img src="https://cdn.worldvectorlogo.com/logos/java.svg" alt="Java Avanzado">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Java Avanzado en 28 días</h3>
+                                <p>Profundiza en los conceptos más avanzados de Java con patrones de diseño y mejores prácticas.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Avanzado</span>
+                                    <span class="tag">Patrones</span>
+                                </div>
+                            </div>
                         </a>
-                    </div>
-                </div>
-
-                <div class="skills-block">
-                    <h3 class="skills-heading"><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                    <div class="skills-flex">
-                        <a href="https://aws.amazon.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/amazonwebservices-original-wordmark.svg"
-                                alt="AWS"> AWS
+                        
+                        <a href="https://github.com/FirstOnDie/AWSCDK-Course/blob/master/README.md" class="project-card">
+                            <div class="project-image">
+                                <img src="https://avatars.githubusercontent.com/u/75227353?s=280&v=4" alt="AWS CDK">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>AWS CDK</h3>
+                                <p>De inicio a final, todo lo que necesitas saber de AWS CDK para infraestructura como código.</p>
+                                <div class="project-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">CDK</span>
+                                    <span class="tag">Infraestructura</span>
+                                </div>
+                            </div>
                         </a>
-                        <a href="https://cloud.google.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/google_cloud-icon.svg" alt="GCP">
-                            GCP
+                        
+                        <a href="start.html" class="project-card">
+                            <div class="project-image">
+                                <img src="https://cdn-icons-png.flaticon.com/512/159/159069.png" alt="Escape Room">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Escape Room 'Código Sombrío'</h3>
+                                <p>Juego de puzzles interactivo para desarrollar habilidades de programación y lógica.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Juego</span>
+                                    <span class="tag">Puzzles</span>
+                                    <span class="tag">Interactivo</span>
+                                </div>
+                            </div>
                         </a>
-                        <a href="https://www.docker.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/docker-original-wordmark.svg"
-                                alt="Docker"> Docker
-                        </a>
-                        <a href="https://kubernetes.io/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/kubernetes-icon.svg" alt="K8s">
-                            Kubernetes
-                        </a>
-                    </div>
-                </div>
-
-                <div class="skills-block">
-                    <h3 class="skills-heading"><i class="fas fa-database"></i> Bases de Datos</h3>
-                    <div class="skills-flex">
-                        <a href="https://www.mysql.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg"
-                                alt="MySQL"> MySQL
-                        </a>
-                        <a href="https://www.mongodb.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/mongodb-original-wordmark.svg"
-                                alt="MongoDB"> MongoDB
-                        </a>
-                        <a href="https://www.postgresql.org/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/postgresql-original-wordmark.svg"
-                                alt="PostgreSQL"> PostgreSQL
-                        </a>
-                    </div>
-                </div>
-
-                <div class="skills-block">
-                    <h3 class="skills-heading"><i class="fas fa-wrench"></i> Herramientas</h3>
-                    <div class="skills-flex">
-                        <a href="https://git-scm.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git"> Git
-                        </a>
-                        <a href="https://www.jenkins.io/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/jenkins-icon.svg" alt="Jenkins">
-                            Jenkins
-                        </a>
-                        <a href="https://about.gitlab.com/" target="_blank" class="skill-chip">
-                            <img src="https://profilinator.rishav.dev/skills-assets/gitlab.svg" alt="GitLab"> GitLab
+                        
+                        <a href="start_en.html" class="project-card">
+                            <div class="project-image">
+                                <img src="https://cdn-icons-png.flaticon.com/512/159/159069.png" alt="Escape Room EN">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Escape Room 'Dark Code'</h3>
+                                <p>Interactive puzzle game to develop programming and logic skills (English version).</p>
+                                <div class="project-tags">
+                                    <span class="tag">Game</span>
+                                    <span class="tag">Puzzles</span>
+                                    <span class="tag">English</span>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
             </section>
 
-            <!-- PROJECTS -->
-            <section id="projects" class="section">
-                <h2 class="section-label"><span>04.</span> Proyectos</h2>
-
-                <h3 class="subsection-title">Cursos & Tutoriales</h3>
-                <div class="project-list">
-                    <a href="https://github.com/FirstOnDie/LearnJavaWithMe/blob/main/README.md" target="_blank"
-                        class="project-row">
-                        <div class="project-thumb"><img src="https://cdn.worldvectorlogo.com/logos/java.svg" alt="Java">
-                        </div>
-                        <div class="project-info">
-                            <h4>Learn Java With Me <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Explicación y ejemplos sobre Java en todas sus versiones. Curso completo desde básico
-                                hasta avanzado.</p>
-                            <div class="tag-row"><span class="tag">Java</span><span class="tag">Tutorial</span><span
-                                    class="tag">Educación</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/LearnJavaWithMe/blob/main/Markdowns/28DaysJavaBasic/README.md"
-                        target="_blank" class="project-row">
-                        <div class="project-thumb"><img src="https://cdn.worldvectorlogo.com/logos/java.svg" alt="Java">
-                        </div>
-                        <div class="project-info">
-                            <h4>Java Básico en 28 días <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Aprende lo básico de Java en solo 28 días con ejercicios prácticos y ejemplos reales.</p>
-                            <div class="tag-row"><span class="tag">Java</span><span class="tag">Básico</span><span
-                                    class="tag">28 días</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/LearnJavaWithMe/blob/main/Markdowns/28DaysJavaAdvanced/README.md"
-                        target="_blank" class="project-row">
-                        <div class="project-thumb"><img src="https://cdn.worldvectorlogo.com/logos/java.svg" alt="Java">
-                        </div>
-                        <div class="project-info">
-                            <h4>Java Avanzado en 28 días <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Patrones de diseño, mejores prácticas y conceptos avanzados de Java.</p>
-                            <div class="tag-row"><span class="tag">Java</span><span class="tag">Avanzado</span><span
-                                    class="tag">Patrones</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/AWSCDK-Course/blob/master/README.md" target="_blank"
-                        class="project-row">
-                        <div class="project-thumb"><img src="https://avatars.githubusercontent.com/u/75227353?s=280&v=4"
-                                alt="AWS CDK"></div>
-                        <div class="project-info">
-                            <h4>AWS CDK — Infraestructura como Código <i class="fas fa-arrow-up-right-from-square"></i>
-                            </h4>
-                            <p>De inicio a final, todo lo que necesitas saber de AWS CDK.</p>
-                            <div class="tag-row"><span class="tag">AWS</span><span class="tag">CDK</span><span
-                                    class="tag">IaC</span></div>
-                        </div>
-                    </a>
-                    <a href="start.html" class="project-row">
-                        <div class="project-thumb"><img src="https://cdn-icons-png.flaticon.com/512/159/159069.png"
-                                alt="Escape Room"></div>
-                        <div class="project-info">
-                            <h4>Escape Room 'Código Sombrío' <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Juego de puzzles interactivo para desarrollar habilidades de programación y lógica.</p>
-                            <div class="tag-row"><span class="tag">Juego</span><span class="tag">Puzzles</span><span
-                                    class="tag">Interactivo</span></div>
-                        </div>
-                    </a>
-                    <a href="start_en.html" class="project-row">
-                        <div class="project-thumb"><img src="https://cdn-icons-png.flaticon.com/512/159/159069.png"
-                                alt="Escape Room EN"></div>
-                        <div class="project-info">
-                            <h4>Escape Room 'Dark Code' (EN) <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Interactive puzzle game — English version.</p>
-                            <div class="tag-row"><span class="tag">Game</span><span class="tag">Puzzles</span><span
-                                    class="tag">English</span></div>
-                        </div>
-                    </a>
-                </div>
-
-                <h3 class="subsection-title">Proyectos Técnicos</h3>
-                <div class="project-list">
-                    <a href="https://github.com/FirstOnDie/TelegramBotAi" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fab fa-telegram"></i></div>
-                        <div class="project-info">
-                            <h4>TelegramBot AI <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Bot de Telegram con IA desde cero. Integración con APIs de IA y procesamiento de lenguaje
-                                natural.</p>
-                            <div class="tag-row"><span class="tag">Python</span><span class="tag">AI</span><span
-                                    class="tag">Telegram</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/ELK_Example" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fas fa-chart-bar"></i></div>
-                        <div class="project-info">
-                            <h4>ELK Stack <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Configuración completa de Elasticsearch, Logstash y Kibana para análisis de logs.</p>
-                            <div class="tag-row"><span class="tag">Elasticsearch</span><span
-                                    class="tag">Logstash</span><span class="tag">Kibana</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/loom-processing" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fas fa-microchip"></i></div>
-                        <div class="project-info">
-                            <h4>Loom Virtual Threads <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Comparativa entre Threads tradicionales y Virtual Threads de Java 21 con Loom.</p>
-                            <div class="tag-row"><span class="tag">Java</span><span class="tag">Loom</span><span
-                                    class="tag">Threads</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/Websocket-Example" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fas fa-comments"></i></div>
-                        <div class="project-info">
-                            <h4>Chat en Tiempo Real <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Aplicación de chat en tiempo real usando WebSockets con Spring Boot y JavaScript.</p>
-                            <div class="tag-row"><span class="tag">WebSocket</span><span class="tag">Spring
-                                    Boot</span><span class="tag">JavaScript</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/OrderNotification" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fas fa-bell"></i></div>
-                        <div class="project-info">
-                            <h4>Notificación de Pedidos <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Sistema de notificaciones con Apache Kafka para procesar pedidos en tiempo real.</p>
-                            <div class="tag-row"><span class="tag">Kafka</span><span
-                                    class="tag">Microservicios</span><span class="tag">Tiempo Real</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/BlockchainTransaction" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fas fa-link"></i></div>
-                        <div class="project-info">
-                            <h4>Transacciones Blockchain <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Implementación de transacciones blockchain con validaciones y criptografía en Java.</p>
-                            <div class="tag-row"><span class="tag">Blockchain</span><span class="tag">Java</span><span
-                                    class="tag">Criptografía</span></div>
-                        </div>
-                    </a>
-                    <a href="https://github.com/FirstOnDie/webrtc-videollamada" target="_blank" class="project-row">
-                        <div class="project-thumb"><i class="fas fa-video"></i></div>
-                        <div class="project-info">
-                            <h4>Videollamadas WebRTC <i class="fas fa-arrow-up-right-from-square"></i></h4>
-                            <p>Aplicación de videollamadas P2P usando WebRTC con Spring Boot y JavaScript.</p>
-                            <div class="tag-row"><span class="tag">WebRTC</span><span class="tag">Spring
-                                    Boot</span><span class="tag">P2P</span></div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Live Projects -->
-                <h3 class="subsection-title"><span class="live-indicator"></span> Live Projects</h3>
-                <div class="live-grid">
-                    <a href="devassistant/index.html" target="_blank" class="live-card ai-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                            <div class="live-links">
-                                <span class="live-link-icon" title="Demo"><i
-                                        class="fas fa-external-link-alt"></i></span>
+            <!-- Proyectos Técnicos Section -->
+            <section id="proyectos-tecnicos" class="section">
+                <h2 class="section-title">Proyectos Técnicos</h2>
+                
+                <div class="project-category">
+                    <h3><i class="fas fa-code"></i> Proyectos Técnicos</h3>
+                    <div class="projects-grid">
+                        <a href="https://github.com/FirstOnDie/TelegramBotAi" class="project-card">
+                            <div class="project-image">
+                                <img src="https://propuskator.com/wp-content/uploads/2021/06/upravlenie-ustrojstvami-2smart-cloud-s-pomoshhyu-telegram-bota.png" alt="TelegramBot AI">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
                             </div>
-                        </div>
-                        <h4>🐣 Codi — Tu asistente de código con IA</h4>
-                        <p>Asistente IA para desarrolladores. Explica código, genera tests y hace code review con Groq o
-                            Gemini.</p>
-                        <div class="tag-row"><span class="tag">Groq</span><span class="tag">Gemini</span><span
-                                class="tag">CodeMirror</span><span class="tag">IA</span></div>
-                    </a>
-                    <a href="devmetrics/index.html" target="_blank" class="live-card devmetrics-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                            <div class="live-links">
-                                <span class="live-link-icon" title="Demo"><i
-                                        class="fas fa-external-link-alt"></i></span>
+                            <div class="project-card-content">
+                                <h3>TelegramBot AI</h3>
+                                <p>Bot de Telegram con inteligencia artificial desde cero. Integración con APIs de IA y procesamiento de lenguaje natural.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">AI</span>
+                                    <span class="tag">Telegram</span>
+                                </div>
                             </div>
-                        </div>
-                        <h4>📊 DevMetrics — GitHub Dashboard</h4>
-                        <p>Dashboard interactivo con métricas de actividad de GitHub reales, gráficos animados y caché.
-                        </p>
-                        <div class="tag-row"><span class="tag">GitHub API</span><span class="tag">Chart.js</span><span
-                                class="tag">JavaScript</span><span class="tag">Data Viz</span></div>
-                    </a>
-                    <a href="quiz-app/index.html" target="_blank" class="live-card quiz-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                            <div class="live-links">
-                                <span class="live-link-icon" title="Demo"><i
-                                        class="fas fa-external-link-alt"></i></span>
+                        </a>
+                        
+                        <a href="https://github.com/FirstOnDie/ELK_Example" class="project-card">
+                            <div class="project-image">
+                                <img src="https://e7.pngegg.com/pngimages/675/954/png-clipart-elasticsearch-kibana-logo-logstash-business-business-people-logo.png" alt="ELK Stack">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
                             </div>
-                        </div>
-                        <h4>Knowledge Assessment Platform</h4>
-                        <p>Evaluación de conocimientos con preguntas dinámicas, análisis de rendimiento y ranking.</p>
-                        <div class="tag-row"><span class="tag">HTML5</span><span class="tag">CSS3</span><span
-                                class="tag">JavaScript</span><span class="tag">Open Trivia API</span></div>
-                    </a>
-                    <a href="microexpresiones/index.html" target="_blank" class="live-card ai-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                        </div>
-                        <h4>Microexpressions Detector</h4>
-                        <p>Detección de microexpresiones faciales usando IA en tiempo real.</p>
-                        <div class="tag-row"><span class="tag">HTML5</span><span class="tag">CSS3</span><span
-                                class="tag">JavaScript</span></div>
-                    </a>
-                    <a href="weather-app/index.html" target="_blank" class="live-card weather-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                        </div>
-                        <h4>Weather App España</h4>
-                        <p>Mapa interactivo del clima con búsqueda avanzada y marcadores interactivos.</p>
-                        <div class="tag-row"><span class="tag">Leaflet.js</span><span
-                                class="tag">OpenWeather</span><span class="tag">JavaScript</span></div>
-                    </a>
-                    <a href="movie-app/index.html" target="_blank" class="live-card movie-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                        </div>
-                        <h4>Movie Discovery</h4>
-                        <p>Descubrimiento de películas con búsqueda avanzada y recomendaciones inteligentes.</p>
-                        <div class="tag-row"><span class="tag">TMDb API</span><span class="tag">JavaScript</span></div>
-                    </a>
-                    <a href="simulator-app/index.html" target="_blank" class="live-card physics-bg">
-                        <div class="live-card-top">
-                            <span class="live-badge-sm"><span class="live-dot-sm"></span> Live</span>
-                        </div>
-                        <h4>Physics Simulator</h4>
-                        <p>Simulaciones de proyectiles, péndulo y órbitas planetarias con control de variables.</p>
-                        <div class="tag-row"><span class="tag">Canvas API</span><span class="tag">JavaScript</span>
-                        </div>
-                    </a>
+                            <div class="project-card-content">
+                                <h3>ELK Stack</h3>
+                                <p>Ejemplo de configuración completa de servicio ELK (Elasticsearch, Logstash y Kibana) para análisis de logs.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Elasticsearch</span>
+                                    <span class="tag">Logstash</span>
+                                    <span class="tag">Kibana</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/FirstOnDie/loom-processing" class="project-card">
+                            <div class="project-image">
+                                <img src="https://static-00.iconduck.com/assets.00/loom-color-icon-2048x2048-32zlq06e.png" alt="Loom">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Loom Virtual Threads</h3>
+                                <p>Proyecto comparativo entre Threads tradicionales y Virtual Threads de Java 21 con Loom.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Loom</span>
+                                    <span class="tag">Threads</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/FirstOnDie/Websocket-Example" class="project-card">
+                            <div class="project-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREZeICdDcl2EV_4M4WVj4-pOLS0fBgn8qiag&s" alt="WebSocket Chat">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Chat en Tiempo Real</h3>
+                                <p>Aplicación de chat en tiempo real usando WebSockets con Spring Boot y JavaScript.</p>
+                                <div class="project-tags">
+                                    <span class="tag">WebSocket</span>
+                                    <span class="tag">Spring Boot</span>
+                                    <span class="tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/FirstOnDie/OrderNotification" class="project-card">
+                            <div class="project-image">
+                                <img src="https://www.svgrepo.com/show/353951/kafka-icon.svg" alt="Kafka">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Notificación de Pedidos</h3>
+                                <p>Sistema de notificaciones con Apache Kafka para procesar pedidos de tienda en tiempo real.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Kafka</span>
+                                    <span class="tag">Microservicios</span>
+                                    <span class="tag">Tiempo Real</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/FirstOnDie/BlockchainTransaction" class="project-card">
+                            <div class="project-image">
+                                <img src="https://cdn-icons-png.flaticon.com/512/8757/8757988.png" alt="Blockchain">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Transacciones Blockchain</h3>
+                                <p>Implementación de transacciones blockchain con validaciones y criptografía en Java.</p>
+                                <div class="project-tags">
+                                    <span class="tag">Blockchain</span>
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Criptografía</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/FirstOnDie/webrtc-videollamada" class="project-card">
+                            <div class="project-image">
+                                <img src="https://www.svgrepo.com/show/7798/videocall.svg" alt="WebRTC">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Videollamadas WebRTC</h3>
+                                <p>Aplicación de videollamadas peer-to-peer usando WebRTC con Spring Boot y JavaScript.</p>
+                                <div class="project-tags">
+                                    <span class="tag">WebRTC</span>
+                                    <span class="tag">Spring Boot</span>
+                                    <span class="tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </section>
 
-            <!-- CONTACT -->
+            <!-- Live Projects Section -->
+            <section id="live-projects" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Live Projects</h2>
+                </div>
+                
+                <div class="live-projects-grid">
+                    <!-- Quiz App -->
+                    <article class="live-project-card">
+                        <div class="live-project-image">
+                            <div class="live-project-gradient quiz-gradient">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg-icon">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="live-badge">
+                                <span class="live-dot"></span>
+                                Live
+                            </div>
+                        </div>
+                        <div class="live-project-info">
+                            <h3>Knowledge Assessment Platform</h3>
+                            <p>Plataforma profesional de evaluación de conocimientos con preguntas dinámicas, análisis de rendimiento y ranking local. Diseño corporativo y responsive.</p>
+                            <div class="live-tech-stack">
+                                <span class="tech-pill">HTML5</span>
+                                <span class="tech-pill">CSS3</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">Open Trivia API</span>
+                            </div>
+                            <div class="live-project-links">
+                                <a href="quiz-app/index.html" class="btn-live btn-primary" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Demo</span>
+                                </a>
+                                <a href="https://github.com/FirstOnDie/FirstOnDie.github.io/tree/main/quiz-app" class="btn-live btn-secondary" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>Repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Microexpressions Detector -->
+                    <article class="live-project-card">
+                        <div class="live-project-image">
+                            <div class="live-project-gradient ai-gradient">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg-icon">
+                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="live-badge">
+                                <span class="live-dot"></span>
+                                Live
+                            </div>
+                        </div>
+                        <div class="live-project-info">
+                            <h3>Microexpressions Detector</h3>
+                            <p>Aplicación de detección de microexpresiones faciales usando inteligencia artificial. Analiza emociones en tiempo real con alta precisión.</p>
+                            <div class="live-tech-stack">
+                                <span class="tech-pill">HTML5</span>
+                                <span class="tech-pill">CSS3</span>
+                                <span class="tech-pill">JavaScript</span>
+                            </div>
+                            <div class="live-project-links">
+                                <a href="microexpresiones/index.html" class="btn-live btn-primary" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Demo</span>
+                                </a>
+                                <a href="https://github.com/FirstOnDie/microexpresiones" class="btn-live btn-secondary" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>Repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Weather App -->
+                    <article class="live-project-card">
+                        <div class="live-project-image">
+                            <div class="live-project-gradient weather-gradient">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg-icon">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="live-badge">
+                                <span class="live-dot"></span>
+                                Live
+                            </div>
+                        </div>
+                        <div class="live-project-info">
+                            <h3>Weather App España</h3>
+                            <p>Mapa interactivo del clima en España. Visualiza el tiempo en tiempo real de las principales ciudades con búsqueda avanzada y marcadores interactivos.</p>
+                            <div class="live-tech-stack">
+                                <span class="tech-pill">HTML5</span>
+                                <span class="tech-pill">CSS3</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">Leaflet.js</span>
+                                <span class="tech-pill">OpenWeather</span>
+                            </div>
+                            <div class="live-project-links">
+                                <a href="weather-app/index.html" class="btn-live btn-primary" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Demo</span>
+                                </a>
+                                <a href="https://github.com/FirstOnDie/FirstOnDie.github.io/tree/main/weather-app" class="btn-live btn-secondary" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>Repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Movie Discovery App -->
+                    <article class="live-project-card">
+                        <div class="live-project-image">
+                            <div class="live-project-gradient movie-gradient">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg-icon">
+                                    <path d="M18 4L20 8H17L15 4H18Z" fill="currentColor"/>
+                                    <path d="M6 4L4 8H7L9 4H6Z" fill="currentColor"/>
+                                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <rect x="8" y="10" width="8" height="6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="live-badge">
+                                <span class="live-dot"></span>
+                                Live
+                            </div>
+                        </div>
+                        <div class="live-project-info">
+                            <h3>Movie Discovery</h3>
+                            <p>Plataforma de descubrimiento de películas con búsqueda avanzada y sistema inteligente de recomendaciones basado en tus gustos personales.</p>
+                            <div class="live-tech-stack">
+                                <span class="tech-pill">HTML5</span>
+                                <span class="tech-pill">CSS3</span>
+                                <span class="tech-pill">JavaScript</span>
+                                <span class="tech-pill">TMDb API</span>
+                            </div>
+                            <div class="live-project-links">
+                                <a href="movie-app/index.html" class="btn-live btn-primary" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Demo</span>
+                                </a>
+                                <a href="https://github.com/FirstOnDie/FirstOnDie.github.io/tree/main/movie-app" class="btn-live btn-secondary" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>Repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Unreal Games Section -->
+            <section id="unreal-games" class="section">
+                <h2 class="section-title">Unreal Games</h2>
+                
+                <div class="project-category">
+                    <div class="itch-embed-container">
+                        <iframe 
+                            frameborder="0" 
+                            src="https://itch.io/embed/4176620" 
+                            width="552" 
+                            height="167"
+                            class="itch-iframe"
+                            title="Cursed Cemetery - Unreal Engine Game">
+                            <a href="https://frodygr.itch.io/cursed-cementery">Cursed Cementery by Frody Greyash</a>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Webpages Section -->
+            <section id="webpages" class="section">
+                <h2 class="section-title">Webpages</h2>
+                
+                <div class="project-category">
+                    <div class="projects-grid">
+                        <a href="https://www.ibestan.net" class="project-card" target="_blank" rel="noopener noreferrer">
+                            <div class="project-image">
+                                <img src="https://ibestan.net/images/logo.png" alt="Ibestan - Página Web" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1006/1006771.png'">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-card-content">
+                                <h3>Ibestan</h3>
+                                <p>Iberica de estanqueidad</p>
+                                <div class="project-tags">
+                                    <span class="tag">Web Development</span>
+                                    <span class="tag">Diseño Web</span>
+                                    <span class="tag">Responsive</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
             <section id="contact" class="section">
-                <h2 class="section-label"><span>05.</span> Contacto</h2>
-
-                <div class="contact-block">
-                    <p class="contact-lead">¿Tienes un proyecto en mente? Estoy siempre abierto a nuevas oportunidades,
-                        proyectos desafiantes y colaboraciones interesantes.</p>
-
-                    <div class="contact-grid">
-                        <a href="mailto:carlos.cjec@gmail.com" class="contact-item">
+                <h2 class="section-title">Contacto</h2>
+                <div class="contact-content">
+                    <!-- Hero Contact Section -->
+                    <div class="contact-hero">
+                        <div class="contact-hero-content">
+                    <div class="contact-intro">
+                                <h3>¿Listo para crear algo increíble juntos?</h3>
+                                <p>Estoy siempre abierto a nuevas oportunidades, proyectos desafiantes y colaboraciones interesantes. 
+                                   ¡Hablemos sobre cómo puedo ayudarte a hacer realidad tus ideas!</p>
+                    </div>
+                    
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Cards Grid -->
+                    <div class="contact-cards">
+                        <div class="contact-card primary">
+                            <div class="card-icon">
                             <i class="fas fa-envelope"></i>
-                            <span>carlos.cjec@gmail.com</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/carlos-exposito-ceballo" target="_blank"
-                            class="contact-item">
-                            <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Email Directo</h4>
+                                <p>carlos.cjec@gmail.com</p>
+                                <a href="mailto:carlos.cjec@gmail.com" class="card-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Contactar
+                                </a>
+                            </div>
+                            <div class="card-decoration"></div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="card-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>LinkedIn</h4>
+                                <p>Conectemos profesionalmente</p>
+                                <a href="https://www.linkedin.com/in/carlos-exposito-ceballo" target="_blank" class="card-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Conectar
+                                </a>
+                            </div>
+                            <div class="card-decoration"></div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="card-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>GitHub</h4>
+                                <p>Explora mis proyectos</p>
+                                <a href="https://github.com/FirstOnDie" target="_blank" class="card-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Ver Código
+                                </a>
+                            </div>
+                            <div class="card-decoration"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info Section -->
+                    <div class="contact-info-section">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                <h4>Ubicación</h4>
+                                    <p>Barcelona, España</p>
+                                    <span class="info-subtitle">🌍 Trabajo remoto global</span>
+                            </div>
+                        </div>
+                        
+                            <div class="info-item">
+                                <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-content">
+                                <h4>Disponibilidad</h4>
+                                    <p>Lunes a Viernes</p>
+                                    <span class="info-subtitle">⏰ 9:00 - 18:00 CET</span>
+                            </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Tiempo de Respuesta</h4>
+                                    <p>Menos de 24 horas</p>
+                                    <span class="info-subtitle">⚡ Respuesta garantizada</span>
+                        </div>
+                    </div>
+                    
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Colaboración</h4>
+                                    <p>Proyectos freelance</p>
+                                    <span class="info-subtitle">🤝 Oportunidades laborales</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action -->
+                    <div class="contact-final-cta">
+                        <div class="cta-content">
+                            <h3>¿Tienes un proyecto en mente?</h3>
+                            <p>No dudes en contactarme. Estoy aquí para ayudarte a hacer realidad tus ideas tecnológicas.</p>
+                            <div class="cta-buttons">
+                                <a href="mailto:carlos.cjec@gmail.com" class="btn btn-primary">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Enviar Email</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/carlos-exposito-ceballo" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://github.com/FirstOnDie" target="_blank" class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                    </div>
-
-                    <div class="contact-details">
-                        <div class="detail"><i class="fas fa-map-marker-alt"></i> Barcelona, España — Trabajo remoto
-                            global</div>
-                        <div class="detail"><i class="fas fa-clock"></i> Lunes a Viernes, 9:00 — 18:00 CET</div>
-                        <div class="detail"><i class="fas fa-bolt"></i> Respuesta en menos de 24 horas</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
+        </div>
+    </main>
 
-            <!-- FOOTER -->
-            <footer class="footer">
-                <p>Diseñado y construido por <strong>Carlos Expósito</strong></p>
-                <p class="footer-sub">HTML5 · CSS3 · JavaScript — © 2025</p>
-            </footer>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-        </main>
-    </div>
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Carlos Expósito</h4>
+                    <p>Desarrollador Full Stack especializado en Java, Python, JavaScript y tecnologías cloud.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">Sobre Mí</a>
+                    <a href="#experience">Experiencia</a>
+                    <a href="#skills">Habilidades</a>
+                    <a href="#projects">Proyectos</a>
+                    <a href="#live-projects">Live Projects</a>
+                    <a href="#contact">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Carlos Expósito Ceballo. Todos los derechos reservados.</p>
+                <p>Desarrollado con ❤️ usando HTML5, CSS3 y JavaScript</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Cursor glow effect (desktop only)
-            const glow = document.getElementById("cursorGlow");
-            if (window.innerWidth > 1024) {
-                document.addEventListener("mousemove", e => {
-                    glow.style.left = e.clientX + "px";
-                    glow.style.top = e.clientY + "px";
-                    glow.style.opacity = "1";
+        // Immediate mobile fix
+        if (window.innerWidth <= 768) {
+            document.addEventListener("DOMContentLoaded", function() {
+                const sections = document.querySelectorAll(".section");
+                sections.forEach(section => {
+                    section.style.opacity = "1";
+                    section.style.transform = "translateY(0)";
+                    section.classList.add("visible");
+                });
+            });
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            // Intersection Observer for animations
+            let sections = document.querySelectorAll(".section");
+            
+            // Check if mobile device
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // On mobile, show all sections immediately
+                sections.forEach(section => {
+                    section.classList.add("visible");
+                });
+            } else {
+                // On desktop, use intersection observer
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+                }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            }
+
+            // Navbar scroll effect
+            const nav = document.querySelector('.nav');
+            const scrollIndicator = document.querySelector('.scroll-progress');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                
+                // Scroll progress indicator
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.offsetHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                scrollIndicator.style.width = scrollPercent + '%';
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks && navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            if (mobileMenuBtn) {
+                                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                        
+                        // Close dropdown on mobile
+                        if (dropdown && window.innerWidth <= 768) {
+                            dropdown.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isActive = navLinks.classList.toggle('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', isActive);
+                    mobileMenuBtn.innerHTML = isActive 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+                
+                // Close menu when clicking on a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
                 });
             }
 
-            // Active nav tracking via Intersection Observer
-            const sections = document.querySelectorAll(".section");
-            const navLinks = document.querySelectorAll(".nav-link");
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.toggle("active", link.dataset.target === id);
-                        });
-                    }
-                    // Reveal animation
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("revealed");
-                    }
-                });
-            }, { threshold: 0.15, rootMargin: "-80px 0px -30% 0px" });
-
-            sections.forEach(s => observer.observe(s));
-
-            // Mobile menu
-            const toggle = document.getElementById("mobileToggle");
-            const menu = document.getElementById("mobileMenu");
-            const mobileNav = document.getElementById("mobileNav");
-            toggle.addEventListener("click", () => {
-                toggle.classList.toggle("open");
-                menu.classList.toggle("open");
-            });
-            menu.querySelectorAll("a").forEach(a => {
-                a.addEventListener("click", () => {
-                    toggle.classList.remove("open");
-                    menu.classList.remove("open");
-                });
-            });
-
-            // Navbar scroll
-            window.addEventListener("scroll", () => {
-                mobileNav.classList.toggle("scrolled", window.scrollY > 50);
-            });
-
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener("click", function (e) {
-                    const target = document.querySelector(this.getAttribute("href"));
-                    if (target) {
+            // Dropdown menu functionality
+            const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+            const dropdown = document.querySelector('.nav-item-dropdown');
+            
+            if (dropdownToggle && dropdown) {
+                // Desktop: hover behavior
+                if (window.innerWidth > 768) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        dropdown.classList.add('active');
+                    });
+                    
+                    dropdown.addEventListener('mouseleave', () => {
+                        dropdown.classList.remove('active');
+                    });
+                } else {
+                    // Mobile: click behavior
+                    dropdownToggle.addEventListener('click', (e) => {
                         e.preventDefault();
-                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        dropdown.classList.toggle('active');
+                    });
+                    
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', (e) => {
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                }
+            }
+
+            // Scroll to top button
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            if (scrollToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
                     }
                 });
-            });
+
+                scrollToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
         });
     </script>
 </body>
-
 </html>
