@@ -175,8 +175,16 @@ tabs.forEach(tab => {
 
             // Fix Chart.js 0x0px rendering bug on hidden containers
             if (targetId === 'analytics-content') {
-                if (langChartInstance) langChartInstance.resize();
-                if (repoChartInstance) repoChartInstance.resize();
+                setTimeout(() => {
+                    if (langChartInstance) {
+                        langChartInstance.resize();
+                        langChartInstance.update();
+                    }
+                    if (repoChartInstance) {
+                        repoChartInstance.resize();
+                        repoChartInstance.update();
+                    }
+                }, 50);
             }
         }
     });
