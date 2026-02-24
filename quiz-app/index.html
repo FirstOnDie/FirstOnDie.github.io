@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Test your knowledge with our interactive quiz application featuring questions about general culture and science. Choose difficulty, category, and compete for the best scores!">
+    <meta name="description"
+        content="Test your knowledge with our interactive quiz application featuring questions about general culture and science. Choose difficulty, category, and compete for the best scores!">
     <meta name="keywords" content="quiz, trivia, knowledge, education, science, culture, interactive, assessment">
     <meta name="author" content="Quiz Application">
     <meta name="theme-color" content="#2563eb">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Knowledge Assessment Platform">
     <meta property="og:description" content="Professional quiz application for knowledge testing and assessment">
     <meta property="og:image" content="https://via.placeholder.com/1200x630/2563eb/ffffff?text=Quiz+App">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Knowledge Assessment Platform">
     <meta property="twitter:description" content="Professional quiz application for knowledge testing and assessment">
     <meta property="twitter:image" content="https://via.placeholder.com/1200x630/2563eb/ffffff?text=Quiz+App">
-    
+
     <title>Knowledge Assessment Platform</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
             <div class="header-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                        fill="currentColor" />
                 </svg>
             </div>
             <h1 class="title">Knowledge Assessment Platform</h1>
-            <p class="subtitle">Professional quiz application for comprehensive knowledge testing and skill assessment</p>
+            <p class="subtitle">Professional quiz application for comprehensive knowledge testing and skill assessment
+            </p>
         </header>
 
         <!-- Setup Screen -->
@@ -45,48 +54,67 @@
                     <h2>Configure Your Quiz</h2>
                     <p class="card-subtitle">Select the options to customize your experience</p>
                 </header>
-                
+
                 <div class="setup-content">
                     <!-- Difficulty Selection -->
                     <section class="setup-section" aria-labelledby="difficulty-heading">
                         <h3 id="difficulty-heading">
-                            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                    fill="currentColor" />
                             </svg>
                             Difficulty Level
                         </h3>
                         <div class="difficulty-grid" role="radiogroup" aria-labelledby="difficulty-heading">
-                            <button class="difficulty-btn active" data-difficulty="easy" role="radio" aria-checked="true" aria-label="Easy difficulty - Basic questions">
+                            <button class="difficulty-btn active" data-difficulty="easy" role="radio"
+                                aria-checked="true" aria-label="Easy difficulty - Basic questions">
                                 <div class="difficulty-icon easy" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="difficulty-label">Beginner</div>
                                 <div class="difficulty-desc">Fundamental concepts</div>
                             </button>
-                            <button class="difficulty-btn" data-difficulty="medium" role="radio" aria-checked="false" aria-label="Medium difficulty - Intermediate questions">
+                            <button class="difficulty-btn" data-difficulty="medium" role="radio" aria-checked="false"
+                                aria-label="Medium difficulty - Intermediate questions">
                                 <div class="difficulty-icon medium" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="difficulty-label">Intermediate</div>
                                 <div class="difficulty-desc">Moderate complexity</div>
                             </button>
-                            <button class="difficulty-btn" data-difficulty="hard" role="radio" aria-checked="false" aria-label="Hard difficulty - Advanced questions">
+                            <button class="difficulty-btn" data-difficulty="hard" role="radio" aria-checked="false"
+                                aria-label="Hard difficulty - Advanced questions">
                                 <div class="difficulty-icon hard" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="difficulty-label">Advanced</div>
                                 <div class="difficulty-desc">Expert level content</div>
                             </button>
-                            <button class="difficulty-btn" data-difficulty="mixed" role="radio" aria-checked="false" aria-label="Mixed difficulty - All difficulties">
+                            <button class="difficulty-btn" data-difficulty="mixed" role="radio" aria-checked="false"
+                                aria-label="Mixed difficulty - All difficulties">
                                 <div class="difficulty-icon mixed" aria-hidden="true">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <div class="difficulty-label">Mixed</div>
@@ -98,9 +126,13 @@
                     <!-- Category Selection -->
                     <section class="setup-section" aria-labelledby="category-heading">
                         <h3 id="category-heading">
-                            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                             Subject Category
                         </h3>
@@ -119,232 +151,263 @@
                             <option value="27">Animals</option>
                             <option value="28">Vehicles</option>
                         </select>
-                    </div>
-
-                    <!-- Question Count -->
-                    <section class="setup-section" aria-labelledby="questions-heading">
-                        <h3 id="questions-heading">
-                            <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Question Count
-                        </h3>
-                        <div class="question-count-container">
-                            <input type="range" id="question-count" min="5" max="20" value="10" class="question-slider" aria-labelledby="questions-heading" aria-valuemin="5" aria-valuemax="20" aria-valuenow="10">
-                            <div class="question-count-display" aria-live="polite">
-                                <span id="question-count-value">10</span>
-                            </div>
-                        </div>
-                        <div class="question-count-labels">
-                            <span>5 questions</span>
-                            <span>20 questions</span>
-                        </div>
-                    </section>
-
-                    <!-- Error Message -->
-                    <div id="error-message" class="error-message hidden" role="alert" aria-live="assertive"></div>
-
-                    <!-- Start Button -->
-                    <div class="start-button-container">
-                        <button id="start-quiz-btn" class="start-btn" aria-describedby="start-btn-text">
-                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 5v14l11-7z" fill="currentColor"/>
-                            </svg>
-                            <span id="start-btn-text">Begin Assessment</span>
-                            <div id="loading-spinner" class="loading-spinner hidden" aria-hidden="true"></div>
-                        </button>
-                    </div>
                 </div>
-            </div>
-        </main>
 
-        <!-- Game Screen -->
-        <main id="game-screen" class="screen" role="main" aria-label="Quiz Game">
-            <div class="card">
-                <!-- Game Header -->
-                <header class="game-header">
-                    <div class="game-info">
-                        <div id="difficulty-badge" class="difficulty-badge" aria-label="Current difficulty">Intermediate</div>
-                        <div class="question-counter" aria-live="polite">
-                            Question <span id="current-question">1</span> of <span id="total-questions">10</span>
-                        </div>
-                    </div>
-                    <div class="timer-container" aria-label="Time remaining">
-                        <svg class="timer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Question Count -->
+                <section class="setup-section" aria-labelledby="questions-heading">
+                    <h3 id="questions-heading">
+                        <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <div id="timer" class="timer" aria-live="assertive">30</div>
-                    </div>
-                </header>
-
-                <!-- Progress Bar -->
-                <div class="progress-container">
-                    <div id="progress-bar" class="progress-bar"></div>
-                </div>
-
-                <!-- Score Display -->
-                <div class="score-display" aria-live="polite">
-                    <span class="score-label">Score:</span>
-                    <span id="current-score" class="score-value">0</span>
-                </div>
-
-                <!-- Question -->
-                <section class="question-container" aria-labelledby="question-text">
-                    <h2 id="question-text" class="question-text"></h2>
-                </section>
-
-                <!-- Answers -->
-                <div id="answers-container" class="answers-container" role="radiogroup" aria-labelledby="question-text">
-                    <!-- Answers will be dynamically generated -->
-                </div>
-
-                <!-- Answer Result -->
-                <div id="answer-result" class="answer-result hidden" role="status" aria-live="assertive">
-                    <div id="result-content" class="result-content"></div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Results Screen -->
-        <main id="results-screen" class="screen" role="main" aria-label="Quiz Results">
-            <div class="card">
-                <!-- Results Header -->
-                <header class="results-header">
-                    <div id="performance-icon" class="performance-icon" aria-hidden="true">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h2 id="performance-message" class="performance-message">Excellent Performance</h2>
-                    <p class="results-subtitle">Assessment completed successfully</p>
-                </header>
-
-                <!-- Stats Grid -->
-                <section class="stats-grid" aria-label="Quiz Statistics">
-                    <div class="stat-card">
-                        <div id="final-score" class="stat-value">0</div>
-                        <div class="stat-label">Correct Answers</div>
-                        <div class="stat-sublabel">out of <span id="total-questions-final">10</span> questions</div>
-                    </div>
-                    <div class="stat-card">
-                        <div id="final-percentage" class="stat-value">0%</div>
-                        <div class="stat-label">Percentage</div>
-                        <div class="stat-sublabel">accuracy</div>
-                    </div>
-                    <div class="stat-card">
-                        <div id="final-time" class="stat-value">0:00</div>
-                        <div class="stat-label">Total Time</div>
-                        <div class="stat-sublabel">minutes and seconds</div>
-                    </div>
-                </section>
-
-                <!-- Difficulty Breakdown -->
-                <section class="difficulty-breakdown" aria-labelledby="breakdown-heading">
-                    <h3 id="breakdown-heading">
-                        <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Performance Analysis
+                        Question Count
                     </h3>
-                    <div id="difficulty-stats" class="difficulty-stats-grid" role="region" aria-labelledby="breakdown-heading">
-                        <!-- Will be populated dynamically -->
-                    </div>
-                </section>
-
-                <!-- Save Score Section -->
-                <div id="save-score-section" class="save-score-section">
-                    <div id="save-score-prompt" class="save-score-prompt">
-                        <button id="save-score-btn" class="save-score-btn">💾 Save Score</button>
-                    </div>
-                    <div id="name-input-section" class="name-input-section hidden">
-                        <input type="text" id="player-name" placeholder="Enter your name" maxlength="20" class="name-input">
-                        <div class="name-input-buttons">
-                            <button id="confirm-save-btn" class="confirm-save-btn">✅ Save</button>
-                            <button id="cancel-save-btn" class="cancel-save-btn">❌ Cancel</button>
+                    <div class="question-count-container">
+                        <input type="range" id="question-count" min="5" max="20" value="10" class="question-slider"
+                            aria-labelledby="questions-heading" aria-valuemin="5" aria-valuemax="20" aria-valuenow="10">
+                        <div class="question-count-display" aria-live="polite">
+                            <span id="question-count-value">10</span>
                         </div>
                     </div>
-                    <div id="score-saved-message" class="score-saved-message hidden">
-                        <div class="success-message">✅ Score saved successfully!</div>
+                    <div class="question-count-labels">
+                        <span>5 questions</span>
+                        <span>20 questions</span>
                     </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <nav class="action-buttons" aria-label="Assessment Actions">
-                    <button id="play-again-btn" class="action-btn primary">
-                        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 4v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Retake Assessment
-                    </button>
-                    <button id="show-leaderboard-btn" class="action-btn secondary">
-                        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M4 22h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M10 14.66V17c0 .55.47.98.97 1.21l1.03.34c.55.18 1.03.18 1.58 0l1.03-.34c.5-.23.97-.66.97-1.21v-2.34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        View Rankings
-                    </button>
-                </nav>
-            </div>
-        </main>
-
-        <!-- Leaderboard Screen -->
-        <main id="leaderboard-screen" class="screen" role="main" aria-label="Leaderboard">
-            <div class="card">
-                <!-- Leaderboard Header -->
-                <header class="leaderboard-header">
-                    <div class="leaderboard-icon" aria-hidden="true">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M4 22h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M10 14.66V17c0 .55.47.98.97 1.21l1.03.34c.55.18 1.03.18 1.58 0l1.03-.34c.5-.23.97-.66.97-1.21v-2.34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h2 class="leaderboard-title">Performance Rankings</h2>
-                    <p class="leaderboard-subtitle">Top assessment scores</p>
-                </header>
-
-                <!-- Leaderboard Stats -->
-                <section id="leaderboard-stats" class="leaderboard-stats" aria-label="Leaderboard Statistics">
-                    <!-- Will be populated dynamically -->
                 </section>
 
-                <!-- Leaderboard List -->
-                <section id="leaderboard-list" class="leaderboard-list" aria-label="Top Scores">
-                    <!-- Will be populated dynamically -->
-                </section>
+                <!-- Error Message -->
+                <div id="error-message" class="error-message hidden" role="alert" aria-live="assertive"></div>
 
-                <!-- Empty State -->
-                <div id="empty-leaderboard" class="empty-leaderboard hidden" role="status">
-                    <div class="empty-icon" aria-hidden="true">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Start Button -->
+                <div class="start-button-container">
+                    <button id="start-quiz-btn" class="start-btn" aria-describedby="start-btn-text">
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z" fill="currentColor" />
                         </svg>
-                    </div>
-                    <h3 class="empty-title">No Assessment Data</h3>
-                    <p class="empty-subtitle">Complete your first assessment to appear in the rankings</p>
-                </div>
-
-                <!-- Back Button -->
-                <div class="back-button-container">
-                    <button id="back-to-setup-btn" class="back-btn">
-                        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 12H5m7-7l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Return to Setup
+                        <span id="start-btn-text">Begin Assessment</span>
+                        <div id="loading-spinner" class="loading-spinner hidden" aria-hidden="true"></div>
                     </button>
                 </div>
             </div>
-        </main>
+    </div>
+    </main>
+
+    <!-- Game Screen -->
+    <main id="game-screen" class="screen" role="main" aria-label="Quiz Game">
+        <div class="card">
+            <!-- Game Header -->
+            <header class="game-header">
+                <div class="game-info">
+                    <div id="difficulty-badge" class="difficulty-badge" aria-label="Current difficulty">Intermediate
+                    </div>
+                    <div class="question-counter" aria-live="polite">
+                        Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+                    </div>
+                </div>
+                <div class="timer-container" aria-label="Time remaining">
+                    <svg class="timer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <div id="timer" class="timer" aria-live="assertive">30</div>
+                </div>
+            </header>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <!-- Score Display -->
+            <div class="score-display" aria-live="polite">
+                <span class="score-label">Score:</span>
+                <span id="current-score" class="score-value">0</span>
+            </div>
+
+            <!-- Question -->
+            <section class="question-container" aria-labelledby="question-text">
+                <h2 id="question-text" class="question-text"></h2>
+            </section>
+
+            <!-- Answers -->
+            <div id="answers-container" class="answers-container" role="radiogroup" aria-labelledby="question-text">
+                <!-- Answers will be dynamically generated -->
+            </div>
+
+            <!-- Answer Result -->
+            <div id="answer-result" class="answer-result hidden" role="status" aria-live="assertive">
+                <div id="result-content" class="result-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Results Screen -->
+    <main id="results-screen" class="screen" role="main" aria-label="Quiz Results">
+        <div class="card">
+            <!-- Results Header -->
+            <header class="results-header">
+                <div id="performance-icon" class="performance-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
+                <h2 id="performance-message" class="performance-message">Excellent Performance</h2>
+                <p class="results-subtitle">Assessment completed successfully</p>
+            </header>
+
+            <!-- Stats Grid -->
+            <section class="stats-grid" aria-label="Quiz Statistics">
+                <div class="stat-card">
+                    <div id="final-score" class="stat-value">0</div>
+                    <div class="stat-label">Correct Answers</div>
+                    <div class="stat-sublabel">out of <span id="total-questions-final">10</span> questions</div>
+                </div>
+                <div class="stat-card">
+                    <div id="final-percentage" class="stat-value">0%</div>
+                    <div class="stat-label">Percentage</div>
+                    <div class="stat-sublabel">accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div id="final-time" class="stat-value">0:00</div>
+                    <div class="stat-label">Total Time</div>
+                    <div class="stat-sublabel">minutes and seconds</div>
+                </div>
+            </section>
+
+            <!-- Difficulty Breakdown -->
+            <section class="difficulty-breakdown" aria-labelledby="breakdown-heading">
+                <h3 id="breakdown-heading">
+                    <svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Performance Analysis
+                </h3>
+                <div id="difficulty-stats" class="difficulty-stats-grid" role="region"
+                    aria-labelledby="breakdown-heading">
+                    <!-- Will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Save Score Section -->
+            <div id="save-score-section" class="save-score-section">
+                <div id="save-score-prompt" class="save-score-prompt">
+                    <button id="save-score-btn" class="save-score-btn">💾 Save Score</button>
+                </div>
+                <div id="name-input-section" class="name-input-section hidden">
+                    <input type="text" id="player-name" placeholder="Enter your name" maxlength="20" class="name-input">
+                    <div class="name-input-buttons">
+                        <button id="confirm-save-btn" class="confirm-save-btn">✅ Save</button>
+                        <button id="cancel-save-btn" class="cancel-save-btn">❌ Cancel</button>
+                    </div>
+                </div>
+                <div id="score-saved-message" class="score-saved-message hidden">
+                    <div class="success-message">✅ Score saved successfully!</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <nav class="action-buttons" aria-label="Assessment Actions">
+                <button id="play-again-btn" class="action-btn primary">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Retake Assessment
+                </button>
+                <button id="show-leaderboard-btn" class="action-btn secondary">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 22h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M10 14.66V17c0 .55.47.98.97 1.21l1.03.34c.55.18 1.03.18 1.58 0l1.03-.34c.5-.23.97-.66.97-1.21v-2.34"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    View Rankings
+                </button>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Leaderboard Screen -->
+    <main id="leaderboard-screen" class="screen" role="main" aria-label="Leaderboard">
+        <div class="card">
+            <!-- Leaderboard Header -->
+            <header class="leaderboard-header">
+                <div class="leaderboard-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 22h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M10 14.66V17c0 .55.47.98.97 1.21l1.03.34c.55.18 1.03.18 1.58 0l1.03-.34c.5-.23.97-.66.97-1.21v-2.34"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h2 class="leaderboard-title">Performance Rankings</h2>
+                <p class="leaderboard-subtitle">Top assessment scores</p>
+            </header>
+
+            <!-- Leaderboard Stats -->
+            <section id="leaderboard-stats" class="leaderboard-stats" aria-label="Leaderboard Statistics">
+                <!-- Will be populated dynamically -->
+            </section>
+
+            <!-- Leaderboard List -->
+            <section id="leaderboard-list" class="leaderboard-list" aria-label="Top Scores">
+                <!-- Will be populated dynamically -->
+            </section>
+
+            <!-- Empty State -->
+            <div id="empty-leaderboard" class="empty-leaderboard hidden" role="status">
+                <div class="empty-icon" aria-hidden="true">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h3 class="empty-title">No Assessment Data</h3>
+                <p class="empty-subtitle">Complete your first assessment to appear in the rankings</p>
+            </div>
+
+            <!-- Back Button -->
+            <div class="back-button-container">
+                <button id="back-to-setup-btn" class="back-btn">
+                    <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5m7-7l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    Return to Setup
+                </button>
+            </div>
+        </div>
+    </main>
     </div>
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

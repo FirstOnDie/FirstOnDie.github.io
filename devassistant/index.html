@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a192f">
+    <title>Codi — Tu asistente de código con IA</title>
+    <meta name="description"
+        content="Codi: asistente IA para desarrolladores. Explica código, genera tests y hace code review.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+    <!-- Marked (Markdown) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- API Key Modal -->
+    <div class="modal-overlay" id="apiKeyModal">
+        <div class="modal">
+            <div class="modal-icon">🔑</div>
+            <h2>Configura tu API Key</h2>
+            <p>Codi necesita una API key de IA para funcionar. Tu clave se guarda solo en tu navegador.</p>
+            <div class="modal-provider-row">
+                <label for="providerSelect">Proveedor:</label>
+                <select id="providerSelect" class="lang-select modal-provider-select">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+            <div class="modal-steps" id="modalProviderInfo">
+                <!-- Dynamic steps populated by JS -->
+            </div>
+            <div class="modal-input-wrap">
+                <input type="password" id="apiKeyInput" placeholder="gsk_..." class="modal-input" autocomplete="off">
+                <button class="modal-eye" id="toggleKeyVisibility" title="Mostrar/ocultar"><i
+                        class="fas fa-eye"></i></button>
+            </div>
+            <button class="btn-primary modal-btn" id="saveApiKey">
+                <i class="fas fa-check"></i> Guardar y empezar
+            </button>
+            <p class="modal-note"><i class="fas fa-lock"></i> Tu clave nunca sale de tu navegador. No almacenamos nada.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <a href="../index.html" class="back-link" title="Volver al portfolio"><i
+                        class="fas fa-arrow-left"></i></a>
+                <div class="logo">
+                    <span class="logo-icon">🐣</span>
+                    <span class="logo-text">Codi</span>
+                    <span class="logo-badge">IA</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="mode-selector" id="modeSelector">
+                    <button class="mode-btn active" data-mode="explain" title="Explica el código">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Explica</span>
+                    </button>
+                    <button class="mode-btn" data-mode="tests" title="Genera tests">
+                        <i class="fas fa-vial"></i>
+                        <span>Tests</span>
+                    </button>
+                    <button class="mode-btn" data-mode="review" title="Code Review">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Review</span>
+                    </button>
+                    <button class="mode-btn" data-mode="chat" title="Chat libre">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
+                    </button>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" id="clearChat" title="Limpiar chat"><i class="fas fa-trash-alt"></i></button>
+                <button class="icon-btn" id="settingsBtn" title="Configuración"><i class="fas fa-cog"></i></button>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="workspace">
+            <!-- Editor Panel -->
+            <div class="panel editor-panel" id="editorPanel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fas fa-code"></i> Editor
+                    </div>
+                    <div class="panel-actions">
+                        <select id="langSelect" class="lang-select">
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="sql">SQL</option>
+                        </select>
+                        <select id="modelSelect" class="lang-select" title="Modelo de IA">
+                            <!-- Populated by JS -->
+                        </select>
+                        <button class="panel-btn" id="sendCode" title="Enviar código a la IA">
+                            <i class="fas fa-paper-plane"></i> Enviar
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-wrap">
+                    <textarea id="codeEditor"></textarea>
+                </div>
+            </div>
+
+            <!-- Resize Handle -->
+            <div class="resize-handle" id="resizeHandle">
+                <div class="resize-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- Chat Panel -->
+            <div class="panel chat-panel" id="chatPanel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fas fa-robot"></i> Chat
+                        <span class="chat-mode-label" id="chatModeLabel">Modo: Explica código</span>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Welcome Message -->
+                    <div class="message ai-message welcome-msg">
+                        <div class="message-avatar"><span>🤖</span></div>
+                        <div class="message-content">
+                            <div class="message-text">
+                                <h3>¡Hola! Soy Codi 👋</h3>
+                                <p>Soy tu asistente de programación con IA. Puedo ayudarte de varias formas:</p>
+                                <div class="welcome-cards">
+                                    <div class="welcome-card" data-mode="explain">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <strong>Explica código</strong>
+                                        <span>Pega código en el editor y te lo explico paso a paso</span>
+                                    </div>
+                                    <div class="welcome-card" data-mode="tests">
+                                        <i class="fas fa-vial"></i>
+                                        <strong>Genera tests</strong>
+                                        <span>Creo unit tests para tu código automáticamente</span>
+                                    </div>
+                                    <div class="welcome-card" data-mode="review">
+                                        <i class="fas fa-search-plus"></i>
+                                        <strong>Code Review</strong>
+                                        <span>Analizo bugs, code smells y mejoras</span>
+                                    </div>
+                                    <div class="welcome-card" data-mode="chat">
+                                        <i class="fas fa-comments"></i>
+                                        <strong>Chat libre</strong>
+                                        <span>Pregúntame cualquier duda de programación</span>
+                                    </div>
+                                </div>
+                                <p class="welcome-hint">💡 Selecciona un modo arriba y escribe o pega código en el
+                                    editor de la izquierda.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-wrap">
+                    <div class="chat-input-container">
+                        <textarea id="chatInput" class="chat-input" placeholder="Escribe un mensaje o pregunta..."
+                            rows="1"></textarea>
+                        <button class="send-btn" id="sendMessage" title="Enviar">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                    <p class="input-hint">La IA puede cometer errores. Verifica la información importante.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

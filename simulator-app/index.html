@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Lab — Interactive Simulations</title>
+    <meta name="description" content="Interactive physics simulations: pendulum, orbits, waves, and projectile motion.">
+    <meta name="keywords" content="physics, simulation, pendulum, orbits, waves, projectile, interactive">
+    <meta name="author" content="Carlos Expósito">
+
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛️</text></svg>">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="app-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div class="header-text">
+                    <h1>Physics Lab</h1>
+                    <p>Interactive Simulations</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="simulator-tabs" id="simulatorTabs">
+            <button class="simulator-tab active" data-simulator="pendulum">
+                <i class="fas fa-clock"></i> Pendulum
+            </button>
+            <button class="simulator-tab" data-simulator="orbit">
+                <i class="fas fa-globe"></i> Orbits
+            </button>
+            <button class="simulator-tab" data-simulator="wave">
+                <i class="fas fa-wave-square"></i> Waves
+            </button>
+            <button class="simulator-tab" data-simulator="projectile">
+                <i class="fas fa-bullseye"></i> Projectile
+            </button>
+        </div>
+
+        <!-- Pendulum Simulator -->
+        <div class="simulator-content active" id="pendulumSimulator">
+            <div class="simulator-container">
+                <div class="simulator-controls">
+                    <div class="control-group">
+                        <label><i class="fas fa-weight"></i> Mass (kg)</label>
+                        <div class="slider-container">
+                            <input type="range" id="mass" min="0.5" max="10" value="2" step="0.1" class="slider">
+                            <span class="slider-value" id="massValue">2</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-ruler-vertical"></i> Length (m)</label>
+                        <div class="slider-container">
+                            <input type="range" id="length" min="0.5" max="5" value="2" step="0.1" class="slider">
+                            <span class="slider-value" id="lengthValue">2</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-wind"></i> Damping</label>
+                        <div class="slider-container">
+                            <input type="range" id="damping" min="0" max="1" value="0.05" step="0.01" class="slider">
+                            <span class="slider-value" id="dampingValue">0.05</span>
+                        </div>
+                    </div>
+                    <div class="control-actions">
+                        <button class="btn-start" id="startPendulum"><i class="fas fa-play"></i> Start</button>
+                        <button class="btn-reset" id="resetPendulum"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+                <div class="simulator-canvas-wrapper">
+                    <canvas id="pendulumCanvas" width="800" height="500"></canvas>
+                    <div class="canvas-info" id="pendulumInfo">
+                        <div class="info-item">
+                            <span class="info-label">Angle</span>
+                            <span class="info-value" id="angle_pendulum">0°</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Period</span>
+                            <span class="info-value" id="period">0 s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orbit Simulator -->
+        <div class="simulator-content" id="orbitSimulator">
+            <div class="simulator-container">
+                <div class="simulator-controls">
+                    <div class="control-group">
+                        <label><i class="fas fa-globe"></i> Planet</label>
+                        <select id="planetSelect">
+                            <option value="mercury">Mercury</option>
+                            <option value="venus">Venus</option>
+                            <option value="earth" selected>Earth</option>
+                            <option value="mars">Mars</option>
+                            <option value="jupiter">Jupiter</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-tachometer-alt"></i> Speed</label>
+                        <div class="slider-container">
+                            <input type="range" id="speed" min="0.1" max="5" value="1" step="0.1" class="slider">
+                            <span class="slider-value" id="speedValue">1x</span>
+                        </div>
+                    </div>
+                    <div class="control-actions">
+                        <button class="btn-start" id="startOrbit"><i class="fas fa-play"></i> Start</button>
+                        <button class="btn-pause" id="pauseOrbit"><i class="fas fa-pause"></i> Pause</button>
+                        <button class="btn-reset" id="resetOrbit"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+                <div class="simulator-canvas-wrapper">
+                    <canvas id="orbitCanvas" width="800" height="500"></canvas>
+                    <div class="canvas-info" id="orbitInfo">
+                        <div class="info-item">
+                            <span class="info-label">Distance</span>
+                            <span class="info-value" id="orbitDistance">0 AU</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Velocity</span>
+                            <span class="info-value" id="orbitVelocity">0 km/s</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Period</span>
+                            <span class="info-value" id="orbitPeriod">0 days</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave Simulator -->
+        <div class="simulator-content" id="waveSimulator">
+            <div class="simulator-container">
+                <div class="simulator-controls">
+                    <div class="control-group">
+                        <label><i class="fas fa-arrows-alt-v"></i> Amplitude</label>
+                        <div class="slider-container">
+                            <input type="range" id="waveAmplitude" min="10" max="120" value="60" step="1"
+                                class="slider">
+                            <span class="slider-value" id="waveAmplitudeValue">60</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-wave-square"></i> Frequency (Hz)</label>
+                        <div class="slider-container">
+                            <input type="range" id="waveFrequency" min="0.5" max="5" value="1.5" step="0.1"
+                                class="slider">
+                            <span class="slider-value" id="waveFrequencyValue">1.5</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-tachometer-alt"></i> Wave Speed</label>
+                        <div class="slider-container">
+                            <input type="range" id="waveSpeed" min="20" max="300" value="120" step="5" class="slider">
+                            <span class="slider-value" id="waveSpeedValue">120</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-layer-group"></i> Waves</label>
+                        <div class="slider-container">
+                            <input type="range" id="waveCount" min="1" max="3" value="1" step="1" class="slider">
+                            <span class="slider-value" id="waveCountValue">1</span>
+                        </div>
+                    </div>
+                    <div class="control-actions">
+                        <button class="btn-start" id="startWave"><i class="fas fa-play"></i> Start</button>
+                        <button class="btn-reset" id="resetWave"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+                <div class="simulator-canvas-wrapper">
+                    <canvas id="waveCanvas" width="800" height="500"></canvas>
+                    <div class="canvas-info" id="waveInfo">
+                        <div class="info-item">
+                            <span class="info-label">Wavelength</span>
+                            <span class="info-value" id="waveLength">0 px</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Period</span>
+                            <span class="info-value" id="wavePeriod">0 s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projectile Motion -->
+        <div class="simulator-content" id="projectileSimulator">
+            <div class="simulator-container">
+                <div class="simulator-controls">
+                    <div class="control-group">
+                        <label><i class="fas fa-location-arrow"></i> Angle (°)</label>
+                        <div class="slider-container">
+                            <input type="range" id="projAngle" min="5" max="85" value="45" step="1" class="slider">
+                            <span class="slider-value" id="projAngleValue">45</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-tachometer-alt"></i> Velocity (m/s)</label>
+                        <div class="slider-container">
+                            <input type="range" id="projVelocity" min="10" max="100" value="50" step="1" class="slider">
+                            <span class="slider-value" id="projVelocityValue">50</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label><i class="fas fa-arrow-down"></i> Gravity (m/s²)</label>
+                        <div class="slider-container">
+                            <input type="range" id="projGravity" min="1" max="25" value="9.8" step="0.1" class="slider">
+                            <span class="slider-value" id="projGravityValue">9.8</span>
+                        </div>
+                    </div>
+                    <div class="control-actions">
+                        <button class="btn-start" id="launchProjectile"><i class="fas fa-rocket"></i> Launch</button>
+                        <button class="btn-reset" id="resetProjectile"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                </div>
+                <div class="simulator-canvas-wrapper">
+                    <canvas id="projectileCanvas" width="800" height="500"></canvas>
+                    <div class="canvas-info" id="projectileInfo">
+                        <div class="info-item">
+                            <span class="info-label">Max Height</span>
+                            <span class="info-value" id="projMaxHeight">0 m</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Range</span>
+                            <span class="info-value" id="projRange">0 m</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Time</span>
+                            <span class="info-value" id="projTime">0 s</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2025 Physics Lab | Developed by <a href="https://firstondie.github.io" target="_blank">Carlos
+                Expósito</a></p>
+        <p class="data-source">Interactive physics simulations using Canvas API</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
