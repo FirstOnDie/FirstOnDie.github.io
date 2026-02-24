@@ -172,6 +172,12 @@ tabs.forEach(tab => {
         const targetId = tab.getAttribute('data-target');
         if (targetId) {
             document.getElementById(targetId).classList.remove('hidden');
+
+            // Fix Chart.js 0x0px rendering bug on hidden containers
+            if (targetId === 'analytics-content') {
+                if (langChartInstance) langChartInstance.resize();
+                if (repoChartInstance) repoChartInstance.resize();
+            }
         }
     });
 });
