@@ -476,12 +476,20 @@ a {
     width: 4rem;
 }
 
+.w-32 {
+    width: 8rem;
+}
+
 .w-4 {
     width: 1rem;
 }
 
 .h-4 {
     height: 1rem;
+}
+
+.h-32 {
+    height: 8rem;
 }
 
 .w-max {
