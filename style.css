@@ -220,6 +220,24 @@ img {
     font-size: 0.85rem;
 }
 
+/* ========== CATEGORY TITLE ========== */
+.category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ccd6f6;
+    margin: 48px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #233554;
+}
+
+.category-title i {
+    color: #64ffda;
+    font-size: 0.85rem;
+}
+
 /* ========== SKILLS GRID ========== */
 .skills-grid-compact {
     display: grid;
