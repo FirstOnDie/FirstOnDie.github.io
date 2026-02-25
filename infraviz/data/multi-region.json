@@ -1,0 +1,232 @@
+{
+    "name": "Multi-Region HA",
+    "description": "Arquitectura multi-región de alta disponibilidad con failover automático, replicación de datos y disaster recovery",
+    "nodes": [
+        {
+            "id": "user",
+            "label": "Global\nUsers",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Usuarios Globales",
+                "Tipo": "Frontend / Browser",
+                "Descripción": "Usuarios distribuidos globalmente accediendo a la aplicación"
+            }
+        },
+        {
+            "id": "route53",
+            "label": "Route 53\nGlobal DNS",
+            "category": "network",
+            "icon": "route53",
+            "details": {
+                "Servicio": "Amazon Route 53",
+                "Tipo": "Network / DNS",
+                "Descripción": "DNS global con health checks y failover automático entre regiones",
+                "Routing": "Latency-based + Failover",
+                "Health Check": "30s interval, 3 failures = failover"
+            }
+        },
+        {
+            "id": "cloudfront",
+            "label": "CloudFront\nGlobal CDN",
+            "category": "network",
+            "icon": "cloudfront",
+            "details": {
+                "Servicio": "Amazon CloudFront",
+                "Tipo": "Network / CDN",
+                "Descripción": "CDN global con Origin Groups para failover automático entre regiones",
+                "Edge Locations": "450+"
+            }
+        },
+        {
+            "id": "waf",
+            "label": "WAF\n+ Shield",
+            "category": "security",
+            "icon": "waf",
+            "details": {
+                "Servicio": "AWS WAF + Shield Advanced",
+                "Tipo": "Security / DDoS Protection",
+                "Descripción": "Firewall y protección DDoS a nivel global",
+                "Shield": "Advanced (SLA 99.999%)"
+            }
+        },
+        {
+            "id": "alb-primary",
+            "label": "ALB\nus-east-1",
+            "category": "network",
+            "icon": "alb",
+            "details": {
+                "Servicio": "AWS ALB",
+                "Tipo": "Network / Load Balancer",
+                "Descripción": "Load balancer en región primaria (Virginia)",
+                "Región": "us-east-1",
+                "Health Check": "/health"
+            }
+        },
+        {
+            "id": "alb-secondary",
+            "label": "ALB\neu-west-1",
+            "category": "network",
+            "icon": "alb",
+            "details": {
+                "Servicio": "AWS ALB",
+                "Tipo": "Network / Load Balancer",
+                "Descripción": "Load balancer en región secundaria (Irlanda)",
+                "Región": "eu-west-1",
+                "Rol": "Standby (activo en failover)"
+            }
+        },
+        {
+            "id": "ecs-primary",
+            "label": "ECS Fargate\nus-east-1",
+            "category": "compute",
+            "icon": "fargate",
+            "details": {
+                "Servicio": "AWS Fargate",
+                "Tipo": "Compute / Container",
+                "Descripción": "Cluster principal de aplicación en Virginia",
+                "Réplicas": "3-10 (Auto Scaling)",
+                "Región": "us-east-1"
+            }
+        },
+        {
+            "id": "ecs-secondary",
+            "label": "ECS Fargate\neu-west-1",
+            "category": "compute",
+            "icon": "fargate",
+            "details": {
+                "Servicio": "AWS Fargate",
+                "Tipo": "Compute / Container",
+                "Descripción": "Cluster standby en Irlanda, activado en failover",
+                "Réplicas": "1 (warm standby)",
+                "Región": "eu-west-1"
+            }
+        },
+        {
+            "id": "aurora-primary",
+            "label": "Aurora\nPrimary (Writer)",
+            "category": "database",
+            "icon": "rds",
+            "details": {
+                "Servicio": "Amazon Aurora Global Database",
+                "Tipo": "Database / Relational",
+                "Descripción": "Writer instance en región primaria con replicación async a secundaria",
+                "Motor": "PostgreSQL 16",
+                "Región": "us-east-1",
+                "Replication Lag": "< 1 segundo"
+            }
+        },
+        {
+            "id": "aurora-secondary",
+            "label": "Aurora\nSecondary (Reader)",
+            "category": "database",
+            "icon": "rds",
+            "details": {
+                "Servicio": "Amazon Aurora Global Database",
+                "Tipo": "Database / Read Replica",
+                "Descripción": "Reader instance en Irlanda, promovida a writer en failover",
+                "Motor": "PostgreSQL 16",
+                "Región": "eu-west-1",
+                "Failover": "< 1 minuto (promote)"
+            }
+        },
+        {
+            "id": "s3-primary",
+            "label": "S3\nus-east-1",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Object",
+                "Descripción": "Bucket primario con Cross-Region Replication habilitado",
+                "Replication": "CRR → eu-west-1"
+            }
+        },
+        {
+            "id": "s3-secondary",
+            "label": "S3\neu-west-1",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Replica",
+                "Descripción": "Réplica del bucket primario en Irlanda",
+                "Rol": "Replica (read-only, promovible)"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "user",
+            "to": "route53",
+            "label": "DNS Query",
+            "style": "solid"
+        },
+        {
+            "from": "route53",
+            "to": "cloudfront",
+            "label": "Latency Routing",
+            "style": "solid"
+        },
+        {
+            "from": "cloudfront",
+            "to": "waf",
+            "label": "Filtered",
+            "style": "solid"
+        },
+        {
+            "from": "waf",
+            "to": "alb-primary",
+            "label": "Primary",
+            "style": "solid"
+        },
+        {
+            "from": "waf",
+            "to": "alb-secondary",
+            "label": "Failover",
+            "style": "dashed"
+        },
+        {
+            "from": "alb-primary",
+            "to": "ecs-primary",
+            "label": "Traffic",
+            "style": "solid"
+        },
+        {
+            "from": "alb-secondary",
+            "to": "ecs-secondary",
+            "label": "Traffic",
+            "style": "dashed"
+        },
+        {
+            "from": "ecs-primary",
+            "to": "aurora-primary",
+            "label": "Read/Write",
+            "style": "solid"
+        },
+        {
+            "from": "ecs-secondary",
+            "to": "aurora-secondary",
+            "label": "Read",
+            "style": "dashed"
+        },
+        {
+            "from": "aurora-primary",
+            "to": "aurora-secondary",
+            "label": "Async Replication",
+            "style": "dashed"
+        },
+        {
+            "from": "ecs-primary",
+            "to": "s3-primary",
+            "label": "Upload",
+            "style": "solid"
+        },
+        {
+            "from": "s3-primary",
+            "to": "s3-secondary",
+            "label": "CRR",
+            "style": "dashed"
+        }
+    ]
+}

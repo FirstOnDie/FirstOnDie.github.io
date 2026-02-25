@@ -1,0 +1,206 @@
+{
+    "name": "E-commerce Microservices",
+    "description": "Arquitectura de microservicios para tienda online con balanceo, servicios independientes, base de datos y mensajería",
+    "nodes": [
+        {
+            "id": "user",
+            "label": "Users",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Usuarios Finales",
+                "Tipo": "Frontend / Browser",
+                "Descripción": "Clientes accediendo a la tienda online a través del navegador o app móvil"
+            }
+        },
+        {
+            "id": "cloudfront",
+            "label": "CloudFront\nCDN",
+            "category": "network",
+            "icon": "cloudfront",
+            "details": {
+                "Servicio": "Amazon CloudFront",
+                "Tipo": "CDN / Network",
+                "Descripción": "Red de distribución de contenido para assets estáticos y caché de API",
+                "Edge Locations": "450+ globales",
+                "Cache TTL": "86400s (assets), 60s (API)"
+            }
+        },
+        {
+            "id": "alb",
+            "label": "Application\nLoad Balancer",
+            "category": "network",
+            "icon": "alb",
+            "details": {
+                "Servicio": "AWS ALB",
+                "Tipo": "Network / Load Balancer",
+                "Descripción": "Distribuye tráfico entre microservicios con health checks",
+                "Puerto": "443 (HTTPS)",
+                "Health Check": "/actuator/health"
+            }
+        },
+        {
+            "id": "catalog",
+            "label": "Catalog\nService",
+            "category": "compute",
+            "icon": "ecs",
+            "details": {
+                "Servicio": "Amazon ECS",
+                "Tipo": "Container / Compute",
+                "Lenguaje": "Java 21 + Spring Boot 3",
+                "CPU": "1 vCPU",
+                "Memoria": "2 GB",
+                "Descripción": "Gestión del catálogo de productos, búsqueda y filtrado"
+            }
+        },
+        {
+            "id": "orders",
+            "label": "Orders\nService",
+            "category": "compute",
+            "icon": "ecs",
+            "details": {
+                "Servicio": "Amazon ECS",
+                "Tipo": "Container / Compute",
+                "Lenguaje": "Java 21 + Spring Boot 3",
+                "CPU": "2 vCPU",
+                "Memoria": "4 GB",
+                "Descripción": "Procesamiento de pedidos, carrito y checkout"
+            }
+        },
+        {
+            "id": "notifications",
+            "label": "Notification\nService",
+            "category": "compute",
+            "icon": "ecs",
+            "details": {
+                "Servicio": "Amazon ECS",
+                "Tipo": "Container / Compute",
+                "Lenguaje": "Python 3.12",
+                "CPU": "0.5 vCPU",
+                "Memoria": "1 GB",
+                "Descripción": "Envío de emails, SMS y push notifications a clientes"
+            }
+        },
+        {
+            "id": "rds",
+            "label": "PostgreSQL\nRDS",
+            "category": "database",
+            "icon": "rds",
+            "details": {
+                "Servicio": "Amazon RDS",
+                "Tipo": "Database / Relational",
+                "Motor": "PostgreSQL 16",
+                "Instancia": "db.r6g.large",
+                "Storage": "100 GB gp3",
+                "Descripción": "Base de datos principal para pedidos y catálogo"
+            }
+        },
+        {
+            "id": "dynamodb",
+            "label": "DynamoDB\nSessions",
+            "category": "database",
+            "icon": "dynamodb",
+            "details": {
+                "Servicio": "Amazon DynamoDB",
+                "Tipo": "Database / NoSQL",
+                "Capacidad": "On-Demand",
+                "Descripción": "Almacén de sesiones de usuario y carrito temporal con TTL",
+                "TTL": "3600s (sesiones)"
+            }
+        },
+        {
+            "id": "kafka",
+            "label": "Amazon\nMSK (Kafka)",
+            "category": "messaging",
+            "icon": "kafka",
+            "details": {
+                "Servicio": "Amazon MSK",
+                "Tipo": "Messaging / Streaming",
+                "Descripción": "Bus de eventos entre microservicios para pedidos y notificaciones",
+                "Topics": "orders.created, orders.paid, inventory.updated",
+                "Particiones": "6 por topic"
+            }
+        },
+        {
+            "id": "s3",
+            "label": "S3\nAssets",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Object",
+                "Descripción": "Almacén de imágenes de productos, facturas y assets estáticos",
+                "Clase": "S3 Standard",
+                "Versionado": "Habilitado"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "user",
+            "to": "cloudfront",
+            "label": "HTTPS",
+            "style": "solid"
+        },
+        {
+            "from": "cloudfront",
+            "to": "alb",
+            "label": "HTTPS",
+            "style": "solid"
+        },
+        {
+            "from": "cloudfront",
+            "to": "s3",
+            "label": "Static Assets",
+            "style": "dashed"
+        },
+        {
+            "from": "alb",
+            "to": "catalog",
+            "label": "HTTP/8081",
+            "style": "solid"
+        },
+        {
+            "from": "alb",
+            "to": "orders",
+            "label": "HTTP/8082",
+            "style": "solid"
+        },
+        {
+            "from": "catalog",
+            "to": "rds",
+            "label": "TCP/5432",
+            "style": "solid"
+        },
+        {
+            "from": "orders",
+            "to": "rds",
+            "label": "TCP/5432",
+            "style": "solid"
+        },
+        {
+            "from": "orders",
+            "to": "dynamodb",
+            "label": "HTTPS",
+            "style": "solid"
+        },
+        {
+            "from": "orders",
+            "to": "kafka",
+            "label": "order.created",
+            "style": "dashed"
+        },
+        {
+            "from": "kafka",
+            "to": "notifications",
+            "label": "order.paid",
+            "style": "dashed"
+        },
+        {
+            "from": "notifications",
+            "to": "s3",
+            "label": "Facturas PDF",
+            "style": "dashed"
+        }
+    ]
+}

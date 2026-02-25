@@ -1,0 +1,189 @@
+{
+    "name": "Real-time Streaming",
+    "description": "Arquitectura de streaming en tiempo real con Kinesis, procesamiento Lambda, almacenamiento DynamoDB y dashboards en vivo",
+    "nodes": [
+        {
+            "id": "iot-devices",
+            "label": "IoT\nDevices",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Dispositivos IoT",
+                "Tipo": "Edge / Producers",
+                "Descripción": "Sensores, dispositivos y aplicaciones que emiten eventos en tiempo real",
+                "Throughput": "~10.000 msgs/s"
+            }
+        },
+        {
+            "id": "kinesis-stream",
+            "label": "Kinesis\nData Stream",
+            "category": "messaging",
+            "icon": "kafka",
+            "details": {
+                "Servicio": "Amazon Kinesis Data Streams",
+                "Tipo": "Messaging / Streaming",
+                "Descripción": "Stream de datos en tiempo real con retención y replayability",
+                "Shards": "4",
+                "Retención": "24 horas",
+                "Throughput": "4 MB/s write, 8 MB/s read"
+            }
+        },
+        {
+            "id": "lambda-process",
+            "label": "Lambda\nProcessor",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Descripción": "Procesa cada batch de registros del stream: filtrado, enriquecimiento, agregación",
+                "Runtime": "Python 3.12",
+                "Batch Size": "100 records",
+                "Concurrencia": "4 (1 por shard)"
+            }
+        },
+        {
+            "id": "lambda-alert",
+            "label": "Lambda\nAlert Engine",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Descripción": "Motor de alertas: detecta anomalías y dispara notificaciones si se superan umbrales",
+                "Runtime": "Node.js 20",
+                "Timeout": "30s"
+            }
+        },
+        {
+            "id": "dynamodb",
+            "label": "DynamoDB\nReal-time Store",
+            "category": "database",
+            "icon": "dynamodb",
+            "details": {
+                "Servicio": "Amazon DynamoDB",
+                "Tipo": "Database / NoSQL",
+                "Descripción": "Almacén de datos procesados con acceso de baja latencia para dashboards",
+                "Capacidad": "On-Demand",
+                "TTL": "7 días (datos agregados)"
+            }
+        },
+        {
+            "id": "s3-archive",
+            "label": "S3\nArchive",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Archive",
+                "Descripción": "Archivo permanente de todos los eventos para análisis histórico",
+                "Clase": "S3 Glacier Instant Retrieval",
+                "Formato": "Parquet (particionado por fecha)"
+            }
+        },
+        {
+            "id": "kinesis-firehose",
+            "label": "Kinesis\nFirehose",
+            "category": "messaging",
+            "icon": "kafka",
+            "details": {
+                "Servicio": "Amazon Kinesis Firehose",
+                "Tipo": "Messaging / Delivery",
+                "Descripción": "Entrega automática de datos del stream a S3 con buffering y compresión",
+                "Buffer": "5 min / 5 MB",
+                "Compresión": "GZIP"
+            }
+        },
+        {
+            "id": "sns",
+            "label": "SNS\nAlerts",
+            "category": "messaging",
+            "icon": "sns",
+            "details": {
+                "Servicio": "Amazon SNS",
+                "Tipo": "Messaging / Notifications",
+                "Descripción": "Envío de alertas por email, SMS y webhook cuando se detectan anomalías",
+                "Topics": "critical-alerts, warning-alerts"
+            }
+        },
+        {
+            "id": "apigateway",
+            "label": "API Gateway\nWebSocket",
+            "category": "network",
+            "icon": "apigateway",
+            "details": {
+                "Servicio": "Amazon API Gateway",
+                "Tipo": "Network / WebSocket API",
+                "Descripción": "WebSocket API para push de datos en tiempo real a dashboards del browser",
+                "Tipo API": "WebSocket (v2)"
+            }
+        },
+        {
+            "id": "cloudfront",
+            "label": "CloudFront\nDashboard",
+            "category": "network",
+            "icon": "cloudfront",
+            "details": {
+                "Servicio": "Amazon CloudFront",
+                "Tipo": "Network / CDN",
+                "Descripción": "CDN para servir la aplicación web del dashboard de monitorización"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "iot-devices",
+            "to": "kinesis-stream",
+            "label": "PutRecord",
+            "style": "solid"
+        },
+        {
+            "from": "kinesis-stream",
+            "to": "lambda-process",
+            "label": "Batch (100)",
+            "style": "solid"
+        },
+        {
+            "from": "kinesis-stream",
+            "to": "kinesis-firehose",
+            "label": "Delivery",
+            "style": "dashed"
+        },
+        {
+            "from": "kinesis-firehose",
+            "to": "s3-archive",
+            "label": "Archive",
+            "style": "dashed"
+        },
+        {
+            "from": "lambda-process",
+            "to": "dynamodb",
+            "label": "PutItem",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-process",
+            "to": "lambda-alert",
+            "label": "Anomaly",
+            "style": "dashed"
+        },
+        {
+            "from": "lambda-alert",
+            "to": "sns",
+            "label": "Publish Alert",
+            "style": "dashed"
+        },
+        {
+            "from": "dynamodb",
+            "to": "apigateway",
+            "label": "Stream",
+            "style": "dashed"
+        },
+        {
+            "from": "apigateway",
+            "to": "cloudfront",
+            "label": "WebSocket Push",
+            "style": "solid"
+        }
+    ]
+}

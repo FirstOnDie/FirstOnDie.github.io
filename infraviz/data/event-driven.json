@@ -1,0 +1,210 @@
+{
+    "name": "Event-Driven Microservices",
+    "description": "Arquitectura event-driven con EventBridge como bus central, microservicios desacoplados y coreografía de eventos",
+    "nodes": [
+        {
+            "id": "user",
+            "label": "Mobile\nApp",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Aplicación Móvil",
+                "Tipo": "Frontend / React Native",
+                "Descripción": "Aplicación móvil que genera eventos de usuario (pedidos, pagos, reviews)"
+            }
+        },
+        {
+            "id": "apigateway",
+            "label": "API\nGateway",
+            "category": "network",
+            "icon": "apigateway",
+            "details": {
+                "Servicio": "Amazon API Gateway",
+                "Tipo": "Network / API Management",
+                "Descripción": "API REST con validación de esquema y throttling",
+                "Rate Limit": "1000 req/s"
+            }
+        },
+        {
+            "id": "lambda-ingress",
+            "label": "Lambda\nIngress",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Descripción": "Valida requests y publica eventos al bus EventBridge",
+                "Runtime": "Python 3.12"
+            }
+        },
+        {
+            "id": "eventbridge",
+            "label": "EventBridge\nEvent Bus",
+            "category": "messaging",
+            "icon": "eventbridge",
+            "details": {
+                "Servicio": "Amazon EventBridge",
+                "Tipo": "Messaging / Event Bus",
+                "Descripción": "Bus central de eventos con reglas de routing basadas en contenido",
+                "Reglas": "order.*, payment.*, notification.*",
+                "Schema Registry": "Habilitado"
+            }
+        },
+        {
+            "id": "lambda-orders",
+            "label": "Orders\nService",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Descripción": "Gestión del ciclo de vida de pedidos: creación, actualización, cancelación",
+                "Runtime": "Java 21 (SnapStart)"
+            }
+        },
+        {
+            "id": "lambda-payment",
+            "label": "Payment\nService",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Descripción": "Procesamiento de pagos con Stripe/PayPal y reconciliación",
+                "Runtime": "Node.js 20",
+                "Timeout": "30s"
+            }
+        },
+        {
+            "id": "lambda-notify",
+            "label": "Notification\nService",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Descripción": "Envío de notificaciones multicanal: email, SMS, push",
+                "Runtime": "Python 3.12"
+            }
+        },
+        {
+            "id": "dynamodb-orders",
+            "label": "DynamoDB\nOrders",
+            "category": "database",
+            "icon": "dynamodb",
+            "details": {
+                "Servicio": "Amazon DynamoDB",
+                "Tipo": "Database / NoSQL",
+                "Descripción": "Tabla de pedidos con single-table design"
+            }
+        },
+        {
+            "id": "dynamodb-payments",
+            "label": "DynamoDB\nPayments",
+            "category": "database",
+            "icon": "dynamodb",
+            "details": {
+                "Servicio": "Amazon DynamoDB",
+                "Tipo": "Database / NoSQL",
+                "Descripción": "Registro de transacciones de pago con idempotency keys"
+            }
+        },
+        {
+            "id": "sns",
+            "label": "SNS\nMulti-channel",
+            "category": "messaging",
+            "icon": "sns",
+            "details": {
+                "Servicio": "Amazon SNS",
+                "Tipo": "Messaging / Pub-Sub",
+                "Descripción": "Envío de notifications por email (SES), SMS y push (FCM/APNS)"
+            }
+        },
+        {
+            "id": "sqs-dlq",
+            "label": "SQS\nDead Letter",
+            "category": "messaging",
+            "icon": "sqs",
+            "details": {
+                "Servicio": "Amazon SQS",
+                "Tipo": "Messaging / DLQ",
+                "Descripción": "Cola de mensajes fallidos para retry manual y debugging",
+                "Retención": "14 días"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "user",
+            "to": "apigateway",
+            "label": "HTTPS",
+            "style": "solid"
+        },
+        {
+            "from": "apigateway",
+            "to": "lambda-ingress",
+            "label": "Invoke",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-ingress",
+            "to": "eventbridge",
+            "label": "PutEvents",
+            "style": "solid"
+        },
+        {
+            "from": "eventbridge",
+            "to": "lambda-orders",
+            "label": "order.*",
+            "style": "dashed"
+        },
+        {
+            "from": "eventbridge",
+            "to": "lambda-payment",
+            "label": "payment.*",
+            "style": "dashed"
+        },
+        {
+            "from": "eventbridge",
+            "to": "lambda-notify",
+            "label": "notification.*",
+            "style": "dashed"
+        },
+        {
+            "from": "eventbridge",
+            "to": "sqs-dlq",
+            "label": "Failed Events",
+            "style": "dashed"
+        },
+        {
+            "from": "lambda-orders",
+            "to": "dynamodb-orders",
+            "label": "CRUD",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-orders",
+            "to": "eventbridge",
+            "label": "order.updated",
+            "style": "dashed"
+        },
+        {
+            "from": "lambda-payment",
+            "to": "dynamodb-payments",
+            "label": "PutItem",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-payment",
+            "to": "eventbridge",
+            "label": "payment.completed",
+            "style": "dashed"
+        },
+        {
+            "from": "lambda-notify",
+            "to": "sns",
+            "label": "Publish",
+            "style": "solid"
+        }
+    ]
+}

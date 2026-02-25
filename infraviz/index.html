@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraViz — Cloud Infrastructure Visualizer</title>
+    <meta name="description"
+        content="Visualizador interactivo de arquitecturas cloud AWS. Explora diagramas de infraestructura con nodos conectados, detalles de servicios y zoom.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- TOOLBAR -->
+    <header class="toolbar">
+        <div class="toolbar-left">
+            <div class="logo">
+                <i class="fas fa-project-diagram"></i>
+                <span>InfraViz</span>
+            </div>
+            <div class="arch-selector">
+                <label for="arch-select">Arquitectura:</label>
+                <select id="arch-select">
+                    <option value="ecommerce">E-commerce Microservices</option>
+                    <option value="serverless">Serverless API</option>
+                    <option value="pipeline">Data Pipeline</option>
+                    <option value="containers">Containers (ECS Fargate)</option>
+                    <option value="ml-pipeline">ML / AI Pipeline</option>
+                    <option value="streaming">Real-time Streaming</option>
+                    <option value="event-driven">Event-Driven Microservices</option>
+                    <option value="multi-region">Multi-Region HA</option>
+                </select>
+            </div>
+        </div>
+        <div class="toolbar-right">
+            <div class="arch-description" id="arch-description"></div>
+            <div class="toolbar-controls">
+                <button id="btn-zoom-in" title="Zoom In"><i class="fas fa-plus"></i></button>
+                <button id="btn-zoom-out" title="Zoom Out"><i class="fas fa-minus"></i></button>
+                <button id="btn-fit" title="Fit to Screen"><i class="fas fa-expand"></i></button>
+                <button id="btn-toggle-labels" title="Toggle Labels" class="active"><i class="fas fa-tags"></i></button>
+            </div>
+            <a href="../index.html" class="back-link" title="Volver al Portfolio">
+                <i class="fas fa-arrow-left"></i> Portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- GRAPH CANVAS -->
+        <div class="graph-container" id="graph-container">
+            <div id="network" class="network-canvas"></div>
+            <!-- LEGEND -->
+            <div class="legend" id="legend">
+                <div class="legend-title">Categorías</div>
+                <div class="legend-items">
+                    <div class="legend-item" data-cat="compute"><span class="legend-dot"
+                            style="background:#FF9900"></span>Compute</div>
+                    <div class="legend-item" data-cat="storage"><span class="legend-dot"
+                            style="background:#3B48CC"></span>Storage</div>
+                    <div class="legend-item" data-cat="database"><span class="legend-dot"
+                            style="background:#2E73B8"></span>Database</div>
+                    <div class="legend-item" data-cat="network"><span class="legend-dot"
+                            style="background:#8C4FFF"></span>Network</div>
+                    <div class="legend-item" data-cat="messaging"><span class="legend-dot"
+                            style="background:#E7157B"></span>Messaging</div>
+                    <div class="legend-item" data-cat="analytics"><span class="legend-dot"
+                            style="background:#01A88D"></span>Analytics</div>
+                    <div class="legend-item" data-cat="security"><span class="legend-dot"
+                            style="background:#DD344C"></span>Security</div>
+                    <div class="legend-item" data-cat="frontend"><span class="legend-dot"
+                            style="background:#F5A623"></span>Frontend</div>
+                </div>
+            </div>
+            <!-- LOADING -->
+            <div class="loading-overlay" id="loading">
+                <div class="spinner"></div>
+                <span>Cargando arquitectura...</span>
+            </div>
+        </div>
+
+        <!-- DETAIL PANEL -->
+        <aside class="detail-panel" id="detail-panel">
+            <div class="panel-placeholder" id="panel-placeholder">
+                <i class="fas fa-hand-pointer"></i>
+                <p>Haz clic en un nodo para ver los detalles del servicio</p>
+            </div>
+            <div class="panel-content" id="panel-content" style="display:none">
+                <div class="panel-header">
+                    <div class="panel-icon" id="panel-icon"></div>
+                    <div class="panel-title-block">
+                        <h2 id="panel-title"></h2>
+                        <span class="panel-category" id="panel-category"></span>
+                    </div>
+                    <button class="panel-close" id="panel-close" title="Cerrar">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-section">
+                        <h3><i class="fas fa-info-circle"></i> Información</h3>
+                        <div id="panel-details" class="detail-grid"></div>
+                    </div>
+                    <div class="panel-section">
+                        <h3><i class="fas fa-plug"></i> Conexiones</h3>
+                        <div id="panel-connections" class="connections-list"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- MOBILE DETAIL DRAWER -->
+    <div class="mobile-drawer-overlay" id="mobile-overlay"></div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/architectures.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/detail-panel.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

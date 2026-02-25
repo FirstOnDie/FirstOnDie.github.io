@@ -1,0 +1,209 @@
+{
+    "name": "Serverless API",
+    "description": "Arquitectura serverless con API Gateway, Lambda functions, DynamoDB y notificaciones SNS",
+    "nodes": [
+        {
+            "id": "user",
+            "label": "Client\nApp",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Aplicación Cliente",
+                "Tipo": "Frontend / Mobile / SPA",
+                "Descripción": "Aplicación React o móvil que consume la API serverless"
+            }
+        },
+        {
+            "id": "cloudfront",
+            "label": "CloudFront",
+            "category": "network",
+            "icon": "cloudfront",
+            "details": {
+                "Servicio": "Amazon CloudFront",
+                "Tipo": "CDN / Network",
+                "Descripción": "CDN para app estática y caché de respuestas API"
+            }
+        },
+        {
+            "id": "cognito",
+            "label": "Cognito\nAuth",
+            "category": "security",
+            "icon": "cognito",
+            "details": {
+                "Servicio": "Amazon Cognito",
+                "Tipo": "Security / Identity",
+                "Descripción": "Autenticación y autorización de usuarios con JWT tokens",
+                "User Pool": "Habilitado",
+                "MFA": "Opcional"
+            }
+        },
+        {
+            "id": "apigateway",
+            "label": "API\nGateway",
+            "category": "network",
+            "icon": "apigateway",
+            "details": {
+                "Servicio": "Amazon API Gateway",
+                "Tipo": "Network / API Management",
+                "Descripción": "REST API con throttling, CORS y autorización Cognito",
+                "Tipo API": "REST (v1)",
+                "Rate Limit": "1000 req/s",
+                "Burst": "2000"
+            }
+        },
+        {
+            "id": "lambda-get",
+            "label": "Lambda\nGET Items",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Runtime": "Python 3.12",
+                "Memoria": "256 MB",
+                "Timeout": "10s",
+                "Descripción": "Lectura de items desde DynamoDB con paginación"
+            }
+        },
+        {
+            "id": "lambda-post",
+            "label": "Lambda\nCREATE Item",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Runtime": "Python 3.12",
+                "Memoria": "256 MB",
+                "Timeout": "15s",
+                "Descripción": "Creación de nuevos items con validación"
+            }
+        },
+        {
+            "id": "lambda-process",
+            "label": "Lambda\nProcess Event",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Runtime": "Node.js 20",
+                "Memoria": "512 MB",
+                "Timeout": "30s",
+                "Descripción": "Procesa eventos de creación, genera thumbnails y envía notifications"
+            }
+        },
+        {
+            "id": "dynamodb",
+            "label": "DynamoDB\nItems Table",
+            "category": "database",
+            "icon": "dynamodb",
+            "details": {
+                "Servicio": "Amazon DynamoDB",
+                "Tipo": "Database / NoSQL",
+                "Capacidad": "On-Demand",
+                "Descripción": "Tabla principal de items con GSI para búsquedas",
+                "Partition Key": "PK (itemId)",
+                "Sort Key": "SK (timestamp)"
+            }
+        },
+        {
+            "id": "s3",
+            "label": "S3\nMedia Bucket",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Object",
+                "Descripción": "Almacén de archivos multimedia subidos por usuarios",
+                "Lifecycle": "IA después de 90 días"
+            }
+        },
+        {
+            "id": "sns",
+            "label": "SNS\nNotifications",
+            "category": "messaging",
+            "icon": "sns",
+            "details": {
+                "Servicio": "Amazon SNS",
+                "Tipo": "Messaging / Pub-Sub",
+                "Descripción": "Publica notificaciones de nuevos items a suscriptores",
+                "Suscriptores": "Email, Lambda, SQS"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "user",
+            "to": "cloudfront",
+            "label": "HTTPS",
+            "style": "solid"
+        },
+        {
+            "from": "cloudfront",
+            "to": "s3",
+            "label": "Static SPA",
+            "style": "dashed"
+        },
+        {
+            "from": "user",
+            "to": "cognito",
+            "label": "Auth",
+            "style": "solid"
+        },
+        {
+            "from": "cloudfront",
+            "to": "apigateway",
+            "label": "API Calls",
+            "style": "solid"
+        },
+        {
+            "from": "cognito",
+            "to": "apigateway",
+            "label": "JWT Token",
+            "style": "dashed"
+        },
+        {
+            "from": "apigateway",
+            "to": "lambda-get",
+            "label": "GET /items",
+            "style": "solid"
+        },
+        {
+            "from": "apigateway",
+            "to": "lambda-post",
+            "label": "POST /items",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-get",
+            "to": "dynamodb",
+            "label": "Query",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-post",
+            "to": "dynamodb",
+            "label": "PutItem",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-post",
+            "to": "s3",
+            "label": "Upload",
+            "style": "dashed"
+        },
+        {
+            "from": "dynamodb",
+            "to": "lambda-process",
+            "label": "DynamoDB Stream",
+            "style": "dashed"
+        },
+        {
+            "from": "lambda-process",
+            "to": "sns",
+            "label": "Publish",
+            "style": "dashed"
+        }
+    ]
+}

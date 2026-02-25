@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaPedia — Enciclopedia Java Completa</title>
+    <meta name="description"
+        content="Referencia completa de Java: teoría, ejemplos de código, buenas prácticas. 20 secciones desde básico hasta avanzado. Disponible en español e inglés.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="#" class="logo" id="logo-link">
+                <span class="logo-icon">☕</span>
+                <span class="logo-text">JavaPedia</span>
+            </a>
+        </div>
+        <div class="header-center">
+            <div class="search-box" id="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" autocomplete="off"
+                    data-placeholder-es="Buscar en la enciclopedia..." data-placeholder-en="Search the encyclopedia...">
+                <kbd class="search-kbd">Ctrl+K</kbd>
+                <button class="search-clear" id="search-clear" style="display:none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </button>
+            <button class="lang-toggle" id="lang-toggle" title="Cambiar idioma">
+                <span class="lang-label" id="lang-label">
+                    <svg class="flag-icon" id="flag-es" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500"
+                        width="20" height="14" style="border-radius:2px;">
+                        <path fill="#c60b1e" d="M0 0h750v500H0z" />
+                        <path fill="#ffc400" d="M0 125h750v250H0z" />
+                    </svg>
+                    <svg class="flag-icon" id="flag-en" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"
+                        width="20" height="14" style="border-radius:2px; display:none;">
+                        <clipPath id="s">
+                            <path d="M0 0v30h60V0z" />
+                        </clipPath>
+                        <clipPath id="t">
+                            <path d="M30 15h30v15zv15H0zH0V0zV0h30z" />
+                        </clipPath>
+                        <g clip-path="url(#s)">
+                            <path fill="#012169" d="M0 0v30h60V0z" />
+                            <path stroke="#fff" stroke-width="6" d="m0 0 60 30m0-30L0 30" />
+                            <path stroke="#C8102E" stroke-width="4" clip-path="url(#t)" d="m0 0 60 30m0-30L0 30" />
+                            <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60" />
+                            <path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60" />
+                        </g>
+                    </svg>
+                </span>
+            </button>
+            <a href="../index.html" class="back-link" title="Volver al Portfolio">
+                <i class="fas fa-arrow-left"></i>
+                <span>Portfolio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- SEARCH RESULTS OVERLAY -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-results" id="search-results"></div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="sidebar-nav" id="sidebar-nav"></nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-meta">
+                    <span data-i18n-es="Java 21+ • 20 secciones" data-i18n-en="Java 21+ • 20 sections"></span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MOBILE OVERLAY -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- CONTENT -->
+        <main class="content" id="content">
+            <!-- Rendered dynamically -->
+        </main>
+    </div>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scroll-top" title="Ir arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="js/content-es-01.js"></script>
+    <script src="js/content-es-02.js"></script>
+    <script src="js/content-es-03.js"></script>
+    <script src="js/content-es-04.js"></script>
+    <script src="js/content-es.js"></script>
+    <script src="js/content-en-01.js"></script>
+    <script src="js/content-en-02.js"></script>
+    <script src="js/content-en-03.js"></script>
+    <script src="js/content-en-04.js"></script>
+    <script src="js/content-en.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

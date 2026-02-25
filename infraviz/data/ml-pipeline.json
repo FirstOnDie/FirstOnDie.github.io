@@ -1,0 +1,196 @@
+{
+    "name": "ML / AI Pipeline",
+    "description": "Pipeline de Machine Learning completo: ingesta de datos, entrenamiento con SageMaker, despliegue de modelo y API de inferencia",
+    "nodes": [
+        {
+            "id": "data-sources",
+            "label": "Data\nSources",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Fuentes de Datos",
+                "Tipo": "External / IoT / Apps",
+                "Descripción": "Datasets de entrenamiento, logs, datos de sensores y feeds de APIs externas"
+            }
+        },
+        {
+            "id": "s3-data",
+            "label": "S3\nData Lake",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Data Lake",
+                "Descripción": "Almacén central para datasets de entrenamiento, modelos y artefactos",
+                "Buckets": "raw-data/, processed/, models/, artifacts/"
+            }
+        },
+        {
+            "id": "glue",
+            "label": "Glue ETL\nFeature Eng.",
+            "category": "analytics",
+            "icon": "glue",
+            "details": {
+                "Servicio": "AWS Glue",
+                "Tipo": "Analytics / ETL",
+                "Descripción": "Pipeline de feature engineering: limpieza, normalización y transformación de datos",
+                "Workers": "10 G.2X",
+                "Lenguaje": "PySpark"
+            }
+        },
+        {
+            "id": "sagemaker-train",
+            "label": "SageMaker\nTraining",
+            "category": "compute",
+            "icon": "ec2",
+            "details": {
+                "Servicio": "Amazon SageMaker",
+                "Tipo": "Compute / ML Training",
+                "Descripción": "Entrenamiento de modelos con GPU dedicada y hyperparameter tuning",
+                "Instancia": "ml.p3.2xlarge (V100 GPU)",
+                "Framework": "PyTorch 2.1",
+                "Epochs": "100 (early stopping)"
+            }
+        },
+        {
+            "id": "sagemaker-endpoint",
+            "label": "SageMaker\nEndpoint",
+            "category": "compute",
+            "icon": "ec2",
+            "details": {
+                "Servicio": "Amazon SageMaker",
+                "Tipo": "Compute / ML Inference",
+                "Descripción": "Endpoint de inferencia en tiempo real con auto-scaling",
+                "Instancia": "ml.m5.xlarge",
+                "Auto Scaling": "Min 1, Max 5"
+            }
+        },
+        {
+            "id": "lambda-preprocess",
+            "label": "Lambda\nPreprocess",
+            "category": "compute",
+            "icon": "lambda",
+            "details": {
+                "Servicio": "AWS Lambda",
+                "Tipo": "Compute / Serverless",
+                "Runtime": "Python 3.12",
+                "Descripción": "Preprocesamiento de requests antes de enviar al modelo: normalización, tokenización"
+            }
+        },
+        {
+            "id": "apigateway",
+            "label": "API Gateway\nInference API",
+            "category": "network",
+            "icon": "apigateway",
+            "details": {
+                "Servicio": "Amazon API Gateway",
+                "Tipo": "Network / API Management",
+                "Descripción": "API REST pública para solicitudes de inferencia ML",
+                "Rate Limit": "500 req/s"
+            }
+        },
+        {
+            "id": "dynamodb",
+            "label": "DynamoDB\nPredictions",
+            "category": "database",
+            "icon": "dynamodb",
+            "details": {
+                "Servicio": "Amazon DynamoDB",
+                "Tipo": "Database / NoSQL",
+                "Descripción": "Almacén de predicciones y resultados para auditoría y reentrenamiento",
+                "TTL": "90 días"
+            }
+        },
+        {
+            "id": "eventbridge",
+            "label": "EventBridge\nScheduler",
+            "category": "messaging",
+            "icon": "eventbridge",
+            "details": {
+                "Servicio": "Amazon EventBridge",
+                "Tipo": "Messaging / Scheduler",
+                "Descripción": "Programa reentrenamiento periódico y monitorización de drift",
+                "Schedule": "Semanal (Lunes 3 AM UTC)"
+            }
+        },
+        {
+            "id": "quicksight",
+            "label": "QuickSight\nMetrics",
+            "category": "analytics",
+            "icon": "quicksight",
+            "details": {
+                "Servicio": "Amazon QuickSight",
+                "Tipo": "Analytics / Dashboard",
+                "Descripción": "Dashboards de métricas del modelo: accuracy, latency, drift, uso"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "data-sources",
+            "to": "s3-data",
+            "label": "Raw Data",
+            "style": "solid"
+        },
+        {
+            "from": "s3-data",
+            "to": "glue",
+            "label": "Read",
+            "style": "solid"
+        },
+        {
+            "from": "glue",
+            "to": "s3-data",
+            "label": "Features",
+            "style": "dashed"
+        },
+        {
+            "from": "eventbridge",
+            "to": "sagemaker-train",
+            "label": "Trigger",
+            "style": "dashed"
+        },
+        {
+            "from": "s3-data",
+            "to": "sagemaker-train",
+            "label": "Training Data",
+            "style": "solid"
+        },
+        {
+            "from": "sagemaker-train",
+            "to": "s3-data",
+            "label": "Model Artifact",
+            "style": "dashed"
+        },
+        {
+            "from": "sagemaker-train",
+            "to": "sagemaker-endpoint",
+            "label": "Deploy",
+            "style": "solid"
+        },
+        {
+            "from": "apigateway",
+            "to": "lambda-preprocess",
+            "label": "POST /predict",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-preprocess",
+            "to": "sagemaker-endpoint",
+            "label": "InvokeEndpoint",
+            "style": "solid"
+        },
+        {
+            "from": "lambda-preprocess",
+            "to": "dynamodb",
+            "label": "Log Prediction",
+            "style": "dashed"
+        },
+        {
+            "from": "dynamodb",
+            "to": "quicksight",
+            "label": "Metrics",
+            "style": "dashed"
+        }
+    ]
+}

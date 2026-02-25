@@ -1,0 +1,180 @@
+{
+    "name": "Data Pipeline (Analytics)",
+    "description": "Pipeline de datos analíticos con ingesta S3, transformación Glue, almacenamiento Redshift y visualización QuickSight",
+    "nodes": [
+        {
+            "id": "sources",
+            "label": "Data\nSources",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Fuentes de Datos",
+                "Tipo": "External / IoT / Apps",
+                "Descripción": "Logs de aplicación, datos IoT, CSVs y feeds de terceros"
+            }
+        },
+        {
+            "id": "s3-raw",
+            "label": "S3\nRaw Data",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Data Lake",
+                "Descripción": "Landing zone para datos en crudo (JSON, CSV, Parquet)",
+                "Clase": "S3 Standard",
+                "Lifecycle": "→ IA a los 30 días, → Glacier a los 90"
+            }
+        },
+        {
+            "id": "eventbridge",
+            "label": "EventBridge\nScheduler",
+            "category": "messaging",
+            "icon": "eventbridge",
+            "details": {
+                "Servicio": "Amazon EventBridge",
+                "Tipo": "Messaging / Scheduler",
+                "Descripción": "Programa ejecuciones periódicas del pipeline ETL",
+                "Schedule": "cron(0 2 * * ? *) — Diario 2 AM UTC"
+            }
+        },
+        {
+            "id": "glue-crawler",
+            "label": "Glue\nCrawler",
+            "category": "analytics",
+            "icon": "glue",
+            "details": {
+                "Servicio": "AWS Glue Crawler",
+                "Tipo": "Analytics / Catalogación",
+                "Descripción": "Detecta esquema automáticamente y actualiza el Glue Data Catalog",
+                "Schedule": "Diario"
+            }
+        },
+        {
+            "id": "glue-etl",
+            "label": "Glue ETL\nJob",
+            "category": "analytics",
+            "icon": "glue",
+            "details": {
+                "Servicio": "AWS Glue ETL",
+                "Tipo": "Analytics / Transformación",
+                "Descripción": "Transforma datos en crudo: limpieza, normalización, particionado",
+                "Workers": "10 (G.1X)",
+                "Lenguaje": "PySpark"
+            }
+        },
+        {
+            "id": "s3-clean",
+            "label": "S3\nClean Data",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Data Lake",
+                "Descripción": "Datos procesados y particionados en formato Parquet optimizado",
+                "Formato": "Parquet (Snappy)"
+            }
+        },
+        {
+            "id": "redshift",
+            "label": "Redshift\nWarehouse",
+            "category": "database",
+            "icon": "redshift",
+            "details": {
+                "Servicio": "Amazon Redshift",
+                "Tipo": "Database / Data Warehouse",
+                "Descripción": "Data warehouse para queries analíticas complejas",
+                "Nodos": "2x ra3.xlplus",
+                "Storage": "Managed (RA3)"
+            }
+        },
+        {
+            "id": "athena",
+            "label": "Athena\nAd-hoc Query",
+            "category": "analytics",
+            "icon": "athena",
+            "details": {
+                "Servicio": "Amazon Athena",
+                "Tipo": "Analytics / Query",
+                "Descripción": "Queries SQL ad-hoc directamente sobre S3 sin servidor",
+                "Motor": "Trino",
+                "Coste": "$5/TB escaneado"
+            }
+        },
+        {
+            "id": "quicksight",
+            "label": "QuickSight\nDashboard",
+            "category": "analytics",
+            "icon": "quicksight",
+            "details": {
+                "Servicio": "Amazon QuickSight",
+                "Tipo": "Analytics / Visualización",
+                "Descripción": "Dashboards interactivos y reportes para stakeholders",
+                "SPICE": "In-memory cache habilitado",
+                "Refresh": "Diario automático"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "sources",
+            "to": "s3-raw",
+            "label": "Raw Data",
+            "style": "solid"
+        },
+        {
+            "from": "eventbridge",
+            "to": "glue-crawler",
+            "label": "Trigger",
+            "style": "dashed"
+        },
+        {
+            "from": "s3-raw",
+            "to": "glue-crawler",
+            "label": "Catalogar",
+            "style": "solid"
+        },
+        {
+            "from": "eventbridge",
+            "to": "glue-etl",
+            "label": "Trigger",
+            "style": "dashed"
+        },
+        {
+            "from": "s3-raw",
+            "to": "glue-etl",
+            "label": "Read Raw",
+            "style": "solid"
+        },
+        {
+            "from": "glue-etl",
+            "to": "s3-clean",
+            "label": "Write Parquet",
+            "style": "solid"
+        },
+        {
+            "from": "s3-clean",
+            "to": "redshift",
+            "label": "COPY Load",
+            "style": "solid"
+        },
+        {
+            "from": "s3-clean",
+            "to": "athena",
+            "label": "SQL Query",
+            "style": "dashed"
+        },
+        {
+            "from": "redshift",
+            "to": "quicksight",
+            "label": "JDBC",
+            "style": "solid"
+        },
+        {
+            "from": "athena",
+            "to": "quicksight",
+            "label": "ODBC",
+            "style": "dashed"
+        }
+    ]
+}

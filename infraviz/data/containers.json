@@ -1,0 +1,226 @@
+{
+    "name": "Containers (ECS Fargate)",
+    "description": "Arquitectura de contenedores con ECS Fargate, ALB, auto-scaling, RDS y ElastiCache",
+    "nodes": [
+        {
+            "id": "user",
+            "label": "Users",
+            "category": "frontend",
+            "icon": "user",
+            "details": {
+                "Servicio": "Usuarios",
+                "Tipo": "Frontend / Browser",
+                "Descripción": "Tráfico de usuarios a la aplicación web"
+            }
+        },
+        {
+            "id": "route53",
+            "label": "Route 53\nDNS",
+            "category": "network",
+            "icon": "route53",
+            "details": {
+                "Servicio": "Amazon Route 53",
+                "Tipo": "Network / DNS",
+                "Descripción": "Resolución DNS con health checks y failover",
+                "Routing": "Latency-based",
+                "Failover": "Active-Standby"
+            }
+        },
+        {
+            "id": "waf",
+            "label": "WAF\nFirewall",
+            "category": "security",
+            "icon": "waf",
+            "details": {
+                "Servicio": "AWS WAF",
+                "Tipo": "Security / Firewall",
+                "Descripción": "Web Application Firewall con reglas de protección contra OWASP Top 10",
+                "Reglas": "SQL injection, XSS, Rate limiting",
+                "Rate Limit": "2000 req/5min por IP"
+            }
+        },
+        {
+            "id": "alb",
+            "label": "Application\nLoad Balancer",
+            "category": "network",
+            "icon": "alb",
+            "details": {
+                "Servicio": "AWS ALB",
+                "Tipo": "Network / Load Balancer",
+                "Descripción": "Balanceo de carga con path-based routing entre servicios",
+                "Puerto": "443 (HTTPS)",
+                "SSL": "ACM Certificate"
+            }
+        },
+        {
+            "id": "fargate-web",
+            "label": "Fargate\nWeb App",
+            "category": "compute",
+            "icon": "fargate",
+            "details": {
+                "Servicio": "AWS Fargate",
+                "Tipo": "Compute / Container",
+                "Descripción": "Aplicación web principal (frontend + BFF)",
+                "CPU": "1 vCPU",
+                "Memoria": "2 GB",
+                "Réplicas": "2-6 (Auto Scaling)",
+                "Imagen": "ECR: app-web:latest"
+            }
+        },
+        {
+            "id": "fargate-api",
+            "label": "Fargate\nAPI Service",
+            "category": "compute",
+            "icon": "fargate",
+            "details": {
+                "Servicio": "AWS Fargate",
+                "Tipo": "Compute / Container",
+                "Descripción": "API REST principal con lógica de negocio",
+                "CPU": "2 vCPU",
+                "Memoria": "4 GB",
+                "Réplicas": "2-10 (Auto Scaling)",
+                "Lenguaje": "Java 21 + Spring Boot",
+                "Imagen": "ECR: app-api:latest"
+            }
+        },
+        {
+            "id": "fargate-worker",
+            "label": "Fargate\nWorker",
+            "category": "compute",
+            "icon": "fargate",
+            "details": {
+                "Servicio": "AWS Fargate",
+                "Tipo": "Compute / Container",
+                "Descripción": "Worker para tareas asíncronas (emails, reports, procesamiento)",
+                "CPU": "1 vCPU",
+                "Memoria": "2 GB",
+                "Réplicas": "1-4 (Auto Scaling)"
+            }
+        },
+        {
+            "id": "sqs",
+            "label": "SQS\nTask Queue",
+            "category": "messaging",
+            "icon": "sqs",
+            "details": {
+                "Servicio": "Amazon SQS",
+                "Tipo": "Messaging / Queue",
+                "Descripción": "Cola de tareas asíncronas entre API y Worker",
+                "Tipo Cola": "Standard",
+                "DLQ": "Habilitada (3 retries)"
+            }
+        },
+        {
+            "id": "rds",
+            "label": "Aurora\nPostgreSQL",
+            "category": "database",
+            "icon": "rds",
+            "details": {
+                "Servicio": "Amazon Aurora",
+                "Tipo": "Database / Relational",
+                "Motor": "PostgreSQL 16 (Aurora)",
+                "Modo": "Provisioned",
+                "Instancia": "db.r6g.large",
+                "Read Replica": "1 (auto failover)"
+            }
+        },
+        {
+            "id": "elasticache",
+            "label": "ElastiCache\nRedis",
+            "category": "database",
+            "icon": "elasticache",
+            "details": {
+                "Servicio": "Amazon ElastiCache",
+                "Tipo": "Database / Cache",
+                "Motor": "Redis 7",
+                "Nodo": "cache.r6g.large",
+                "Descripción": "Caché de sesiones, respuestas API y rate limiting"
+            }
+        },
+        {
+            "id": "s3",
+            "label": "S3\nStorage",
+            "category": "storage",
+            "icon": "s3",
+            "details": {
+                "Servicio": "Amazon S3",
+                "Tipo": "Storage / Object",
+                "Descripción": "Almacén de uploads de usuarios, logs y backups"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "user",
+            "to": "route53",
+            "label": "DNS",
+            "style": "solid"
+        },
+        {
+            "from": "route53",
+            "to": "waf",
+            "label": "HTTPS",
+            "style": "solid"
+        },
+        {
+            "from": "waf",
+            "to": "alb",
+            "label": "Filtered",
+            "style": "solid"
+        },
+        {
+            "from": "alb",
+            "to": "fargate-web",
+            "label": "/*",
+            "style": "solid"
+        },
+        {
+            "from": "alb",
+            "to": "fargate-api",
+            "label": "/api/*",
+            "style": "solid"
+        },
+        {
+            "from": "fargate-web",
+            "to": "fargate-api",
+            "label": "Internal API",
+            "style": "solid"
+        },
+        {
+            "from": "fargate-api",
+            "to": "rds",
+            "label": "TCP/5432",
+            "style": "solid"
+        },
+        {
+            "from": "fargate-api",
+            "to": "elasticache",
+            "label": "TCP/6379",
+            "style": "solid"
+        },
+        {
+            "from": "fargate-api",
+            "to": "sqs",
+            "label": "SendMessage",
+            "style": "dashed"
+        },
+        {
+            "from": "sqs",
+            "to": "fargate-worker",
+            "label": "ReceiveMessage",
+            "style": "dashed"
+        },
+        {
+            "from": "fargate-worker",
+            "to": "rds",
+            "label": "TCP/5432",
+            "style": "solid"
+        },
+        {
+            "from": "fargate-worker",
+            "to": "s3",
+            "label": "Upload",
+            "style": "dashed"
+        }
+    ]
+}
