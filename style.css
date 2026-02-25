@@ -164,6 +164,31 @@ img {
     background: #ccd6f6;
 }
 
+/* ========== NAV SUBMENU ========== */
+.nav-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 48px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.nav-submenu a {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #374151;
+    transition: all 0.2s;
+    padding: 3px 0;
+}
+
+.nav-submenu a:hover {
+    color: #64ffda;
+    padding-left: 4px;
+}
+
 /* ========== SIDEBAR SOCIAL ========== */
 .sidebar-social {
     display: flex;
@@ -275,6 +300,44 @@ img {
     padding: 4px 12px;
     border-radius: 999px;
     background: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    white-space: nowrap;
+}
+
+/* ========== SKILL CHIPS WITH LOGOS ========== */
+.skill-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px 5px 6px;
+    border-radius: 999px;
+    background: rgba(100, 255, 218, 0.08);
+    border: 1px solid rgba(100, 255, 218, 0.12);
+    transition: all 0.2s;
+}
+
+.skill-chip:hover {
+    background: rgba(100, 255, 218, 0.15);
+    border-color: rgba(100, 255, 218, 0.3);
+    transform: translateY(-1px);
+}
+
+.skill-chip img {
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+}
+
+.skill-chip span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
     color: #64ffda;
     white-space: nowrap;
 }
